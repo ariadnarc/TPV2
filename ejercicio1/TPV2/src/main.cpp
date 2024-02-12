@@ -2,11 +2,21 @@
 
 #include <iostream>
 
-#include "sdlutils/sdlutils_demo.h"
+#include "game/Game.h"
 
-int main(int ac, char **av) {
+
+
+void start() {
+	Game g;
+
+	g.init();
+	g.start();
+}
+
+int main(int, char **) {
+
 	try {
-		sdlutils_basic_demo();
+		start();
 	} catch (const std::string &e) { // catch exceptions thrown as strings
 		std::cerr << e << std::endl;
 	} catch (const char *e) { // catch exceptions thrown as char*
