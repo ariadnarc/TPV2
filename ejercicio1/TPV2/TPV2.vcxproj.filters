@@ -159,7 +159,7 @@
     <ClInclude Include="src\game\MovePaddleWithMouse.h">
       <Filter>Header Files\game</Filter>
     </ClInclude>
-    <ClInclude Include="FighterCtrl.h">
+    <ClInclude Include="src\game\FighterCtrl.h">
       <Filter>Header Files\game</Filter>
     </ClInclude>
   </ItemGroup>
@@ -239,7 +239,7 @@
     <ClCompile Include="src\game\StopOnBorder.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
-    <ClCompile Include="FighterCtrl.cpp">
+    <ClCompile Include="src\game\FighterCtrl.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
   </ItemGroup>

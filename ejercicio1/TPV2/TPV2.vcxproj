@@ -19,12 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FighterCtrl.h" />
     <ClInclude Include="src\game\AIPaddle.h" />
     <ClInclude Include="src\game\BounceOnBorder.h" />
     <ClInclude Include="src\game\Component.h" />
     <ClInclude Include="src\game\Container.h" />
     <ClInclude Include="src\game\EmptyRectangleRenderer.h" />
+    <ClInclude Include="src\game\FighterCtrl.h" />
     <ClInclude Include="src\game\Game.h" />
     <ClInclude Include="src\game\GameCtrl.h" />
     <ClInclude Include="src\game\GameManager.h" />
@@ -62,11 +62,11 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FighterCtrl.cpp" />
     <ClCompile Include="src\game\AIPaddle.cpp" />
     <ClCompile Include="src\game\BounceOnBorder.cpp" />
     <ClCompile Include="src\game\Containter.cpp" />
     <ClCompile Include="src\game\EmptyRectangleRenderer.cpp" />
+    <ClCompile Include="src\game\FighterCtrl.cpp" />
     <ClCompile Include="src\game\Game.cpp" />
     <ClCompile Include="src\game\GameCtrl.cpp" />
     <ClCompile Include="src\game\GameManager.cpp" />
