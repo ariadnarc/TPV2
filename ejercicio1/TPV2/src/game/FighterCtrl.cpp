@@ -1,15 +1,11 @@
 #include "FighterCtrl.h"
-#include "../sdlutils/InputHandler.h"
 #include "Container.h"
+
 //literalmente copia pega del movePaddleWithKeyBoard.cpp pero con modificaciones
 FighterCtrl::FighterCtrl() : 
 	rotLeft_(SDL_SCANCODE_LEFT),
 	rotRight_(SDL_SCANCODE_RIGHT),
 	rotSpeed_(10.0f)
-{
-}
-
-FighterCtrl::~FighterCtrl()
 {
 }
 
