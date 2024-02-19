@@ -22,6 +22,7 @@
 #include "StopOnBorder.h"
 #include "FighterCtrl.h"
 #include "ShowAtOppositeSide.h"
+#include "DeAcceleration.h"
 
 Game::Game() :
 	fighter_(nullptr)
@@ -45,6 +46,7 @@ void Game::init() {
 	SDLUtils::init("Ping Pong", 800, 600,
 			"resources/config/test.resources.json");
 
+	//Ejercicio 1
 	fighter_ = new Container();
 	fighter_->getPos().set(sdlutils().width() / 2,
 		sdlutils().height() / 2);
@@ -55,6 +57,7 @@ void Game::init() {
 	fighter_->addComponent(new FighterCtrl()); //parte 3
 	fighter_->addComponent(new SimpleMove()); //parte 4
 	fighter_->addComponent(new ShowAtOppositeSide()); //parte 4
+	fighter_->addComponent(new DeAcceleration()); //parte 5
 	
 	objs_.push_back(fighter_);
 
