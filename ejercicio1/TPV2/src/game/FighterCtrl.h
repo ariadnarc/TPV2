@@ -18,7 +18,9 @@ private:
 	SDL_Scancode left_;
 	SDL_Scancode right_;
 
-	float degrees_ = 0.5f;
+	float rotation_ = 5.0f;
+	float thrust_ = 0.2f; //empuje
+	float speedLimit_ = 3.0f;
 };
 
 
