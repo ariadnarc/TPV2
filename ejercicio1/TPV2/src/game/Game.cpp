@@ -10,7 +10,6 @@
 #include "GameManager.h"
 #include "GameCtrl.h"
 #include "ImageRenderer.h"
-#include "InfoMsgs.h"
 #include "SimpleMove.h"
 #include "FighterCtrl.h"
 #include "ShowAtOppositeSide.h"

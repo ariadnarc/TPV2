@@ -105,25 +105,10 @@
     <ClInclude Include="src\utils\ptr_iterator.h">
       <Filter>Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\PhysicsComponent.h">
-      <Filter>Header Files\game</Filter>
-    </ClInclude>
-    <ClInclude Include="src\game\RenderComponent.h">
-      <Filter>Header Files\game</Filter>
-    </ClInclude>
-    <ClInclude Include="src\game\SimpleMove.h">
-      <Filter>Header Files\game</Filter>
-    </ClInclude>
-    <ClInclude Include="src\game\Component.h">
-      <Filter>Header Files\game</Filter>
-    </ClInclude>
     <ClInclude Include="src\game\Container.h">
       <Filter>Header Files\game</Filter>
     </ClInclude>
     <ClInclude Include="src\game\Game.h">
-      <Filter>Header Files\game</Filter>
-    </ClInclude>
-    <ClInclude Include="src\game\GameCtrl.h">
       <Filter>Header Files\game</Filter>
     </ClInclude>
     <ClInclude Include="src\game\GameManager.h">
@@ -132,17 +117,32 @@
     <ClInclude Include="src\game\GameObject.h">
       <Filter>Header Files\game</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\InputComponent.h">
-      <Filter>Header Files\game</Filter>
+    <ClInclude Include="src\game\DeAcceleration.h">
+      <Filter>Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\FighterCtrl.h">
-      <Filter>Header Files\game</Filter>
+    <ClInclude Include="src\game\Component.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\PhysicsComponent.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\RenderComponent.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\InputComponent.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\SimpleMove.h">
+      <Filter>Header Files\components</Filter>
     </ClInclude>
     <ClInclude Include="src\game\ShowAtOppositeSide.h">
-      <Filter>Header Files\game</Filter>
+      <Filter>Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\DeAcceleration.h">
-      <Filter>Header Files\game</Filter>
+    <ClInclude Include="src\game\GameCtrl.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\FighterCtrl.h">
+      <Filter>Header Files\components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -182,26 +182,26 @@
     <ClCompile Include="src\game\Game.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\GameCtrl.cpp">
-      <Filter>Source Files\game</Filter>
-    </ClCompile>
     <ClCompile Include="src\game\GameManager.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\ImageRenderer.cpp">
-      <Filter>Source Files\game</Filter>
-    </ClCompile>
-    <ClCompile Include="src\game\SimpleMove.cpp">
-      <Filter>Source Files\game</Filter>
+    <ClCompile Include="src\game\DeAcceleration.cpp">
+      <Filter>Source Files\components</Filter>
     </ClCompile>
     <ClCompile Include="src\game\FighterCtrl.cpp">
-      <Filter>Source Files\game</Filter>
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\GameCtrl.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\ImageRenderer.cpp">
+      <Filter>Source Files\components</Filter>
     </ClCompile>
     <ClCompile Include="src\game\ShowAtOppositeSide.cpp">
-      <Filter>Source Files\game</Filter>
+      <Filter>Source Files\components</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\DeAcceleration.cpp">
-      <Filter>Source Files\game</Filter>
+    <ClCompile Include="src\game\SimpleMove.cpp">
+      <Filter>Source Files\components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
