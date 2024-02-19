@@ -21,6 +21,7 @@
 #include "SimpleMove.h"
 #include "StopOnBorder.h"
 #include "FighterCtrl.h"
+#include "ShowAtOppositeSide.h"
 
 Game::Game() :
 	fighter_(nullptr)
@@ -53,6 +54,7 @@ void Game::init() {
 	fighter_->addComponent(new ImageRenderer(&sdlutils().images().at("fighter")));
 	fighter_->addComponent(new FighterCtrl()); //parte 3
 	fighter_->addComponent(new SimpleMove()); //parte 4
+	fighter_->addComponent(new ShowAtOppositeSide()); //parte 4
 	
 	objs_.push_back(fighter_);
 
