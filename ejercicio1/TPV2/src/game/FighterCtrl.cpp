@@ -1,11 +1,11 @@
-#include "FighterCtrl.h"
-#include "Container.h"
+#include "FighterCtrl.h";
 
 //literalmente copia pega del movePaddleWithKeyBoard.cpp pero con modificaciones
-FighterCtrl::FighterCtrl() : 
-	rotLeft_(SDL_SCANCODE_LEFT),
-	rotRight_(SDL_SCANCODE_RIGHT),
-	rotSpeed_(10.0f)
+
+FighterCtrl::FighterCtrl() :
+	left_(SDL_SCANCODE_LEFT),
+	right_(SDL_SCANCODE_RIGHT),
+	up_(SDL_SCANCODE_UP)
 {
 }
 
@@ -14,11 +14,11 @@ void FighterCtrl::handleInput(Container* o)
 	auto &ihdlr = ih();
 
 	if (ihdlr.keyDownEvent()) {
-		if (ihdlr.isKeyDown(rotLeft_)) {
-			o->setRotation(o->getRotation() - rotSpeed_);
+		if (ihdlr.isKeyDown(left_)) {
+			o->setRotation(o->getRotation() - degrees_);
 		}
-		else if (ihdlr.isKeyDown(rotRight_)) {
-			o->setRotation(o->getRotation() + rotSpeed_);
+		else if (ihdlr.isKeyDown(right_)) {
+			o->setRotation(o->getRotation() + degrees_);
 		}
 	}
 }

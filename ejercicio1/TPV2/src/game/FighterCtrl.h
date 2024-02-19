@@ -4,6 +4,7 @@
 #include <SDL_scancode.h>
 #include "Container.h"
 #include "InputComponent.h"
+#include "../sdlutils/InputHandler.h"
 #include <SDL.h>
 
 class FighterCtrl : public InputComponent {
@@ -13,10 +14,11 @@ public:
 	void handleInput(Container* o) override;
 
 private:
-	SDL_Scancode rotRight_;
-	SDL_Scancode rotLeft_;
+	SDL_Scancode up_;
+	SDL_Scancode left_;
+	SDL_Scancode right_;
 
-	float rotSpeed_;
+	float degrees_ = 0.5f;
 };
 
 

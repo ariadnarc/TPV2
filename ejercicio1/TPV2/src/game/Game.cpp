@@ -20,6 +20,7 @@
 #include "ScoreRenderer.h"
 #include "SimpleMove.h"
 #include "StopOnBorder.h"
+#include "FighterCtrl.h"
 
 Game::Game() :
 	fighter_(nullptr)
@@ -50,7 +51,8 @@ void Game::init() {
 	fighter_->setHeight(50.0f);
 	fighter_->setRotation(90.0f);
 	fighter_->addComponent(new ImageRenderer(&sdlutils().images().at("fighter")));
-
+	fighter_->addComponent(new FighterCtrl());
+	
 	objs_.push_back(fighter_);
 
 	/*
