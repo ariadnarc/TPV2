@@ -43,6 +43,12 @@
     <Filter Include="Source Files\ecs">
       <UniqueIdentifier>{379276fa-5f34-4eed-9d80-2d0c27abeeb7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\states">
+      <UniqueIdentifier>{927fc787-1168-4b9f-ae30-89243be8f279}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\states">
+      <UniqueIdentifier>{18eec09e-199b-4c87-8090-75c24628d467}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\json\JSONValue.h">
@@ -138,24 +144,6 @@
     <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Gun.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\GameOverState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\GameState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\NewGameState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\NewRoundState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\PausedState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\RunningState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\AsteroidsFacade.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -185,6 +173,30 @@
     </ClInclude>
     <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\ecs\ecs.h">
       <Filter>Header Files\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\RunningState.h">
+      <Filter>Header Files\states</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\GameOverState.h">
+      <Filter>Header Files\states</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\GameState.h">
+      <Filter>Header Files\states</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\NewGameState.h">
+      <Filter>Header Files\states</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\NewRoundState.h">
+      <Filter>Header Files\states</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\PausedState.h">
+      <Filter>Header Files\states</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\BlackHoleFacade.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\BlackHoleUtils.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -248,21 +260,6 @@
     <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Follow.cpp">
       <Filter>Source Files\components</Filter>
     </ClCompile>
-    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\GameOverState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\NewGameState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\NewRoundState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\PausedState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\RunningState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\AsteroidsUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -274,6 +271,27 @@
     </ClCompile>
     <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\ecs\Manager.cpp">
       <Filter>Source Files\ecs</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\RunningState.cpp">
+      <Filter>Source Files\states</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\NewGameState.cpp">
+      <Filter>Source Files\states</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\NewRoundState.cpp">
+      <Filter>Source Files\states</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\PausedState.cpp">
+      <Filter>Source Files\states</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\GameOverState.cpp">
+      <Filter>Source Files\states</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\BlackHoleFacade.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\BlackHoleUtils.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

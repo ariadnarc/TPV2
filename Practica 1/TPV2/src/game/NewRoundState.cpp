@@ -9,11 +9,12 @@
 #include "FighterFacade.h"
 #include "Game.h"
 NewRoundState::NewRoundState(AsteroidsFacade *ast_mngr,
-		FighterFacade *fighter_mngr) :
+		FighterFacade *fighter_mngr, BlackHoleFacade *blackhole_mngr) :
 		msg_(sdlutils().msgs().at("newround")), //
 		ihdlr(ih()), //
 		ast_mngr_(ast_mngr), //
-		fighter_mngr_(fighter_mngr) {
+		fighter_mngr_(fighter_mngr),
+		blackhole_mngr_(blackhole_mngr) {
 	float x = (sdlutils().width() - msg_.width()) / 2;
 	float y = (sdlutils().height() - msg_.height()) / 2;
 	dest_ = build_sdlrect(x, y, msg_.width(), msg_.height());
