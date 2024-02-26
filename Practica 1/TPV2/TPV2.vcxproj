@@ -30,6 +30,10 @@
     <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\ShowAtOpossiteSide.h" />
     <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\TowardsDestination.h" />
     <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Transform.h" />
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\ecs\Component.h" />
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\ecs\ecs.h" />
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\ecs\Entity.h" />
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\ecs\Manager.h" />
     <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\AsteroidsFacade.h" />
     <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\AsteroidsUtils.h" />
     <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\ecs_defs.h" />
@@ -74,6 +78,7 @@
     <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\ShowAtOpossiteSide.cpp" />
     <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\TowardsDestination.cpp" />
     <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Transform.cpp" />
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\ecs\Manager.cpp" />
     <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\AsteroidsUtils.cpp" />
     <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\FighterUtils.cpp" />
     <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\Game.cpp" />

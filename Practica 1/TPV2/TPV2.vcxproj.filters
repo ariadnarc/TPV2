@@ -37,6 +37,12 @@
     <Filter Include="Source Files\components">
       <UniqueIdentifier>{091ce918-2d97-48cd-b78d-819c75ca23fc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ecs">
+      <UniqueIdentifier>{331db6bc-b96d-4d38-ad80-fe69d728663f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ecs">
+      <UniqueIdentifier>{379276fa-5f34-4eed-9d80-2d0c27abeeb7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\json\JSONValue.h">
@@ -168,6 +174,18 @@
     <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\ecs\Entity.h">
+      <Filter>Header Files\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\ecs\Manager.h">
+      <Filter>Header Files\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\ecs\Component.h">
+      <Filter>Header Files\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\ecs\ecs.h">
+      <Filter>Header Files\ecs</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\json\JSONValue.cpp">
@@ -253,6 +271,9 @@
     </ClCompile>
     <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\Game.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\ecs\Manager.cpp">
+      <Filter>Source Files\ecs</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
