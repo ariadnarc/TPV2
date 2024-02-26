@@ -5,13 +5,12 @@
 
 class Transform;
 
-class BounceOnBorders: public ecs::Component {
+class ShowAtOpossiteSide: public ecs::Component {
 public:
+	__CMPID_DECL__(ecs::cmp::SHOWATOPOSSITESIDE)
 
-	__CMPID_DECL__(ecs::cmp::BOUNCEONBORDER)
-
-	BounceOnBorders();
-	virtual ~BounceOnBorders();
+	ShowAtOpossiteSide();
+	virtual ~ShowAtOpossiteSide();
 	void initComponent() override;
 	void update() override;
 private:

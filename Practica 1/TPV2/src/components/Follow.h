@@ -2,19 +2,21 @@
 
 #pragma once
 #include "../ecs/Component.h"
-
 class Transform;
 
-class StopOnBorders: public ecs::Component {
+class Vector2D;
+
+class Follow: public ecs::Component {
 public:
+	__CMPID_DECL__(ecs::cmp::FOLLOW)
 
-	__CMPID_DECL__(ecs::cmp::STOPONBORDER)
-
-	StopOnBorders();
-	virtual ~StopOnBorders();
+	Follow(Vector2D &to_follow);
+	virtual ~Follow();
 	void initComponent() override;
 	void update() override;
+
 private:
+	Vector2D &to_follow_;
 	Transform *tr_;
 };
 
