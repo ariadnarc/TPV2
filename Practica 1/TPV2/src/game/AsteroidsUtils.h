@@ -10,7 +10,7 @@ class AsteroidsUtils: public AsteroidsFacade {
 public:
 	AsteroidsUtils();
 	virtual ~AsteroidsUtils();
-	void remove_all_asteroids() override;
+	//void remove_all_asteroids() override;
 	void create_asteroids(int n) override;
 	void split_astroid(ecs::entity_t a) override;
 

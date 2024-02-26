@@ -31,6 +31,12 @@
     <Filter Include="Source Files\json">
       <UniqueIdentifier>{f050c7fb-d995-4366-9eaf-e78d399a13f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\components">
+      <UniqueIdentifier>{5f0b5a98-a5d1-4153-b89c-6c34b271534f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\components">
+      <UniqueIdentifier>{091ce918-2d97-48cd-b78d-819c75ca23fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\json\JSONValue.h">
@@ -93,6 +99,75 @@
     <ClInclude Include="src\utils\ptr_iterator.h">
       <Filter>Header Files\utils</Filter>
     </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Health.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Image.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\ImageWithFrames.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\ShowAtOpossiteSide.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\TowardsDestination.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Transform.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\DeAcceleration.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\FighterCtrl.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Follow.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Generations.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Gun.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\GameOverState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\GameState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\NewGameState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\NewRoundState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\PausedState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\RunningState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\AsteroidsFacade.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\AsteroidsUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\ecs_defs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\FighterFacade.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\FighterUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\json\JSONValue.cpp">
@@ -123,6 +198,60 @@
       <Filter>Source Files\sdlutil</Filter>
     </ClCompile>
     <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Gun.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Health.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Image.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\ImageWithFrames.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\ShowAtOpossiteSide.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\TowardsDestination.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Transform.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\DeAcceleration.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\FighterCtrl.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Follow.cpp">
+      <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\GameOverState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\NewGameState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\NewRoundState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\PausedState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\RunningState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\AsteroidsUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\FighterUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
