@@ -51,6 +51,8 @@ void Game::init() {
 	BlackHoleFacade *blackhole_facade = new BlackHoleUtils();
 
 	fighter_facede->create_fighter();
+	//blackhole_facade->create_blackholes(3); //esto los llama pero no se si es aqui¿¿ 
+											  //quiero mirar donde se crean los asteroides y llamarlo por ahi tb
 
 	paused_state_ = new PausedState();
 	runing_state_ = new RunningState(ast_facede, fighter_facede);
