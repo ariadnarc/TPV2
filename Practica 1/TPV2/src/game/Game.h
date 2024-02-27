@@ -6,25 +6,37 @@
 #include "../utils/Singleton.h"
 #include "GameState.h"
 
-namespace ecs {
-class Manager;
+namespace ecs
+{
+	class Manager;
 }
 
 class InputHandler;
 
-class Game: public Singleton<Game> {
-	friend Singleton<Game> ;
+class Game: public Singleton<Game>
+{
+	friend Singleton<Game>;
 	Game();
+
 public:
+
 	enum State {
-		RUNNING, PAUSED, NEWGAME, NEWROUND, GAMEOVER
+		RUNNING,
+		PAUSED, 
+		NEWGAME, 
+		NEWROUND, 
+		GAMEOVER
 	};
+
 	virtual ~Game();
 	void init();
 	void start();
-	inline ecs::Manager* getMngr() {
+
+	//getter!!!
+	inline ecs::Manager* getMngr() const {
 		return mngr_;
 	}
+
 	inline void setState(State s) {
 		GameState *new_state = nullptr;
 		switch (s) {
@@ -50,7 +62,9 @@ public:
 		current_state_ = new_state;
 		current_state_->enter();
 	}
+
 private:
+
 	ecs::Manager *mngr_;
 	InputHandler &ihdlr;
 
@@ -61,4 +75,9 @@ private:
 	GameState *newround_state_;
 	GameState *gameover_state_;
 };
+
+inline Game& g()
+{
+	return *Game::instance();
+}
 

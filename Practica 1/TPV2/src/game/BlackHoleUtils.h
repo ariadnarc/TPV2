@@ -2,11 +2,12 @@
 #include "BlackHoleFacade.h"
 #include "../sdlutils/RandomNumberGenerator.h"
 
+//hereda de facade
 class BlackHoleUtils :
     public BlackHoleFacade
 {
     ecs::Manager* mngr_;
-    //RandomNumberGenerator& random_;
+    RandomNumberGenerator& random_;
 
 public:
     BlackHoleUtils();

@@ -3,7 +3,8 @@
 #include "Game.h"
 #include "../sdlutils/SDLUtils.h"
 
-BlackHoleUtils::BlackHoleUtils() 
+BlackHoleUtils::BlackHoleUtils()
+	: mngr_(g().getMngr()), random_(sdlutils().rand())
 {
 }
 
