@@ -3,8 +3,11 @@
 #include "Game.h"
 #include "../sdlutils/SDLUtils.h"
 
-BlackHoleUtils::BlackHoleUtils()
-	: mngr_(g.
+BlackHoleUtils::BlackHoleUtils() 
+{
+}
+
+BlackHoleUtils::~BlackHoleUtils()
 {
 }
 

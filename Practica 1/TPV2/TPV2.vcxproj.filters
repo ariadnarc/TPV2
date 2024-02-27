@@ -111,91 +111,91 @@
     <ClInclude Include="src\utils\ptr_iterator.h">
       <Filter>Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Health.h">
+    <ClInclude Include="src\components\FighterCtrl.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Image.h">
+    <ClInclude Include="src\components\Follow.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\ImageWithFrames.h">
+    <ClInclude Include="src\components\Generations.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\ShowAtOpossiteSide.h">
+    <ClInclude Include="src\components\Gun.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\TowardsDestination.h">
+    <ClInclude Include="src\components\Health.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Transform.h">
+    <ClInclude Include="src\components\Image.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\DeAcceleration.h">
+    <ClInclude Include="src\components\ImageWithFrames.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\FighterCtrl.h">
+    <ClInclude Include="src\components\ShowAtOpossiteSide.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Follow.h">
+    <ClInclude Include="src\components\TowardsDestination.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Generations.h">
+    <ClInclude Include="src\components\Transform.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\components\Gun.h">
+    <ClInclude Include="src\components\DeAcceleration.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\AsteroidsFacade.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\AsteroidsUtils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\ecs_defs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\FighterFacade.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\FighterUtils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\ecs\Entity.h">
+    <ClInclude Include="src\ecs\ecs.h">
       <Filter>Header Files\ecs</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\ecs\Manager.h">
+    <ClInclude Include="src\ecs\Entity.h">
       <Filter>Header Files\ecs</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\ecs\Component.h">
+    <ClInclude Include="src\ecs\Manager.h">
       <Filter>Header Files\ecs</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\ecs\ecs.h">
+    <ClInclude Include="src\ecs\Component.h">
       <Filter>Header Files\ecs</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\RunningState.h">
+    <ClInclude Include="src\game\NewGameState.h">
       <Filter>Header Files\states</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\GameOverState.h">
+    <ClInclude Include="src\game\NewRoundState.h">
       <Filter>Header Files\states</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\GameState.h">
+    <ClInclude Include="src\game\PausedState.h">
       <Filter>Header Files\states</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\NewGameState.h">
+    <ClInclude Include="src\game\RunningState.h">
       <Filter>Header Files\states</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\NewRoundState.h">
+    <ClInclude Include="src\game\GameOverState.h">
       <Filter>Header Files\states</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\PausedState.h">
+    <ClInclude Include="src\game\GameState.h">
       <Filter>Header Files\states</Filter>
     </ClInclude>
     <ClInclude Include="src\game\BlackHoleFacade.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\cintpb\TPV2\Practica 1\TPV2\src\game\BlackHoleUtils.h">
+    <ClInclude Include="src\game\BlackHoleUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\ecs_defs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\FighterFacade.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\FighterUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\AsteroidsFacade.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\AsteroidsUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -228,9 +228,6 @@
       <Filter>Source Files\sdlutil</Filter>
     </ClCompile>
     <ClCompile Include="src\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\game\BlackHoleFacade.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\game\NewRoundState.cpp">
@@ -289,6 +286,9 @@
     </ClCompile>
     <ClCompile Include="src\components\Gun.cpp">
       <Filter>Source Files\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\RunningState.cpp">
+      <Filter>Source Files\states</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
