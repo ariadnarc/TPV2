@@ -7,6 +7,7 @@
 #include "../sdlutils/SDLUtils.h"
 #include "AsteroidsFacade.h"
 #include "FighterFacade.h"
+#include "BlackHoleFacade.h"
 #include "Game.h"
 NewRoundState::NewRoundState(AsteroidsFacade *ast_mngr,
 		FighterFacade *fighter_mngr, BlackHoleFacade *blackhole_mngr) :
@@ -27,10 +28,16 @@ void NewRoundState::leave() {
 }
 
 void NewRoundState::update() {
-	if (ihdlr.keyDownEvent() && ihdlr.isKeyDown(SDL_SCANCODE_RETURN)) {
+	if (ihdlr.keyDownEvent() && ihdlr.isKeyDown(SDL_SCANCODE_RETURN))
+	{
 		fighter_mngr_->reset_fighter();
+
 		ast_mngr_->remove_all_asteroids();
 		ast_mngr_->create_asteroids(10);
+
+		blackhole_mngr_->remove_all_blackholes(); //quitamos los blackholes anteriores
+		blackhole_mngr_->create_blackholes(6);
+
 		Game::instance()->setState(Game::RUNNING);
 	}
 	sdlutils().clearRenderer();
