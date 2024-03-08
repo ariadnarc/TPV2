@@ -143,7 +143,7 @@ void RunningState::checkCollisions() {
 				if (!mngr->isAlive(n))
 					continue;
 
-				//checks collisions of blckholes with each asteroid
+				//checks collisions of blackholes with each asteroid
 
 				auto blh = mngr->getComponent<Transform>(n);
 
@@ -157,16 +157,28 @@ void RunningState::checkCollisions() {
 					aTR->getHeight(), //
 					aTR->getRot())) 
 				{
-					// hacer que aparezca en una posicion random
-					std::cout << "aaaaaa" << std::endl;
-					// vale lo que es colisionar colisiona pero lo hace mil veces no deberia ser asi
-					ast_mngr_->teleport_asteroid(a); // he creado este metodo que va a ser el que haga que aparezca en otro lao
+					// makes the asteroid dissapear and appear in a random position 
+					ast_mngr_->teleport_asteroid(a); 
+				}
+				if (Collisions::collidesWithRotation(
+					fighterTR->getPos(), //
+					fighterTR->getWidth(), //
+					fighterTR->getHeight(), //
+					fighterTR->getRot(),
+					blh->getPos(), //
+					blh->getWidth(), //
+					blh->getHeight(), //
+					blh->getRot())) {
+
+					onFigherDeath();
+
 				}
 			}
 		}
-
-
 	}
+	
+
+	
 }
 
 void RunningState::onFigherDeath() {
