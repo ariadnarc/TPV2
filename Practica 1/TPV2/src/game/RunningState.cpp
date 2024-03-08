@@ -134,7 +134,38 @@ void RunningState::checkCollisions() {
 					continue;
 				}
 			}
+
+			//blackhole with asteroid
+			auto num_of_blackholes = blackholes.size();
+			for (auto i = 0u; i < num_of_blackholes; i++) {
+				auto n = blackholes[i];
+
+				if (!mngr->isAlive(n))
+					continue;
+
+				//checks collisions of blckholes with each asteroid
+
+				auto blh = mngr->getComponent<Transform>(n);
+
+				if (Collisions::collidesWithRotation(
+					blh->getPos(), //
+					blh->getWidth(), //
+					blh->getHeight(), //
+					blh->getRot(), //
+					aTR->getPos(), //
+					aTR->getWidth(), //
+					aTR->getHeight(), //
+					aTR->getRot())) 
+				{
+					// hacer que aparezca en una posicion random
+					std::cout << "aaaaaa" << std::endl;
+					// vale lo que es colisionar colisiona pero lo hace mil veces no deberia ser asi
+				}
+
+
+			}
 		}
+
 
 	}
 
