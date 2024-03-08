@@ -126,3 +126,19 @@ void AsteroidsUtils::split_astroid(ecs::entity_t a) {
 		}
 	}
 }
+
+void AsteroidsUtils::teleport_asteroid(ecs::entity_t a) {
+
+	auto mngr = Game::instance()->getMngr();
+	auto tr = mngr->getComponent<Transform>(a);
+	
+	//creamos dos randoms x e y para la posicion nueva
+	const int posy = rand_.nextInt(0, sdlutils().height());
+	const int posx = rand_.nextInt(0, sdlutils().width());
+	//creamos el vector2D con los nuevos numeros x e y
+	Vector2D newPos = Vector2D(posx, posy);
+
+	// hacemos el transform de nuevo con todos los datos anteriores más la nueva posicion
+	tr->init(newPos, tr->getVel(), tr->getWidth(), tr->getHeight(), tr->getRot(), true);
+
+}

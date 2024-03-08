@@ -160,15 +160,13 @@ void RunningState::checkCollisions() {
 					// hacer que aparezca en una posicion random
 					std::cout << "aaaaaa" << std::endl;
 					// vale lo que es colisionar colisiona pero lo hace mil veces no deberia ser asi
+					ast_mngr_->teleport_asteroid(a); // he creado este metodo que va a ser el que haga que aparezca en otro lao
 				}
-
-
 			}
 		}
 
 
 	}
-
 }
 
 void RunningState::onFigherDeath() {
