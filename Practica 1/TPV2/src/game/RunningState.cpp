@@ -171,7 +171,7 @@ void RunningState::checkCollisions() {
 					blh->getRot())) {
 
 					onFigherDeath();
-
+					return;
 				}
 			}
 		}
