@@ -14,7 +14,7 @@
     { "id" : "asteroid_gold", "file" : "resources/images/asteroid_gold.png"},
     { "id" : "star", "file" : "resources/images/star.png"},
     { "id" : "black_hole", "file" : "resources/images/black_hole.png"},
-    { "id" : "missle", "file" : "resources/images/missle.png"}
+    { "id" : "missile", "file" : "resources/images/missle.png"}
   ],
   
   "messages" : [
