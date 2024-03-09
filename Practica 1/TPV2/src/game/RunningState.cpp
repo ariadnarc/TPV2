@@ -145,51 +145,48 @@ void RunningState::checkCollisions() {
 					continue;
 				}
 			}
+		}
 
-			//blackhole with asteroid
-			auto num_of_blackholes = blackholes.size();
-			for (auto i = 0u; i < num_of_blackholes; i++) {
-				auto n = blackholes[i];
+		//blackhole with asteroid
+		auto num_of_blackholes = blackholes.size();
+		for (auto i = 0u; i < num_of_blackholes; i++) {
+			auto n = blackholes[i];
 
-				if (!mngr->isAlive(n))
-					continue;
+			if (!mngr->isAlive(n))
+				continue;
 
-				//checks collisions of blackholes with each asteroid
+			//checks collisions of blackholes with each asteroid
 
-				auto blh = mngr->getComponent<Transform>(n);
+			auto blh = mngr->getComponent<Transform>(n);
 
-				if (Collisions::collidesWithRotation(
-					blh->getPos(), //
-					blh->getWidth(), //
-					blh->getHeight(), //
-					blh->getRot(), //
-					aTR->getPos(), //
-					aTR->getWidth(), //
-					aTR->getHeight(), //
-					aTR->getRot())) 
-				{
-					// makes the asteroid dissapear and appear in a random position 
-					ast_mngr_->teleport_asteroid(a); 
-				}
-				if (Collisions::collidesWithRotation(
-					fighterTR->getPos(), //
-					fighterTR->getWidth(), //
-					fighterTR->getHeight(), //
-					fighterTR->getRot(),
-					blh->getPos(), //
-					blh->getWidth(), //
-					blh->getHeight(), //
-					blh->getRot())) {
+			if (Collisions::collidesWithRotation(
+				blh->getPos(), //
+				blh->getWidth(), //
+				blh->getHeight(), //
+				blh->getRot(), //
+				aTR->getPos(), //
+				aTR->getWidth(), //
+				aTR->getHeight(), //
+				aTR->getRot()))
+			{
+				// makes the asteroid dissapear and appear in a random position 
+				ast_mngr_->teleport_asteroid(a);
+			}
+			if (Collisions::collidesWithRotation(
+				fighterTR->getPos(), //
+				fighterTR->getWidth(), //
+				fighterTR->getHeight(), //
+				fighterTR->getRot(),
+				blh->getPos(), //
+				blh->getWidth(), //
+				blh->getHeight(), //
+				blh->getRot())) {
 
-					onFigherDeath();
-					return;
-				}
+				onFigherDeath();
+				return;
 			}
 		}
 	}
-	
-
-	
 }
 
 void RunningState::onFigherDeath() {

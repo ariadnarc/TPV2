@@ -21,6 +21,8 @@ void MissileUtils::create_missiles(int n)
 		const int corner = random_.nextInt(0, 4);
 		int x = 0, y = 0; //para la esquina
 
+		int velX = random_.nextInt(1, 4); // del 1 al 3 para la velocidad
+
 		switch (corner) {
 		case 0: break;
 		case 1:
@@ -40,7 +42,6 @@ void MissileUtils::create_missiles(int n)
 			break;
 		}
 
-
 		auto missile = mngr_->addEntity(ecs::grp::MISSILES);
 		mngr_->addComponent<Transform>(missile,
 			Vector2D(x, y), // pos
@@ -49,6 +50,7 @@ void MissileUtils::create_missiles(int n)
 			100, // h
 			0.0f //r
 		);
+
 		mngr_->addComponent<ImageRenderer>(missile, &sdlutils().images().at("missile"));
 	}
 }
