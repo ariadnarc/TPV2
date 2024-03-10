@@ -139,6 +139,6 @@ void AsteroidsUtils::teleport_asteroid(ecs::entity_t a) {
 	Vector2D newPos = Vector2D(posx, posy);
 
 	// hacemos el transform de nuevo con todos los datos anteriores más la nueva posicion
-	tr->init(newPos, tr->getVel(), tr->getWidth(), tr->getHeight(), tr->getRot(), true);
+	tr->getPos().set(newPos);
 
 }
