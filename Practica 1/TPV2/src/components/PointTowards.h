@@ -1,21 +1,20 @@
 #pragma once
 
 #include "../ecs/Component.h"
-
 class Transform;
 
 class Vector2D;
 
-class LookAt : public ecs::Component {
+class PointTowards : public ecs::Component {
 public:
-	__CMPID_DECL__(ecs::cmp::LOOKAT)
+	__CMPID_DECL__(ecs::cmp::POINTTOWARDS)
 
-	LookAt(Vector2D& to_lookAt);
-	virtual ~LookAt();
+	PointTowards(Vector2D& to_point);
+	virtual ~PointTowards();
 	void initComponent() override;
 	void update() override;
 
 private:
-	Vector2D& to_lookAt_;
+	Vector2D& to_point_;
 	Transform* tr_;
 };

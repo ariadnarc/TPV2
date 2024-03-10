@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LookAt.h" />
     <ClInclude Include="src\components\DeAcceleration.h" />
     <ClInclude Include="src\components\FighterCtrl.h" />
     <ClInclude Include="src\components\Follow.h" />
@@ -29,6 +28,7 @@
     <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\ImageRenderer.h" />
     <ClInclude Include="src\components\ImageWithFrames.h" />
+    <ClInclude Include="src\components\PointTowards.h" />
     <ClInclude Include="src\components\Rotation.h" />
     <ClInclude Include="src\components\ShowAtOpossiteSide.h" />
     <ClInclude Include="src\components\TowardsDestination.h" />
@@ -75,7 +75,6 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LookAt.cpp" />
     <ClCompile Include="src\components\DeAcceleration.cpp" />
     <ClCompile Include="src\components\FighterCtrl.cpp" />
     <ClCompile Include="src\components\Follow.cpp" />
@@ -84,6 +83,7 @@
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\ImageRenderer.cpp" />
     <ClCompile Include="src\components\ImageWithFrames.cpp" />
+    <ClCompile Include="src\components\PointTowards.cpp" />
     <ClCompile Include="src\components\Rotation.cpp" />
     <ClCompile Include="src\components\ShowAtOpossiteSide.cpp" />
     <ClCompile Include="src\components\TowardsDestination.cpp" />

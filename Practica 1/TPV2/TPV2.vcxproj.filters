@@ -210,7 +210,7 @@
     <ClInclude Include="src\game\MissileUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LookAt.h">
+    <ClInclude Include="src\components\PointTowards.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
   </ItemGroup>
@@ -317,7 +317,7 @@
     <ClCompile Include="src\game\MissileUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LookAt.cpp">
+    <ClCompile Include="src\components\PointTowards.cpp">
       <Filter>Source Files\components</Filter>
     </ClCompile>
   </ItemGroup>

@@ -5,6 +5,8 @@
 #include "../components/Transform.h"
 #include "../components/ImageRenderer.h"
 #include "../components/Follow.h"
+#include "../components/TowardsDestination.h"
+#include "../components/PointTowards.h"
 
 
 MissileUtils::MissileUtils()
@@ -48,8 +50,8 @@ void MissileUtils::create_missiles(int n)
 		mngr_->addComponent<Transform>(missile,
 			Vector2D(x, y), // pos
 			Vector2D(1, 0), // vel
-			100, // w
-			100, // h
+			50, // w
+			50, // h
 			0.0f //r
 		);
 
@@ -58,6 +60,7 @@ void MissileUtils::create_missiles(int n)
 		auto fighter = mngr_->getHandler(ecs::hdlr::FIGHTER);
 		auto fighterTR = mngr_->getComponent<Transform>(fighter);
 		mngr_->addComponent<Follow>(missile, fighterTR->getPos());
+		mngr_->addComponent<PointTowards>(missile, fighterTR->getPos());
 	}
 }
 
