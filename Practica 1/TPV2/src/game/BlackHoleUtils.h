@@ -1,6 +1,11 @@
 #pragma once
 #include "BlackHoleFacade.h"
-#include "../sdlutils/RandomNumberGenerator.h"
+
+namespace ecs {
+    class Manager;
+}
+
+class RandomNumberGenerator;
 
 //hereda de facade
 class BlackHoleUtils :

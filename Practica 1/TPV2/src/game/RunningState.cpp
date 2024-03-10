@@ -91,10 +91,16 @@ void RunningState::update() {
 		lastTimeGeneratedAsteroids_ = sdlutils().virtualTimer().currTime();
 	}
 
+	if (sdlutils().virtualTimer().currTime() > lastTimeGeneratedMissile_ + 15000) {
+		missile_mngr_->create_missiles(1);
+		lastTimeGeneratedMissile_ = sdlutils().virtualTimer().currTime();
+	}
+
 }
 
 void RunningState::enter() {
 	lastTimeGeneratedAsteroids_ = sdlutils().virtualTimer().currTime();
+	lastTimeGeneratedMissile_ = sdlutils().virtualTimer().currTime();
 }
 
 void RunningState::checkCollisions() {
