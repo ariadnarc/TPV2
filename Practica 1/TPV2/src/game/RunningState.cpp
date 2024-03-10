@@ -108,7 +108,7 @@ void RunningState::checkCollisions() {
 	auto fighter = mngr->getHandler(ecs::hdlr::FIGHTER);
 	auto &asteroids = mngr->getEntities(ecs::grp::ASTEROIDS);
 	auto &blackholes = mngr->getEntities(ecs::grp::BLACKHOLES);
-	//auto &missiles = mngr->getEntities(ecs::grp::MISSILES); // pa luego jiji
+	auto &missiles = mngr->getEntities(ecs::grp::MISSILES);
 	auto fighterTR = mngr->getComponent<Transform>(fighter);
 	auto fighterGUN = mngr->getComponent<Gun>(fighter);
 
@@ -190,6 +190,57 @@ void RunningState::checkCollisions() {
 
 				onFigherDeath();
 				return;
+			}
+		}
+
+		// missile colissions
+		for (auto m : missiles)
+		{
+			// missiles with fighter
+			auto missileTR = mngr->getComponent<Transform>(m);
+			if (Collisions::collidesWithRotation(
+				fighterTR->getPos(),
+				fighterTR->getWidth(),
+				fighterTR->getHeight(),
+				fighterTR->getRot(),
+				missileTR->getPos(),
+				missileTR->getWidth(),
+				missileTR->getHeight(),
+				missileTR->getRot()
+			))
+			{
+				onFigherDeath();
+			}
+
+			// missiles with bullets
+			for (Gun::Bullet& b : *fighterGUN)
+				if (b.used && Collisions::collidesWithRotation(
+					b.pos,
+					b.width,
+					b.height,
+					b.rot,
+					missileTR->getPos(),
+					missileTR->getWidth(),
+					missileTR->getHeight(),
+					missileTR->getRot()
+				))
+				{
+					mngr->setAlive(m, false);
+					b.used = false;
+					sdlutils().soundEffects().at("bang").play();
+				}
+
+			// missiles going out of window
+			if (!Collisions::collides(
+				Vector2D(0, 0),
+				sdlutils().width(),
+				sdlutils().height(),
+				missileTR->getPos(),
+				missileTR->getWidth(),
+				missileTR->getHeight()
+			))
+			{
+				mngr->setAlive(m, false);
 			}
 		}
 	}

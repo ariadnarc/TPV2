@@ -210,6 +210,9 @@
     <ClInclude Include="src\game\MissileUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LookAt.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\json\JSONValue.cpp">
@@ -313,6 +316,9 @@
     </ClCompile>
     <ClCompile Include="src\game\MissileUtils.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LookAt.cpp">
+      <Filter>Source Files\components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
