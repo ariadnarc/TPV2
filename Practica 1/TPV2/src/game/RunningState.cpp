@@ -193,55 +193,56 @@ void RunningState::checkCollisions() {
 			}
 		}
 
-		// missile colissions
-		for (auto m : missiles)
+	}
+
+	// missile colissions
+	for (auto m : missiles)
+	{
+		// missiles with fighter
+		auto missileTR = mngr->getComponent<Transform>(m);
+		if (Collisions::collidesWithRotation(
+			fighterTR->getPos(),
+			fighterTR->getWidth(),
+			fighterTR->getHeight(),
+			fighterTR->getRot(),
+			missileTR->getPos(),
+			missileTR->getWidth(),
+			missileTR->getHeight(),
+			missileTR->getRot()
+		))
 		{
-			// missiles with fighter
-			auto missileTR = mngr->getComponent<Transform>(m);
-			if (Collisions::collidesWithRotation(
-				fighterTR->getPos(),
-				fighterTR->getWidth(),
-				fighterTR->getHeight(),
-				fighterTR->getRot(),
+			onFigherDeath();
+		}
+
+		// missiles with bullets
+		for (Gun::Bullet& b : *fighterGUN)
+			if (b.used && Collisions::collidesWithRotation(
+				b.pos,
+				b.width,
+				b.height,
+				b.rot,
 				missileTR->getPos(),
 				missileTR->getWidth(),
 				missileTR->getHeight(),
 				missileTR->getRot()
 			))
 			{
-				onFigherDeath();
-			}
-
-			// missiles with bullets
-			for (Gun::Bullet& b : *fighterGUN)
-				if (b.used && Collisions::collidesWithRotation(
-					b.pos,
-					b.width,
-					b.height,
-					b.rot,
-					missileTR->getPos(),
-					missileTR->getWidth(),
-					missileTR->getHeight(),
-					missileTR->getRot()
-				))
-				{
-					mngr->setAlive(m, false);
-					b.used = false;
-					sdlutils().soundEffects().at("bang").play();
-				}
-
-			// missiles going out of window
-			if (!Collisions::collides(
-				Vector2D(0, 0),
-				sdlutils().width(),
-				sdlutils().height(),
-				missileTR->getPos(),
-				missileTR->getWidth(),
-				missileTR->getHeight()
-			))
-			{
 				mngr->setAlive(m, false);
+				b.used = false;
+				sdlutils().soundEffects().at("bang").play();
 			}
+
+		// missiles going out of window
+		if (!Collisions::collides(
+			Vector2D(0, 0),
+			sdlutils().width(),
+			sdlutils().height(),
+			missileTR->getPos(),
+			missileTR->getWidth(),
+			missileTR->getHeight()
+		))
+		{
+			mngr->setAlive(m, false);
 		}
 	}
 }
