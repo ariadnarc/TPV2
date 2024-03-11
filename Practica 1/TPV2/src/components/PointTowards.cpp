@@ -20,10 +20,10 @@ void PointTowards::initComponent() {
 }
 
 void PointTowards::update() {
-	auto rot = tr_->getRot();
+	
 	auto pos = tr_->getPos();
 
-	auto vel = to_point_ - pos;
+	auto vel = to_point_ - pos; // creates velocity vector with direction to fighter
 
-	tr_->setRot(Vector2D(0, -1).angle(vel));
+	tr_->setRot(Vector2D(0, -1).angle(vel)); // assigns rotation with the angle of the velocity vector created
 }

@@ -49,7 +49,7 @@ void MissileUtils::create_missiles(int n)
 		auto missile = mngr_->addEntity(ecs::grp::MISSILES);
 		mngr_->addComponent<Transform>(missile,
 			Vector2D(x, y), // pos
-			Vector2D(1, 0), // vel
+			Vector2D(velX, 0), // velx is random between 1 and 3
 			50, // w
 			50, // h
 			0.0f //r
@@ -60,7 +60,7 @@ void MissileUtils::create_missiles(int n)
 		auto fighter = mngr_->getHandler(ecs::hdlr::FIGHTER);
 		auto fighterTR = mngr_->getComponent<Transform>(fighter);
 		mngr_->addComponent<Follow>(missile, fighterTR->getPos());
-		mngr_->addComponent<PointTowards>(missile, fighterTR->getPos());
+		mngr_->addComponent<PointTowards>(missile, fighterTR->getPos()); // this makes the missile point towards the fighter
 	}
 }
 
