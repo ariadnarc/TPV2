@@ -229,7 +229,7 @@ void RunningState::checkCollisions() {
 			{
 				mngr->setAlive(m, false);
 				b.used = false;
-				sdlutils().soundEffects().at("bang").play();
+				sdlutils().soundEffects().at("explosion").play();
 			}
 
 		// missiles going out of window
