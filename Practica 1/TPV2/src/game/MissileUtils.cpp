@@ -25,7 +25,7 @@ void MissileUtils::create_missiles(int n)
 		const int corner = random_.nextInt(0, 4);
 		int x = 0, y = 0; //para la esquina
 
-		int velX = random_.nextInt(1, 4); // del 1 al 3 para la velocidad
+		int velX = random_.nextInt(1, 3); // del 1 al 3 para la velocidad
 
 		switch (corner) {
 		case 0: break;
