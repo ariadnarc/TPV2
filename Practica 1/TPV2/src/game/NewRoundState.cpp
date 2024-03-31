@@ -35,13 +35,13 @@ void NewRoundState::update() {
 		fighter_mngr_->reset_fighter();
 
 		ast_mngr_->remove_all_asteroids();
-		ast_mngr_->create_asteroids(2);
+		ast_mngr_->create_asteroids(10);
 
 		blackhole_mngr_->remove_all_blackholes(); //quitamos los blackholes anteriores
 		blackhole_mngr_->create_blackholes(6);
 
 		missile_mngr_->remove_missiles(); //quitamos los blackholes anteriores
-		missile_mngr_->create_missiles(1);
+		//missile_mngr_->create_missiles(1);
 
 		Game::instance()->setState(Game::RUNNING);
 	}
