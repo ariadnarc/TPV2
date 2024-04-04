@@ -4,9 +4,14 @@
 
 #include "sdlutils/sdlutils_demo.h"
 
+#include "game/Game.h"
+
 int main(int ac, char **av) {
 	try {
-		sdlutils_basic_demo();
+		//sdlutils_basic_demo();
+		Game g;
+		g.init();
+		g.start();
 	} catch (const std::string &e) { // catch exceptions thrown as strings
 		std::cerr << e << std::endl;
 	} catch (const char *e) { // catch exceptions thrown as char*
