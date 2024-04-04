@@ -7,7 +7,8 @@
   ],
   
   "images" : [
-    { "id" : "sdl_logo", "file" : "resources/images/SDL_logo.png" }
+    { "id" : "sdl_logo", "file" : "resources/images/SDL_logo.png" },
+    { "id" : "pacman", "file" : "resources/images/pacman_sprites.png" }
   ],
   
   "messages" : [
@@ -17,7 +18,13 @@
   
   "sounds" : [
     { "id" : "wall_hit", "file" : "resources/sound/wall_hit.wav" },
-    { "id" : "explosion", "file" : "resources/sound/explosion.wav" }
+    { "id" : "explosion", "file" : "resources/sound/explosion.wav" },
+    { "id" : "chomp", "file" : "resources/sound/pacman_chomp.wav" },
+    { "id" : "death", "file" : "resources/sound/pacman_death.wav" },
+    { "id" : "eat", "file" : "resources/sound/pacman_eat.wav" },
+    { "id" : "eat", "file" : "resources/sound/pacman_eat.wav" },
+    { "id" : "intro", "file" : "resources/sound/pacman_intro.wav" },
+    { "id" : "won", "file" : "resources/sound/pacman_won.wav" }
   ],
 
   "musics" : [

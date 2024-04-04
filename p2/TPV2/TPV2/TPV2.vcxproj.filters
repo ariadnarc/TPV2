@@ -300,4 +300,9 @@
       <Filter>Source Files\game</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\config\sdlutilsdemo.resources.json">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>
