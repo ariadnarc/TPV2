@@ -11,7 +11,7 @@ class Transform;
 class ImageWithFrames: public ecs::Component {
 public:
 
-	__CMPID_DECL__(ecs::cmp::IMAGEWITHFRAMES)
+	//__CMPID_DECL__(ecs::cmp::IMAGEWITHFRAMES)
 
 	ImageWithFrames(Texture *tex, //
 			int cols, int rows, //

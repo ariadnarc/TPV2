@@ -23,6 +23,7 @@
     <ClInclude Include="src\components\GameInfoMsgs.h" />
     <ClInclude Include="src\components\GameState.h" />
     <ClInclude Include="src\components\Image.h" />
+    <ClInclude Include="src\components\ImageWithFrames.h" />
     <ClInclude Include="src\components\PaddleAICtrl.h" />
     <ClInclude Include="src\components\PaddleKBCtrl.h" />
     <ClInclude Include="src\components\PaddleMouseCtrl.h" />
@@ -78,6 +79,7 @@
     <ClCompile Include="src\components\GameInfoMsgs.cpp" />
     <ClCompile Include="src\components\GameState.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
+    <ClCompile Include="src\components\ImageWithFrames.cpp" />
     <ClCompile Include="src\components\PaddleAICtrl.cpp" />
     <ClCompile Include="src\components\PaddleKBCtrl.cpp" />
     <ClCompile Include="src\components\PaddleMouseCtrl.cpp" />

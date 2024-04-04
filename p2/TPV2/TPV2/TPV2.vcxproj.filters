@@ -210,6 +210,9 @@
     <ClInclude Include="src\game\SimpleMove.h">
       <Filter>Header Files\game</Filter>
     </ClInclude>
+    <ClInclude Include="src\components\ImageWithFrames.h">
+      <Filter>Header Files\components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\json\JSONValue.cpp">
@@ -298,6 +301,9 @@
     </ClCompile>
     <ClCompile Include="src\game\SimpleMove.cpp">
       <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\ImageWithFrames.cpp">
+      <Filter>Source Files\components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

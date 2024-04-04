@@ -14,7 +14,8 @@
 //
 #define _CMPS_LIST_ \
 	TRANSFORM, \
-	IMAGE
+	IMAGE, \
+	IMAGEWITHFRAMES
 
 // Groups list - must have at least one element
 //

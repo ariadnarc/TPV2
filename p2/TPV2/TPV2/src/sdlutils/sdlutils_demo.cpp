@@ -13,7 +13,7 @@ using namespace std;
 void sdlutils_basic_demo() {
 
 	// Initialise the SDLGame singleton
-	SDLUtils::init("PacMan!", 800, 600,
+	SDLUtils::init("Pacman!", 800, 600,
 			"resources/config/sdlutilsdemo.resources.json");
 
 	// reference to the SDLUtils Singleton. You could use it as a pointer as well,
