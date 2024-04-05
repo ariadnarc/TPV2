@@ -22,13 +22,9 @@
     <ClInclude Include="src\components\BounceOnBorders.h" />
     <ClInclude Include="src\components\GameInfoMsgs.h" />
     <ClInclude Include="src\components\GameState.h" />
+    <ClInclude Include="src\components\Health.h" />
     <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\ImageWithFrames.h" />
-    <ClInclude Include="src\components\PaddleAICtrl.h" />
-    <ClInclude Include="src\components\PaddleKBCtrl.h" />
-    <ClInclude Include="src\components\PaddleMouseCtrl.h" />
-    <ClInclude Include="src\components\RectangleViewer.h" />
-    <ClInclude Include="src\components\StopOnBorders.h" />
     <ClInclude Include="src\components\Transform.h" />
     <ClInclude Include="src\ecs\Component.h" />
     <ClInclude Include="src\ecs\ecs.h" />
@@ -78,12 +74,9 @@
     <ClCompile Include="src\components\BounceOnBorders.cpp" />
     <ClCompile Include="src\components\GameInfoMsgs.cpp" />
     <ClCompile Include="src\components\GameState.cpp" />
+    <ClCompile Include="src\components\Health.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\ImageWithFrames.cpp" />
-    <ClCompile Include="src\components\PaddleAICtrl.cpp" />
-    <ClCompile Include="src\components\PaddleKBCtrl.cpp" />
-    <ClCompile Include="src\components\PaddleMouseCtrl.cpp" />
-    <ClCompile Include="src\components\RectangleViewer.cpp" />
     <ClCompile Include="src\components\StopOnBorders.cpp" />
     <ClCompile Include="src\ecs\Manager.cpp" />
     <ClCompile Include="src\game\Containter.cpp" />
@@ -103,6 +96,12 @@
     <ClCompile Include="src\sdlutils\sdlutils_demo.cpp" />
     <ClCompile Include="src\sdlutils\SoundEffect.cpp" />
     <ClCompile Include="src\sdlutils\Texture.cpp" />
+    <ClCompile Include="src\systems\CollisionSystem.cpp" />
+    <ClCompile Include="src\systems\FoodSystem.cpp" />
+    <ClCompile Include="src\systems\GhostSystem.cpp" />
+    <ClCompile Include="src\systems\ImmunitySystem.cpp" />
+    <ClCompile Include="src\systems\PacManSystem.cpp" />
+    <ClCompile Include="src\systems\RenderSystem.cpp" />
     <ClCompile Include="src\utils\Collisions.cpp" />
     <ClCompile Include="src\utils\Vector2D.cpp" />
   </ItemGroup>
