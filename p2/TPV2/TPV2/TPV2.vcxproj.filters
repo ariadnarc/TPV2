@@ -123,9 +123,6 @@
     <ClInclude Include="src\components\Transform.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\BounceOnBorders.h">
-      <Filter>Header Files\components</Filter>
-    </ClInclude>
     <ClInclude Include="src\ecs\Component.h">
       <Filter>Header Files\ecs</Filter>
     </ClInclude>
@@ -236,16 +233,10 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\BounceOnBorders.cpp">
-      <Filter>Source Files\components</Filter>
-    </ClCompile>
     <ClCompile Include="src\components\GameInfoMsgs.cpp">
       <Filter>Source Files\components</Filter>
     </ClCompile>
     <ClCompile Include="src\components\Image.cpp">
-      <Filter>Source Files\components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\StopOnBorders.cpp">
       <Filter>Source Files\components</Filter>
     </ClCompile>
     <ClCompile Include="src\ecs\Manager.cpp">

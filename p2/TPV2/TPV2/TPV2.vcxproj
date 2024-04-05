@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\components\BounceOnBorders.h" />
     <ClInclude Include="src\components\GameInfoMsgs.h" />
     <ClInclude Include="src\components\GameState.h" />
     <ClInclude Include="src\components\Health.h" />
@@ -71,13 +70,11 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\components\BounceOnBorders.cpp" />
     <ClCompile Include="src\components\GameInfoMsgs.cpp" />
     <ClCompile Include="src\components\GameState.cpp" />
     <ClCompile Include="src\components\Health.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\ImageWithFrames.cpp" />
-    <ClCompile Include="src\components\StopOnBorders.cpp" />
     <ClCompile Include="src\ecs\Manager.cpp" />
     <ClCompile Include="src\game\Containter.cpp" />
     <ClCompile Include="src\game\DeAcceleration.cpp" />
