@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\components\GameInfoMsgs.h" />
     <ClInclude Include="src\components\Health.h" />
     <ClInclude Include="src\components\Image.h" />
     <ClInclude Include="src\components\ImageWithFrames.h" />
@@ -34,14 +33,10 @@
     <ClInclude Include="src\ecs\messages_defs_example.h" />
     <ClInclude Include="src\ecs\System.h" />
     <ClInclude Include="src\game\Component.h" />
-    <ClInclude Include="src\game\Container.h" />
     <ClInclude Include="src\game\ecs_defs.h" />
     <ClInclude Include="src\game\Game.h" />
-    <ClInclude Include="src\game\GameCtrl.h" />
-    <ClInclude Include="src\game\GameManager.h" />
     <ClInclude Include="src\game\GameObject.h" />
     <ClInclude Include="src\game\GameState.h" />
-    <ClInclude Include="src\game\ImageRenderer.h" />
     <ClInclude Include="src\game\InputComponent.h" />
     <ClInclude Include="src\game\NewGameState.h" />
     <ClInclude Include="src\game\NewRoundState.h" />
@@ -75,19 +70,14 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\components\GameInfoMsgs.cpp" />
     <ClCompile Include="src\components\Health.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\ImageWithFrames.cpp" />
     <ClCompile Include="src\components\MIracleFruit.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />
     <ClCompile Include="src\ecs\Manager.cpp" />
-    <ClCompile Include="src\game\Containter.cpp" />
     <ClCompile Include="src\game\Game.cpp" />
-    <ClCompile Include="src\game\GameCtrl.cpp" />
-    <ClCompile Include="src\game\GameManager.cpp" />
     <ClCompile Include="src\game\GameState.cpp" />
-    <ClCompile Include="src\game\ImageRenderer.cpp" />
     <ClCompile Include="src\game\NewGameState.cpp" />
     <ClCompile Include="src\game\NewRoundState.cpp" />
     <ClCompile Include="src\game\RunningState.cpp" />

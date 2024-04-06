@@ -10,7 +10,7 @@
 	IMAGE, \
 	HEALTH, \
 	IMAGEWITHFRAMES,\
-	MIRACLEFRUIT,\
+	MIRACLEFRUIT
 
 
 // Groups list - must have at least one element
@@ -32,4 +32,4 @@
 	FOOD, \
 	IMMUNITY, \
 	COLLISIONS, \
-	RENDER, \
+	RENDER

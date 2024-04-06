@@ -83,4 +83,3 @@ private:
 
 template<typename T>
 std::unique_ptr<T> Singleton<T>::instance_;
-
