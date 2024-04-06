@@ -8,22 +8,28 @@
 #define _CMPS_LIST_ \
 	TRANSFORM, \
 	IMAGE, \
-	RECTANGLEVIEWER, \
-	PADDLEKBCTRL, \
-	PADDLMOUSECTRL, \
-	PADDLAICTRL, \
-	STOPONBORDER, \
-	BOUNCEONBORDER, \
-	GAMESTATE, \
-	GAMEINFOMSGS
+	HEALTH, \
+	IMAGEWITHFRAMES,\
+	MIRACLEFRUIT,\
+
 
 // Groups list - must have at least one element
 //
 #define _GRPS_LIST_ \
-	PADDLES
+	FRUITS, \
+	GHOSTS
 
 // Handlers list - must have at least one element
 //
 #define _HDLRS_LIST_ \
-	BALL
+    PACMAN
 
+// Systems list - must have at least one element
+//
+#define _SYS_LIST_ \
+	PACMAN, \
+	GHOST, \
+	FOOD, \
+	IMMUNITY, \
+	COLLISIONS, \
+	RENDER, \

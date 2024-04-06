@@ -43,7 +43,10 @@
     <ClInclude Include="src\game\GameState.h" />
     <ClInclude Include="src\game\ImageRenderer.h" />
     <ClInclude Include="src\game\InputComponent.h" />
+    <ClInclude Include="src\game\NewGameState.h" />
+    <ClInclude Include="src\game\NewRoundState.h" />
     <ClInclude Include="src\game\RenderComponent.h" />
+    <ClInclude Include="src\game\RunningState.h" />
     <ClInclude Include="src\json\JSON.h" />
     <ClInclude Include="src\json\JSONValue.h" />
     <ClInclude Include="src\json\json_demo.h" />
@@ -58,6 +61,12 @@
     <ClInclude Include="src\sdlutils\SoundEffect.h" />
     <ClInclude Include="src\sdlutils\Texture.h" />
     <ClInclude Include="src\sdlutils\VirtualTimer.h" />
+    <ClInclude Include="src\systems\CollisionSystem.h" />
+    <ClInclude Include="src\systems\FoodSystem.h" />
+    <ClInclude Include="src\systems\GhostSystem.h" />
+    <ClInclude Include="src\systems\ImmunitySystem.h" />
+    <ClInclude Include="src\systems\PacManSystem.h" />
+    <ClInclude Include="src\systems\RenderSystem.h" />
     <ClInclude Include="src\utils\Collisions.h" />
     <ClInclude Include="src\utils\DynamicBitSet.h" />
     <ClInclude Include="src\utils\mpl.h" />
@@ -79,6 +88,9 @@
     <ClCompile Include="src\game\GameManager.cpp" />
     <ClCompile Include="src\game\GameState.cpp" />
     <ClCompile Include="src\game\ImageRenderer.cpp" />
+    <ClCompile Include="src\game\NewGameState.cpp" />
+    <ClCompile Include="src\game\NewRoundState.cpp" />
+    <ClCompile Include="src\game\RunningState.cpp" />
     <ClCompile Include="src\json\JSON.cpp" />
     <ClCompile Include="src\json\JSONValue.cpp" />
     <ClCompile Include="src\json\json_demo.cpp" />
