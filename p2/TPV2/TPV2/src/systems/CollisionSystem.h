@@ -1,6 +1,7 @@
 #pragma once
 #include "../ecs/System.h"
 
+class Transform;
 
 class CollisionSystem : public ecs::System {
 public:
@@ -13,6 +14,9 @@ public:
     void update() override;
 
     void recieve(const Message&) override;
+
+    void fruitCollision(ecs::entity_t pacman);
+    void ghostCollision(ecs::entity_t pacman);
 
 private:
 

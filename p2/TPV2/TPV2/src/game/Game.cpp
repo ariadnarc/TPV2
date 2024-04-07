@@ -61,13 +61,13 @@ void Game::init() {
 	ghostSystem = mngr_->addSystem<GhostSystem>();
 	foodSystem = mngr_->addSystem<FoodSystem>();
 	//immunitySystem = mngr_->addSystem<ImmunitySystem>();
-	//collisionsSystem = mngr_->addSystem<CollisionsSystem>();
+	collisionSystem = mngr_->addSystem<CollisionSystem>();
 	renderSystem = mngr_->addSystem<RenderSystem>();
 
 	//gamestates
 	newgameState = new NewGameState();
 	newroundState = new NewRoundState();
-	runningState = new RunningState(pacManSystem, ghostSystem, foodSystem, immunitySystem, collisionsSystem, renderSystem);
+	runningState = new RunningState(pacManSystem, ghostSystem, foodSystem, immunitySystem, collisionSystem, renderSystem);
 
 	currentState = runningState;
 	currentState->enter();
