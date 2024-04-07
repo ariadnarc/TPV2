@@ -38,6 +38,7 @@
     <ClInclude Include="src\game\GameObject.h" />
     <ClInclude Include="src\game\GameState.h" />
     <ClInclude Include="src\game\InputComponent.h" />
+    <ClInclude Include="src\game\messages_defs.h" />
     <ClInclude Include="src\game\NewGameState.h" />
     <ClInclude Include="src\game\NewRoundState.h" />
     <ClInclude Include="src\game\RenderComponent.h" />

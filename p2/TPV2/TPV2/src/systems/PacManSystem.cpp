@@ -22,6 +22,27 @@ void PacManSystem::initSystem() {
 	// create the PacMan entity
 	//
 	auto pacman = mngr_->addEntity();
+	float healthImageScale = 0.35;
+
+	int fils = 8;
+	int cols = 8;
+
+	int pacmanWidth = 40;
+	int pacmanHeight = 40;
+
+	//aniadir componentes
+	auto trasnformCmp = mngr_->addComponent<Transform>(pacMan);
+	auto imgF_Cmp = mngr_->addComponent<ImageWithFrames>(pacMan, "spriteSheet", fils, cols);
+	//auto healthCmp = mngr_->addComponent<Health>(pacMan, "heart", healthImageScale);
+
+	//healthCmp->setLifes(3);
+
+	trasnformCmp->setHeight(pacmanHeight);
+	trasnformCmp->setWidth(pacmanWidth);
+
+	trasnformCmp->getPos().set((sdlutils().width() - pacmanWidth) / 2,
+		(sdlutils().height() - pacmanHeight) / 2);
+	/*
 	mngr_->setHandler(ecs::hdlr::PACMAN, pacman);
 
 	pmTR_ = mngr_->addComponent<Transform>(pacman);
@@ -32,7 +53,9 @@ void PacManSystem::initSystem() {
 
 	mngr_->addComponent<ImageWithFrames>(pacman, &sdlutils().images().at("pacman"), 8, 8, 0, 0, 1024/8, 1024/8, 0, 0, 1, 4);
 	//mngr_->addComponent<Image>(pacman, &sdlutils().images().at("pacman"));
+	*/
 }
+
 
 void PacManSystem::update() {
 
@@ -102,10 +125,30 @@ void PacManSystem::update() {
 		pmTR_->vel_.set(0.0f, 0.0f);
 	}
 
+	auto imgF_Cmp = mngr_->getComponent<ImageWithFrames>(pacMan);
+
+
+
+	if ((imgF_Cmp->lastFrame + imgF_Cmp->frameTime) < sdlutils().virtualTimer().currTime()) {
+
+		imgF_Cmp->lastFrame = sdlutils().virtualTimer().currTime();
+		imgF_Cmp->currentFrame++;
+		if (imgF_Cmp->currentFrame > imgF_Cmp->lastIndex) {
+			imgF_Cmp->currentFrame = imgF_Cmp->firstIndex;
+		}
+	}
 }
 
-void PacManSystem::recieve(const Message&)
+void PacManSystem::recieve(const Message& msg)
 {
+	if (msg.id == _m_ROUND_START) {
+		//nueva ronda, resetear posicion
+
+	}
+	else if (msg.id == _m_NEW_GAME) {
+		//nueva partida resetear vidas
+
+	}
 }
 
 void PacManSystem::resetPos()

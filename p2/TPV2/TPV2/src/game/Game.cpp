@@ -52,9 +52,11 @@ void Game::init() {
 
 	// initialise the SDLUtils singleton
 	SDLUtils::init("ASTEROIDS", 800, 600,
-		"resources/config/resources.json");
+		"resources/config/pacman.resources.json");
+
 
 	//systems
+
 	pacManSystem = mngr_->addSystem<PacManSystem>();
 	//ghostSystem = mngr_->addSystem<GhostSystem>();
 	//foodSystem = mngr_->addSystem<FoodSystem>();
