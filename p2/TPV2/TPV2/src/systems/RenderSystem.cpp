@@ -25,7 +25,6 @@ void RenderSystem::initSystem() {
 void RenderSystem::update() {
 	//drawFruits();
 	drawPacMan();
-	std::cout << "a" << std::endl;
 }
 
 

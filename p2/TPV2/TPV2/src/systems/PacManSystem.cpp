@@ -40,22 +40,20 @@ void PacManSystem::update() {
 
 	if (ihldr.keyDownEvent()) {
 
-		if (ihldr.isKeyDown(SDL_SCANCODE_RIGHT) && !right) { // rotate right
+		if (ihldr.isKeyDown(SDL_SCANCODE_RIGHT)) { // rotate right
 			pmTR_->rot_ += 90;
 
 			// also rotate the PacMan so it looks in the same
 			// direction where it moves
 			pmTR_->getVel() = pmTR_->getVel().rotate(90);
-			right = true;
 		}
-		else if (ihldr.isKeyDown(SDL_SCANCODE_LEFT) && !left) { // rotate left
+		else if (ihldr.isKeyDown(SDL_SCANCODE_LEFT)) { // rotate left
 
 			pmTR_->rot_ -= 90;
 			// also rotate the PacMan so it looks in the same
 			// direction where it moves
 
 			pmTR_->getVel() = pmTR_->getVel().rotate(-90);
-			left = true;
 		}
 		else if (ihldr.isKeyDown(SDL_SCANCODE_UP)) { // increase speed
 
@@ -68,16 +66,6 @@ void PacManSystem::update() {
 			// si pulsas downarrow se deja de mover
 			pmTR_->getVel().set(0, 0);
 		}
-
-
-		if (ih().isKeyUp(SDL_SCANCODE_RIGHT)) {
-			right = false;
-		}
-		if (ih().isKeyUp(SDL_SCANCODE_LEFT)) {
-			left = false;
-		}
-
-
 	}
 
 	// move the pacman
