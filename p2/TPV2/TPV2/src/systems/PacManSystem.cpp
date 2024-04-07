@@ -77,7 +77,6 @@ void PacManSystem::update() {
 			left = false;
 		}
 
-
 	}
 
 	// move the pacman
@@ -111,8 +110,17 @@ void PacManSystem::recieve(const Message&)
 
 void PacManSystem::resetPos()
 {
+	auto pmTR_ = mngr_->getComponent<Transform>(pacMan);
+
+	pmTR_->getPos().set((sdlutils().width() - pacmanWidth) / 2,
+		(sdlutils().height() - pacmanHeight) / 2);
+
+	//resetea la velocidad y la rotacion
+	pmTR_->vel_.set(0, 0);
+	pmTR_->rot_ = 0;
 }
 
 void PacManSystem::resetLifes()
 {
+	//esto pa cuando tengamos el health component
 }
