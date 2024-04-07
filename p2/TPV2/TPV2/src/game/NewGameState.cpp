@@ -6,7 +6,7 @@
 
 NewGameState::NewGameState()
 {
-
+	
 }
 
 NewGameState::~NewGameState()
@@ -25,9 +25,11 @@ void NewGameState::update()
 
 void NewGameState::enter()
 {
-
+	//pausa el tiempo
+	sdlutils().virtualTimer().pause();
 }
 
 void NewGameState::leave()
 {
+	sdlutils().virtualTimer().resume(); //reanuda el tiempo
 }

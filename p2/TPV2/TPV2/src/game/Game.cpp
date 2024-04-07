@@ -69,7 +69,7 @@ void Game::init() {
 	newroundState = new NewRoundState();
 	runningState = new RunningState(pacManSystem, ghostSystem, foodSystem, immunitySystem, collisionSystem, renderSystem);
 
-	currentState = runningState;
+	currentState = newgameState;
 	currentState->enter();
 
 }
