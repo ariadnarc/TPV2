@@ -292,7 +292,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="resources\config\resources.json">
+    <None Include="resources\config\pacman.resources.json">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
