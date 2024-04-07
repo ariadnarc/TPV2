@@ -24,10 +24,6 @@
       "file": "resources/images/heart.png"
     },
     {
-      "id": "heart",
-      "file": "resources/images/heart.png"
-    },
-    {
       "id": "spriteSheet",
       "file": "resources/images/pacman_sprites.png"
     }
