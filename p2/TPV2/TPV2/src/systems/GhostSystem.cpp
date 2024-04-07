@@ -49,7 +49,28 @@ void GhostSystem::update()
 		}
 		//actualizamos pos del fantasma
 		ghostTr->pos_ = ghostTr->pos_ + ghostTr->vel_;
+
+		// check left/right borders
+		if (ghostTr->pos_.getX() < 0) {
+			ghostTr->pos_.setX(0.0f);
+			ghostTr->vel_.set(0.0f, 0.0f);
+		}
+		else if (ghostTr->pos_.getX() + ghostTr->width_ > sdlutils().width()) {
+			ghostTr->pos_.setX(sdlutils().width() - ghostTr->width_);
+			ghostTr->vel_.set(0.0f, 0.0f);
+		}
+
+		// check upper/lower borders
+		if (ghostTr->pos_.getY() < 0) {
+			ghostTr->pos_.setY(0.0f);
+			ghostTr->vel_.set(0.0f, 0.0f);
+		}
+		else if (ghostTr->pos_.getY() + ghostTr->height_ > sdlutils().height()) {
+			ghostTr->pos_.setY(sdlutils().height() - ghostTr->height_);
+			ghostTr->vel_.set(0.0f, 0.0f);
+		}
 	}
+
 }
 
 void GhostSystem::recieve(const Message&)
