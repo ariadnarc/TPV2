@@ -28,17 +28,21 @@ RunningState::~RunningState()
 
 void RunningState::update()
 {
-	auto mngr = Game::instance()->getMngr();
+	// move to pause if P pressed
+	if (ih().keyDownEvent() && ih().isKeyDown(SDL_SCANCODE_P)) {
+		Game::instance()->setState(Game::PAUSED);
 
-	//aqui lo de pausa immunidad y eso
 
-	// aqui llamar al update de todos los sistemas
+		return;
+	}
+
+	// se actualizan los sistemas
 	pacManSystem->update();
-	foodSystem->update();
-	ghostSystem->update();
-	renderSystem->update();
-
 	collisionSystem->update();
+	ghostSystem->update();
+	foodSystem->update();
+	//immunitySystem->update();
+	renderSystem->update();
 }
 
 
