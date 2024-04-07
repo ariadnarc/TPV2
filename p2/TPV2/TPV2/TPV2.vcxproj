@@ -99,7 +99,7 @@
     <ClCompile Include="src\utils\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="resources\config\sdlutilsdemo.resources.json" />
+    <None Include="resources\config\resources.json" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -289,7 +289,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="resources\config\sdlutilsdemo.resources.json">
+    <None Include="resources\config\resources.json">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
