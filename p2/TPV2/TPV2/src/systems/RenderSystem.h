@@ -22,6 +22,6 @@ public:
 private:
 
 	void drawPacMan();
-	
+	void drawFruits();
 	//ari el draw es inutil lo he quitao
 };

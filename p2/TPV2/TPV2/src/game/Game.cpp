@@ -59,7 +59,7 @@ void Game::init() {
 
 	pacManSystem = mngr_->addSystem<PacManSystem>();
 	//ghostSystem = mngr_->addSystem<GhostSystem>();
-	//foodSystem = mngr_->addSystem<FoodSystem>();
+	foodSystem = mngr_->addSystem<FoodSystem>();
 	//immunitySystem = mngr_->addSystem<ImmunitySystem>();
 	//collisionsSystem = mngr_->addSystem<CollisionsSystem>();
 	renderSystem = mngr_->addSystem<RenderSystem>();

@@ -23,7 +23,7 @@ void RenderSystem::initSystem() {
 }
 
 void RenderSystem::update() {
-	//drawFruits();
+	drawFruits();
 	drawPacMan();
 }
 
@@ -31,5 +31,13 @@ void RenderSystem::update() {
 void RenderSystem::drawPacMan() {
 	auto e = mngr_->getHandler(ecs::hdlr::PACMAN);
 	mngr_->getComponent<ImageWithFrames>(e)->render();
+}
+
+void RenderSystem::drawFruits() {
+	auto fruitGroup = mngr_->getEntities(ecs::grp::FRUITS);
+	//por cada elemento en fruitGroup se hace el render
+	for (auto & elem : fruitGroup) {
+		mngr_->getComponent<ImageWithFrames>(elem)->render();
+	}
 }
 

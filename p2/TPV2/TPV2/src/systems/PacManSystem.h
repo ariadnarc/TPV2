@@ -21,11 +21,7 @@ public:
 private:
     Transform* pmTR_;
 
-    ecs::entity_t pacMan;
-
     //----DATOS DEL PACMAN  
-    int pacmanWidth = 40;
-    int pacmanHeight = 40;
     float speed = 3.0f;
 
     void resetPos();

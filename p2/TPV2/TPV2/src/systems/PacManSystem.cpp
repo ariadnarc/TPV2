@@ -31,7 +31,6 @@ void PacManSystem::initSystem() {
 	pmTR_->init(Vector2D(x, y), Vector2D(), s, s, 0.0f);
 
 	mngr_->addComponent<ImageWithFrames>(pacman, &sdlutils().images().at("spriteSheet"), 8, 8, 0, 0, 1024 / 8, 1024 / 8, 0, 0, 1, 4);
-	//mngr_->addComponent<Image>(pacman, &sdlutils().images().at("pacman"));
 }
 
 void PacManSystem::update() {
