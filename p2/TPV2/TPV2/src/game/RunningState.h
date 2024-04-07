@@ -7,7 +7,7 @@ class PacManSystem;
 class GhostSystem;
 class FoodSystem;
 class ImmunitySystem;
-class CollisionsSystem;
+class CollisionSystem;
 class RenderSystem;
 
 
@@ -18,7 +18,7 @@ class RunningState :
 public:
 
 	RunningState(PacManSystem*, GhostSystem*, FoodSystem*,
-		ImmunitySystem*, CollisionsSystem*, RenderSystem*);
+		ImmunitySystem*, CollisionSystem*, RenderSystem*);
 	~RunningState();
 
 	void update() override;
@@ -32,6 +32,6 @@ private:
 	GhostSystem* ghostSystem;
 	FoodSystem* foodSystem;
 	ImmunitySystem* immunitySystem;
-	CollisionsSystem* collisionsSystem;
+	CollisionSystem* collisionSystem;
 	RenderSystem* renderSystem;
 };

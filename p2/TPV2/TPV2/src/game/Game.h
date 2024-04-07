@@ -16,7 +16,7 @@ class PacManSystem;
 class GhostSystem;
 class FoodSystem;
 class ImmunitySystem;
-class CollisionsSystem;
+class CollisionSystem;
 class RenderSystem;
 
 
@@ -81,7 +81,7 @@ private:
 	GhostSystem* ghostSystem;
 	FoodSystem* foodSystem;
 	ImmunitySystem* immunitySystem;
-	CollisionsSystem* collisionsSystem;
+	CollisionSystem* collisionSystem;
 	RenderSystem* renderSystem;
 
 };
