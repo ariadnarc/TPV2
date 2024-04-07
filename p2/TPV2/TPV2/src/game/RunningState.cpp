@@ -34,6 +34,7 @@ void RunningState::update()
 
 	// aqui llamar al update de todos los sistemas
 	pacManSystem->update();
+	renderSystem->update();
 }
 
 

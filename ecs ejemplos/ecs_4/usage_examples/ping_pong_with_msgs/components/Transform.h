@@ -5,8 +5,7 @@
 #include "../utils/Vector2D.h"
 #include <cassert>
 
-class Transform: public ecs::Component {
-public:
+struct Transform: ecs::Component {
 
 	__CMPID_DECL__(ecs::cmp::TRANSFORM)
 
@@ -29,38 +28,7 @@ public:
 		rot_ = r;
 	}
 
-	Vector2D& getPos() {
-		return pos_;
-	}
-	Vector2D& getVel() {
-		return vel_;
-	}
-
-	float getWidth() {
-		return width_;
-	}
-
-	void setWidth(float w) {
-		width_ = w;
-	}
-
-	float getHeight() {
-		return height_;
-	}
-
-	void setHeight(float h) {
-		height_ = h;
-	}
-
-	float getRot() {
-		return rot_;
-	}
-
-	void setRot(float r) {
-		rot_ = r;
-	}
-
-	void update() override {
+	void move() {
 		pos_ = pos_ + vel_;
 	}
 

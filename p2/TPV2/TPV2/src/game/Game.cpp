@@ -60,15 +60,15 @@ void Game::init() {
 	//foodSystem = mngr_->addSystem<FoodSystem>();
 	//immunitySystem = mngr_->addSystem<ImmunitySystem>();
 	//collisionsSystem = mngr_->addSystem<CollisionsSystem>();
-	//renderSystem = mngr_->addSystem<RenderSystem>();
+	renderSystem = mngr_->addSystem<RenderSystem>();
 
 	//gamestates
 	newgameState = new NewGameState();
 	newroundState = new NewRoundState();
 	runningState = new RunningState(pacManSystem, ghostSystem, foodSystem, immunitySystem, collisionsSystem, renderSystem);
 
-	currentState = newgameState;
-	newgameState->enter();
+	currentState = runningState;
+	currentState->enter();
 
 }
 
