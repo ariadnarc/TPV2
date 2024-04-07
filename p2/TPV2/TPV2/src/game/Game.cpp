@@ -51,14 +51,14 @@ Game::~Game() {
 void Game::init() {
 
 	// initialise the SDLUtils singleton
-	SDLUtils::init("ASTEROIDS", 800, 600,
+	SDLUtils::init("PACOMAN", 800, 600,
 		"resources/config/pacman.resources.json");
 
 
 	//systems
 
 	pacManSystem = mngr_->addSystem<PacManSystem>();
-	//ghostSystem = mngr_->addSystem<GhostSystem>();
+	ghostSystem = mngr_->addSystem<GhostSystem>();
 	foodSystem = mngr_->addSystem<FoodSystem>();
 	//immunitySystem = mngr_->addSystem<ImmunitySystem>();
 	//collisionsSystem = mngr_->addSystem<CollisionsSystem>();

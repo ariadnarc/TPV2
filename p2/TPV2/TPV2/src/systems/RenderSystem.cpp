@@ -25,6 +25,7 @@ void RenderSystem::initSystem() {
 void RenderSystem::update() {
 	drawFruits();
 	drawPacMan();
+	drawGhosts();
 }
 
 
@@ -37,6 +38,15 @@ void RenderSystem::drawFruits() {
 	auto fruitGroup = mngr_->getEntities(ecs::grp::FRUITS);
 	//por cada elemento en fruitGroup se hace el render
 	for (auto & elem : fruitGroup) {
+		mngr_->getComponent<ImageWithFrames>(elem)->render();
+	}
+}
+
+void RenderSystem::drawGhosts()
+{
+	auto ghostGroup = mngr_->getEntities(ecs::grp::GHOSTS);
+	//por cada elemento en ghost se hace el render
+	for (auto& elem : ghostGroup) {
 		mngr_->getComponent<ImageWithFrames>(elem)->render();
 	}
 }

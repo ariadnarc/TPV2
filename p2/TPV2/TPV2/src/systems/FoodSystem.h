@@ -24,4 +24,6 @@ private:
     int FRUITCOLS = 8;
     int FRUITROWS = 6;
 
+    float offset = 25;
+
 };

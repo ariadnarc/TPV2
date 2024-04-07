@@ -23,5 +23,6 @@ private:
 
 	void drawPacMan();
 	void drawFruits();
+	void drawGhosts();
 	//ari el draw es inutil lo he quitao
 };

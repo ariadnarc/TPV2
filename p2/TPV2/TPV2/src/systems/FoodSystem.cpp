@@ -43,8 +43,8 @@ void FoodSystem::createGrid()
 	{
 		for (int j = 0; j < FRUITROWS; j++) 
 		{
-			addFood(Vector2D(sdlutils().width() / FRUITCOLS * i + 25,
-							sdlutils().height() / FRUITROWS * j + 25));
+			addFood(Vector2D(sdlutils().width() / FRUITCOLS * i + offset,
+							sdlutils().height() / FRUITROWS * j + offset));
 		}
 	}
 }
