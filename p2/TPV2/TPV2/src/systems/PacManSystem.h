@@ -26,6 +26,8 @@ private:
     int pacmanWidth = 40;
     int pacmanHeight = 40;
     float speed = 3.0f;
+    bool right = false;
+    bool left = false;
 
     void resetPos();
     void resetLifes();
