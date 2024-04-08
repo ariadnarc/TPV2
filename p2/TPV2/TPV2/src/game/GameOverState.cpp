@@ -25,6 +25,9 @@ void GameOverState::update()
 
 }
 
+void GameOverState::enter()
+{
+}
 void GameOverState::leave()
 {
 	// reanuda el tiempo al salir del estado
