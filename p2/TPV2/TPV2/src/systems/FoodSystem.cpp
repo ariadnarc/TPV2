@@ -26,6 +26,16 @@ void FoodSystem::initSystem()
 
 void FoodSystem::update()
 {
+	std::vector<ecs::entity_t> fruits = mngr_->getEntities(ecs::grp::FRUITS);
+	if (fruits.size() <= 0) {
+		Message msg;
+		msg.id = _m_GAME_OVER;
+		mngr_->send(msg);
+
+		// Sonido victoria
+		sdlutils().soundEffects().at("won").play();
+	}
+
 	for (auto& e : mngr_->getEntities(ecs::grp::FRUITS)) {
 		auto mf = mngr_->getComponent<MiracleFruit>(e);
 		if (mf != nullptr) {

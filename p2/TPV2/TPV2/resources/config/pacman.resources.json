@@ -88,10 +88,6 @@
       "file": "resources/sound/pacman_eat.wav"
     },
     {
-      "id": "eat",
-      "file": "resources/sound/pacman_eat.wav"
-    },
-    {
       "id": "intro",
       "file": "resources/sound/pacman_intro.wav"
     },

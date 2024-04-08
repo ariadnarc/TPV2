@@ -78,16 +78,19 @@ void GhostSystem::recieve(const Message& msg)
 	switch (msg.id)
 	{
 	case _m_PACMAN_GHOST_COLLISION:
-		if (mngr_->getComponent<HealthComponent>(mngr_->getHandler(ecs::hdlr::PACMAN))->getLifes() >= 0)
-		{
-			deleteGhosts();
-		}
+		if (msg.ghost_collision_data.immune)
+			mngr_->setAlive(msg.ghost_collision_data.ghostToDelete, false);
+		break;
 	case _m_IMMUNITY_START:
 		setVulnerable(true);
 		break;
 	case _m_IMMUNITY_END:
 		setVulnerable(false);
 		break;
+	case _m_ROUND_START:
+		lastTimeGenerated = sdlutils().virtualTimer().currTime();
+		break;
+	case _m_ROUND_OVER:
 	case _m_GAME_OVER:
 		deleteGhosts();
 		break;

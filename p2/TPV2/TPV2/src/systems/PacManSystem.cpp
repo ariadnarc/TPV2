@@ -108,10 +108,19 @@ void PacManSystem::recieve(const Message& msg)
 			msg.id = _m_GAME_OVER;
 			mngr_->send(msg);
 		}
-		else 
+		else if (!msg.ghost_collision_data.immune) 
 		{
 			health->setLifes(health->getLifes() - 1);
+			Message msg;
+			msg.id = _m_ROUND_OVER;
+			mngr_->send(msg);
 		}
+		else
+		{
+			health->setLifes(health->getLifes() - 1);
+			resetPos();
+		}
+		break;
 	case _m_ROUND_START:
 		resetPos();
 	default:
