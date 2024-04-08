@@ -20,7 +20,8 @@ void ImmunitySystem::initSystem()
 
 void ImmunitySystem::update()
 {
-	if (invulnerability_ && sdlutils().currRealTime() >= currentTime + invulnerabilityTime_) {
+	if (invulnerability_ && sdlutils().currRealTime() >= currentTime + invulnerabilityTime_)
+	{
 		invulnerability_ = false;
 		Message msg;
 		msg.id = _m_IMMUNITY_END;
@@ -35,6 +36,7 @@ void ImmunitySystem::recieve(const Message& msg)
 	case _m_IMMUNITY_START:
 		invulnerability_ = true;
 		currentTime = sdlutils().currRealTime();
+		break;
 	default:
 		break;
 	}

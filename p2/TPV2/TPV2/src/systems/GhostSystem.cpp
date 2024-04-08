@@ -75,13 +75,23 @@ void GhostSystem::update()
 
 void GhostSystem::recieve(const Message& msg)
 {
-	switch (msg.id) {
+	switch (msg.id)
+	{
 	case _m_PACMAN_GHOST_COLLISION:
-		auto health = mngr_->getComponent<HealthComponent>(mngr_->getHandler(ecs::hdlr::PACMAN));
-		if (health->getLifes() >= 0)
+		if (mngr_->getComponent<HealthComponent>(mngr_->getHandler(ecs::hdlr::PACMAN))->getLifes() >= 0)
 		{
 			deleteGhosts();
 		}
+	case _m_IMMUNITY_START:
+		setVulnerable(true);
+		break;
+	case _m_IMMUNITY_END:
+		setVulnerable(false);
+		break;
+	case _m_GAME_OVER:
+		deleteGhosts();
+		break;
+	default:
 		break;
 	}
 }
@@ -116,4 +126,22 @@ void GhostSystem::deleteGhosts()
 {
 	for (auto& e : mngr_->getEntities(ecs::grp::GHOSTS))
 		mngr_->setAlive(e, false);
+}
+
+void GhostSystem::setVulnerable(bool b)
+{
+	switch (b)
+	{
+	case true:
+		for (auto& e : mngr_->getEntities(ecs::grp::GHOSTS)) {
+			mngr_->getComponent<ImageWithFrames>(e)->setImage(6, 3, 2, 1);
+		}
+		break;
+	case false:
+		for (auto& e : mngr_->getEntities(ecs::grp::GHOSTS)) {
+			mngr_->getComponent<ImageWithFrames>(e)->setImage(0, 4, 8, 1);
+		}
+	default:
+		break;
+	}
 }

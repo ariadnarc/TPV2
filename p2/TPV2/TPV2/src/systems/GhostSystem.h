@@ -18,6 +18,8 @@ public:
     void addGhost();
     void deleteGhosts();
 
+    void setVulnerable(bool b);
+
 private:
     int esquina;
 

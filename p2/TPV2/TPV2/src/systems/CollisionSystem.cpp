@@ -2,6 +2,7 @@
 #include "../components/Transform.h"
 #include "../utils/Collisions.h"
 #include "../ecs/Manager.h"
+#include "../components/MiracleFruit.h"
 
 CollisionSystem::CollisionSystem()
 {
@@ -42,7 +43,7 @@ void CollisionSystem::fruitCollision(ecs::entity_t pm)
 		{
 			Message msg;
 			msg.id = _m_PACMAN_FOOD_COLLISION;
-			msg.fruit_collision_data.isMilagrosa = false;
+			msg.fruit_collision_data.isMilagrosa = mngr_->hasComponent<MiracleFruit>(fruitGr[i]);
 			msg.fruit_collision_data.fruitToDelete = fruitGr[i];
 			//tododododo
 			mngr_->send(msg);
@@ -66,8 +67,17 @@ void CollisionSystem::ghostCollision(ecs::entity_t pm)
 			Message msg;
 			msg.id = _m_PACMAN_GHOST_COLLISION;
 			msg.ghost_collision_data.ghostToDelete = ghostGr[i];
-			//tododododo
+	
 			mngr_->send(msg);
+
+			auto a = mngr_->hasComponent<MiracleFruit>(ghostGr[i]);
+			if (a) 
+			{
+				Message msg;
+				msg.id = _m_IMMUNITY_START;
+		
+				mngr_->send(msg);
+			}
 		}
 	}
 }
