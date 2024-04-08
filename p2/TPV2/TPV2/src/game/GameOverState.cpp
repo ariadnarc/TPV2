@@ -5,10 +5,6 @@
 #include "Game.h"
 #include "../ecs/Manager.h"
 
-GameOverState::GameOverState() {}
-
-GameOverState::~GameOverState() {}
-
 GameOverState::GameOverState() :
 	msg_(&sdlutils().msgs().at("GameOver"))
 {
@@ -16,6 +12,9 @@ GameOverState::GameOverState() :
 	float y = (sdlutils().height() - msg_->height()) / 2;
 	dest_ = build_sdlrect(x, y, msg_->width(), msg_->height());
 }
+
+GameOverState::~GameOverState() {}
+
 
 void GameOverState::update()
 {
