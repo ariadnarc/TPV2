@@ -7,6 +7,7 @@
 #include "../components/Transform.h"
 #include "../components/Health.h"
 #include "../ecs/Manager.h"
+#include "../game/Game.h"
 #include "../sdlutils/InputHandler.h"
 #include "../sdlutils/SDLUtils.h"
 
@@ -107,13 +108,14 @@ void PacManSystem::recieve(const Message& msg)
 		if (health->getLifes() <= 0) 
 		{
 			msg.id = _m_GAME_OVER;
+			Game::instance()->setState(Game::GAMEOVER);
 		}
 		else if (!msg.ghost_collision_data.immune) 
 		{
 			health->setLifes(health->getLifes() - 1);
 			Message msg;
 			msg.id = _m_ROUND_OVER;
-			mngr_->send(msg);
+			Game::instance()->setState(Game::NEWROUND);
 		}
 		else
 		{

@@ -11,6 +11,8 @@
 
 #include "RunningState.h"
 #include "NewRoundState.h"
+#include "PauseState.h"
+#include "GameOverState.h"
 #include "NewGameState.h"
 
 #include "../systems/PacManSystem.h"
@@ -67,6 +69,8 @@ void Game::init() {
 	//gamestates
 	newgameState = new NewGameState();
 	newroundState = new NewRoundState();
+	pausedState = new PauseState();
+	gameoverState = new GameOverState();
 	runningState = new RunningState(pacManSystem, ghostSystem, foodSystem, immunitySystem, collisionSystem, renderSystem);
 
 	currentState = newgameState;
