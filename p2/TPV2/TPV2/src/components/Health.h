@@ -4,7 +4,7 @@
 
 class Texture;
 
-class HealthComponent :
+struct HealthComponent :
     public ecs::Component
 {
 public:
