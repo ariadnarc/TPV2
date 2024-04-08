@@ -46,7 +46,7 @@ void FoodSystem::recieve(const Message& msg)
 			mngr_->send(msg1);
 		}*/
 		break;
-
+		 
 	}
 }
 

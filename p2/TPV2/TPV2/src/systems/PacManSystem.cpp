@@ -68,6 +68,7 @@ void PacManSystem::update() {
 			// si pulsas downarrow se deja de mover
 			pmTR_->getVel().set(0, 0);
 		}
+		sdlutils().soundEffects().at("chomp").play();
 	}
 
 	// move the pacman

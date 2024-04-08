@@ -3,6 +3,7 @@
 #include "../utils/Collisions.h"
 #include "../ecs/Manager.h"
 #include "../components/MiracleFruit.h"
+#include "../sdlutils/SDLUtils.h"
 
 CollisionSystem::CollisionSystem()
 {
@@ -32,7 +33,6 @@ void CollisionSystem::fruitCollision(ecs::entity_t pm)
 {
 	auto pmTr = mngr_->getComponent<Transform>(pm);
 	auto fruitGr = mngr_->getEntities(ecs::grp::FRUITS);
-
 	for (int i = 0; i < fruitGr.size(); i++)
 	{
 		auto frTR = mngr_->getComponent<Transform>(fruitGr[i]);
@@ -41,6 +41,8 @@ void CollisionSystem::fruitCollision(ecs::entity_t pm)
 		if (Collisions::collides(pmTr->pos_, pmTr->getWidth(), pmTr->getHeight(),
 			frTR->pos_, frTR->getWidth(), frTR->getHeight())) 
 		{
+
+			sdlutils().soundEffects().at("eat").play();
 			Message msg;
 			msg.id = _m_PACMAN_FOOD_COLLISION;
 			msg.fruit_collision_data.isMilagrosa = mngr_->hasComponent<MiracleFruit>(fruitGr[i]);
