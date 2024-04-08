@@ -15,4 +15,6 @@ public:
 	void update() override;
 
 private:
+	Texture* msg_;
+	SDL_Rect dest_;
 };

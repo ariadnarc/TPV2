@@ -1,12 +1,17 @@
 #include "PauseState.h"
 
-#include "../sdlutils/InputHandler.h"
 #include "../sdlutils/SDLUtils.h"
+#include "../ecs/messages.h"
+#include "../sdlutils/InputHandler.h"
 #include "Game.h"
+#include "../ecs/Manager.h"
 
-PauseState::PauseState()
+PauseState::PauseState() :
+	msg_(&sdlutils().msgs().at("Pause"))
 {
-	
+	float x = (sdlutils().width() - msg_->width()) / 2;
+	float y = (sdlutils().height() - msg_->height()) / 2;
+	dest_ = build_sdlrect(x, y, msg_->width(), msg_->height());
 }
 
 PauseState::~PauseState() {}
@@ -16,7 +21,6 @@ void PauseState::enter()
 	// pausa el tiempo al entrar al estado
 	sdlutils().virtualTimer().pause();
 
-	//sdlutils().soundEffects().at("chomp").pauseChannel();
 
 }
 

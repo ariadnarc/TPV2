@@ -13,4 +13,6 @@ public:
 	void leave() override;
 
 private:
+	Texture* msg_;
+	SDL_Rect dest_;
 };
