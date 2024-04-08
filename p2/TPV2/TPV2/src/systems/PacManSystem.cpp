@@ -103,7 +103,7 @@ void PacManSystem::recieve(const Message& msg)
 	switch (msg.id)
 	{
 	case _m_PACMAN_GHOST_COLLISION:
-		health->setLifes(health->getLifes() - 1);
+		//health->setLifes(health->getLifes() - 1);
 
 		if (health->getLifes() <= 0) 
 		{
@@ -119,11 +119,11 @@ void PacManSystem::recieve(const Message& msg)
 			msg.id = _m_ROUND_OVER;
 			Game::instance()->setState(Game::NEWROUND);
 		}
-		else
-		{
-			health->setLifes(health->getLifes() - 1);
-			resetPos();
-		}
+	//	else
+	//	{
+	//		health->setLifes(health->getLifes() - 1);
+	//		resetPos();
+	//	}
 		break;
 	case _m_ROUND_START:
 		resetPos();

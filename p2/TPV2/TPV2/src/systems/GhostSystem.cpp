@@ -132,6 +132,7 @@ void GhostSystem::deleteGhosts()
 
 void GhostSystem::setVulnerable(bool b)
 {
+	pcImmune = b;
 	switch (b)
 	{
 	case true:
