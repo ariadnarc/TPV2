@@ -104,15 +104,17 @@ void PacManSystem::recieve(const Message& msg)
 	{
 	case _m_PACMAN_GHOST_COLLISION:
 		health->setLifes(health->getLifes() - 1);
-		Message msg;
+
 		if (health->getLifes() <= 0) 
 		{
+			Message msg;
 			msg.id = _m_GAME_OVER;
 			Game::instance()->setState(Game::GAMEOVER);
 		}
 		else if (!msg.ghost_collision_data.immune) 
 		{
 			health->setLifes(health->getLifes() - 1);
+
 			Message msg;
 			msg.id = _m_ROUND_OVER;
 			Game::instance()->setState(Game::NEWROUND);
