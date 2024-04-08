@@ -3,6 +3,7 @@
 #include "../sdlutils/SDLUtils.h"
 #include "../components/ImageWithFrames.h"
 #include "../components/Transform.h"
+#include "../components/Health.h"
 
 GhostSystem::GhostSystem()
 {
@@ -27,7 +28,6 @@ void GhostSystem::update()
 		lastTimeGenerated = sdlutils().virtualTimer().currTime();
 		addGhost();
 	}
-
 
 
 	//MOVIMIENTO
@@ -77,7 +77,11 @@ void GhostSystem::recieve(const Message& msg)
 {
 	switch (msg.id) {
 	case _m_PACMAN_GHOST_COLLISION:
-		
+		auto health = mngr_->getComponent<HealthComponent>(mngr_->getHandler(ecs::hdlr::PACMAN));
+		if (health->getLifes() >= 0)
+		{
+			deleteGhosts();
+		}
 		break;
 	}
 }
@@ -106,4 +110,10 @@ void GhostSystem::addGhost()
 	mngr_->addComponent<Transform>(ghost, pos, Vector2D(0, 0), 50, 50, 0); //pos_(), vel_(), width_(), height_(), rot_()
 	mngr_->addComponent<ImageWithFrames>(ghost, &sdlutils().images().at("spriteSheet"), 8, 8, 0, 0, 128, 128, 4, 0, 1, 8);
 	
+}
+
+void GhostSystem::deleteGhosts()
+{
+	for (auto& e : mngr_->getEntities(ecs::grp::GHOSTS))
+		mngr_->setAlive(e, false);
 }

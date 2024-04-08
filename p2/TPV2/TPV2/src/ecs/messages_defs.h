@@ -7,7 +7,7 @@
 
 using msgId_t = uint8_t;
 enum msgId : msgId_t {
-	_m_NEW_GAMEDD,
+	_m_NEW_GAME,
 	_m_ROUND_START,
 	_m_ROUND_OVER,
 	_m_GAME_OVER,

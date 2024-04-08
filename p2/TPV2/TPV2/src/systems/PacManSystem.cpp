@@ -125,7 +125,3 @@ void PacManSystem::resetPos()
 	auto y = (sdlutils().height() - s) / 2.0f;
 	pmTR_->init(Vector2D(x, y), Vector2D(), s, s, 0.0f);
 }
-
-void PacManSystem::resetLifes()
-{
-}

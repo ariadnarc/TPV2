@@ -16,6 +16,7 @@ public:
     void recieve(const Message&) override;
 
     void addGhost();
+    void deleteGhosts();
 
 private:
     int esquina;

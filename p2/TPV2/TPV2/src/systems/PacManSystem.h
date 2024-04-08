@@ -25,6 +25,4 @@ private:
     float speed = 3.0f;
 
     void resetPos();
-    void resetLifes();
-
 };
