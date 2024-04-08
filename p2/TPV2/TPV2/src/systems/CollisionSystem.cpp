@@ -40,7 +40,12 @@ void CollisionSystem::fruitCollision(ecs::entity_t pm)
 		if (Collisions::collides(pmTr->pos_, pmTr->getWidth(), pmTr->getHeight(),
 			frTR->pos_, frTR->getWidth(), frTR->getHeight())) 
 		{
-			std::cout << "colisionFRUTA" << std::endl;
+			Message msg;
+			msg.id = _m_PACMAN_FOOD_COLLISION;
+			msg.fruit_collision_data.isMilagrosa = false;
+			msg.fruit_collision_data.fruitToDelete = fruitGr[i];
+			//tododododo
+			mngr_->send(msg);
 		}
 	}
 }
@@ -59,6 +64,11 @@ void CollisionSystem::ghostCollision(ecs::entity_t pm)
 			frTR->pos_, frTR->getWidth(), frTR->getHeight()))
 		{
 			std::cout << "collisionGHOST" << std::endl;
+			Message msg;
+			msg.id = _m_PACMAN_GHOST_COLLISION;
+			msg.fruit_collision_data.fruitToDelete = ghostGr[i];
+			//tododododo
+			mngr_->send(msg);
 		}
 	}
 }

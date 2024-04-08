@@ -141,7 +141,7 @@
     <ClInclude Include="src\ecs\messages.h">
       <Filter>Header Files\ecs</Filter>
     </ClInclude>
-    <ClInclude Include="src\ecs\messages_defs_example.h">
+    <ClInclude Include="src\ecs\messages_defs.h">
       <Filter>Header Files\ecs</Filter>
     </ClInclude>
     <ClInclude Include="src\ecs\System.h">
@@ -202,9 +202,6 @@
       <Filter>Header Files\game</Filter>
     </ClInclude>
     <ClInclude Include="src\game\NewGameState.h">
-      <Filter>Header Files\game</Filter>
-    </ClInclude>
-    <ClInclude Include="src\game\messages_defs.h">
       <Filter>Header Files\game</Filter>
     </ClInclude>
     <ClInclude Include="src\game\PauseState.h">
@@ -281,7 +278,7 @@
     <ClCompile Include="src\components\Transform.cpp">
       <Filter>Source Files\components</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\MIracleFruit.cpp">
+    <ClCompile Include="src\components\MiracleFruit.cpp">
       <Filter>Source Files\components</Filter>
     </ClCompile>
     <ClCompile Include="src\game\GameState.cpp">

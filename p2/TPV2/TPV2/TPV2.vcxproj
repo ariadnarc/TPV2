@@ -30,7 +30,7 @@
     <ClInclude Include="src\ecs\Entity.h" />
     <ClInclude Include="src\ecs\Manager.h" />
     <ClInclude Include="src\ecs\messages.h" />
-    <ClInclude Include="src\ecs\messages_defs_example.h" />
+    <ClInclude Include="src\ecs\messages_defs.h" />
     <ClInclude Include="src\ecs\System.h" />
     <ClInclude Include="src\game\Component.h" />
     <ClInclude Include="src\game\ecs_defs.h" />
@@ -39,7 +39,6 @@
     <ClInclude Include="src\game\GameOverState.h" />
     <ClInclude Include="src\game\GameState.h" />
     <ClInclude Include="src\game\InputComponent.h" />
-    <ClInclude Include="src\game\messages_defs.h" />
     <ClInclude Include="src\game\NewGameState.h" />
     <ClInclude Include="src\game\NewRoundState.h" />
     <ClInclude Include="src\game\PauseState.h" />
@@ -76,7 +75,7 @@
     <ClCompile Include="src\components\Health.cpp" />
     <ClCompile Include="src\components\Image.cpp" />
     <ClCompile Include="src\components\ImageWithFrames.cpp" />
-    <ClCompile Include="src\components\MIracleFruit.cpp" />
+    <ClCompile Include="src\components\MiracleFruit.cpp" />
     <ClCompile Include="src\components\Transform.cpp" />
     <ClCompile Include="src\ecs\Manager.cpp" />
     <ClCompile Include="src\game\Game.cpp" />
