@@ -43,7 +43,7 @@ void RunningState::update()
 	collisionSystem->update();
 	ghostSystem->update();
 	foodSystem->update();
-	//immunitySystem->update();
+	immunitySystem->update();
 	renderSystem->update();
 }
 

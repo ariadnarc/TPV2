@@ -69,17 +69,7 @@ void CollisionSystem::ghostCollision(ecs::entity_t pm)
 			Message msg;
 			msg.id = _m_PACMAN_GHOST_COLLISION;
 			msg.ghost_collision_data.ghostToDelete = ghostGr[i];
-	
 			mngr_->send(msg);
-
-			auto a = mngr_->hasComponent<MiracleFruit>(ghostGr[i]);
-			if (a) 
-			{
-				Message msg;
-				msg.id = _m_IMMUNITY_START;
-		
-				mngr_->send(msg);
-			}
 		}
 	}
 }

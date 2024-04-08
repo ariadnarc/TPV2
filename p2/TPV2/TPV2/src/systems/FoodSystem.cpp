@@ -40,11 +40,11 @@ void FoodSystem::recieve(const Message& msg)
 	{
 	case _m_PACMAN_FOOD_COLLISION:
 		mngr_->setAlive(msg.fruit_collision_data.fruitToDelete, false);
-		/*if (msg.fruit_collision_data.isMilagrosa && !mngr_->getSystem<ImmunitySystem>()->getInv()) {
+		if (msg.fruit_collision_data.isMilagrosa && !mngr_->getSystem<ImmunitySystem>()->getInv()) {
 			Message msg1;
 			msg1.id = _m_IMMUNITY_START;
 			mngr_->send(msg1);
-		}*/
+		}
 		break;
 		 
 	}
