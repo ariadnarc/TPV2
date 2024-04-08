@@ -1,27 +1,27 @@
 #include "Health.h"
+
+#include "../utils/Vector2D.h"
 #include "../sdlutils/Texture.h"
-#include "../sdlutils/SDLUtils.h"
 
-Health::Health(std::string name, float scale)
-	:scale(scale)
-{
-	healthTexture = &sdlutils().images().at(name);
-	offSetX = healthTexture->width() * scale;
-
-	maxLifes = 3;
-	currentLifes = maxLifes;
-}
-
-Health::~Health()
+HealthComponent::HealthComponent(Texture* tex) :
+	tex_(tex),
+	scale_(0.5),
+	offset_(tex_->width()* scale_),
+	iniX_(3),
+	iniY_(10),
+	lifes_(3)
 {
 }
 
-void Health::render()
+HealthComponent::~HealthComponent()
+{
+}
+
+void HealthComponent::render()
 {
 	Vector2D pos;
-	for (int i = 0; i < currentLifes; i++) {
-		pos.set(initialX + (offSetX * i), initialY);
-		healthTexture->render(build_sdlrect(pos, healthTexture->width() * scale, healthTexture->height() * scale));
+	for (int i = 0; i < lifes_; i++) {
+		pos.set(iniX_ + (offset_ * i), iniY_);
+		tex_->render(build_sdlrect(pos, tex_->width() * scale_, tex_->height() * scale_));
 	}
-
 }

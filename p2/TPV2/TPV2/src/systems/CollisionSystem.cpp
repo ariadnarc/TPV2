@@ -63,10 +63,9 @@ void CollisionSystem::ghostCollision(ecs::entity_t pm)
 		if (Collisions::collides(pmTr->pos_, pmTr->getWidth(), pmTr->getHeight(),
 			frTR->pos_, frTR->getWidth(), frTR->getHeight()))
 		{
-			std::cout << "collisionGHOST" << std::endl;
 			Message msg;
 			msg.id = _m_PACMAN_GHOST_COLLISION;
-			msg.fruit_collision_data.fruitToDelete = ghostGr[i];
+			msg.ghost_collision_data.ghostToDelete = ghostGr[i];
 			//tododododo
 			mngr_->send(msg);
 		}

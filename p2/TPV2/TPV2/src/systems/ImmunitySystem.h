@@ -1,19 +1,21 @@
-// This file is part of the course TPV2@UCM - Samir Genaim
-
 #pragma once
 #include "../ecs/System.h"
-
-
-class ImmunitySystem : public ecs::System {
+class ImmunitySystem :
+    public ecs::System
+{
 public:
-    __SYSID_DECL__(ecs::sys::IMMUNITY);
+    __SYSID_DECL__(ecs::sys::IMMUNITY)
 
-    ImmunitySystem();
+        ImmunitySystem();
     ~ImmunitySystem();
 
     void initSystem() override;
     void update() override;
-
     void recieve(const Message&) override;
 
+    bool getInv() { return invulnerability_; }
+private:
+    bool invulnerability_;
+    int invulnerabilityTime_;
+    int currentTime;
 };

@@ -9,6 +9,7 @@
 #include "../sdlutils/macros.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../sdlutils/Texture.h"
+#include "../components/Health.h"
 
 constexpr Uint32 FRAME_DURATION = 100;
 
@@ -26,6 +27,8 @@ void RenderSystem::update() {
 	drawFruits();
 	drawPacMan();
 	drawGhosts();
+	drawHealth();
+
 }
 
 
@@ -49,5 +52,12 @@ void RenderSystem::drawGhosts()
 	for (auto& elem : ghostGroup) {
 		mngr_->getComponent<ImageWithFrames>(elem)->render();
 	}
+}
+
+void RenderSystem::drawHealth()
+{
+	auto pacman = mngr_->getHandler(ecs::hdlr::PACMAN);
+	auto health = mngr_->getComponent<HealthComponent>(pacman);
+	health->render();
 }
 
