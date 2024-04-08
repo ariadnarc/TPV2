@@ -73,8 +73,13 @@ void GhostSystem::update()
 
 }
 
-void GhostSystem::recieve(const Message&)
+void GhostSystem::recieve(const Message& msg)
 {
+	switch (msg.id) {
+	case _m_PACMAN_GHOST_COLLISION:
+		
+		break;
+	}
 }
 
 void GhostSystem::addGhost()

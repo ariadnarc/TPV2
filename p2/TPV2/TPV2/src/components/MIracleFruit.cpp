@@ -17,15 +17,17 @@ MiracleFruit::~MiracleFruit()
 void MiracleFruit::initComponent()
 {
 	img = mngr_->getComponent<ImageWithFrames>(ent_);
-	miracleFreq = sdlutils().rand().nextInt(10000, 20000);
-	miracleTime = sdlutils().rand().nextInt(1000, 5000);
+	miracleFreq = sdlutils().rand().nextInt(10000, 20000); //tiempo que tarda en salir pera
+	miracleTime = sdlutils().rand().nextInt(1000, 5000); //tiempo que está la pera
 }
 
 void MiracleFruit::update()
 {
 	int currentTime = sdlutils().currRealTime();
-	if (milagros) {
-		if (currentTime > lastUpdate + miracleTime) {
+	if (milagros) 
+	{
+		if (currentTime > lastUpdate + miracleTime) 
+		{
 			milagros = false;
 			lastUpdate = sdlutils().currRealTime();
 			img->setImage(1, 4, 1, 1);

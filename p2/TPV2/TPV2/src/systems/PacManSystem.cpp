@@ -5,6 +5,7 @@
 #include "../components/Image.h"
 #include "../components/ImageWithFrames.h"
 #include "../components/Transform.h"
+#include "../components/Health.h"
 #include "../ecs/Manager.h"
 #include "../sdlutils/InputHandler.h"
 #include "../sdlutils/SDLUtils.h"
@@ -23,6 +24,8 @@ void PacManSystem::initSystem() {
 	//
 	auto pacman = mngr_->addEntity();
 	mngr_->setHandler(ecs::hdlr::PACMAN, pacman);
+
+	mngr_->addComponent<HealthComponent>(pacman, &sdlutils().images().at("heart"));
 
 	pmTR_ = mngr_->addComponent<Transform>(pacman);
 	auto s = 50.0f;
@@ -92,12 +95,35 @@ void PacManSystem::update() {
 
 }
 
-void PacManSystem::recieve(const Message&)
+void PacManSystem::recieve(const Message& msg)
 {
+	auto health = mngr_->getComponent<HealthComponent>(mngr_->getHandler(ecs::hdlr::PACMAN));
+	switch (msg.id)
+	{
+	case _m_PACMAN_GHOST_COLLISION:
+		if (health->getLifes() <= 0) 
+		{
+			Message msg;
+			msg.id = _m_GAME_OVER;
+			mngr_->send(msg);
+		}
+		else 
+		{
+			health->setLifes(health->getLifes() - 1);
+		}
+	case _m_ROUND_START:
+		resetPos();
+	default:
+		break;
+	}
 }
 
 void PacManSystem::resetPos()
 {
+	auto s = 50.0f;
+	auto x = (sdlutils().width() - s) / 2.0f;
+	auto y = (sdlutils().height() - s) / 2.0f;
+	pmTR_->init(Vector2D(x, y), Vector2D(), s, s, 0.0f);
 }
 
 void PacManSystem::resetLifes()
