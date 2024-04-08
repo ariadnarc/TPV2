@@ -6,7 +6,7 @@
 class Transform;
 class Texture;
 
-class Image: public ecs::Component {
+struct Image: public ecs::Component {
 public:
 
 	__CMPID_DECL__(ecs::cmp::IMAGE)
