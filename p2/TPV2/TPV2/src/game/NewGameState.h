@@ -1,5 +1,6 @@
 #pragma once
 
+#include "../ecs/Component.h"
 #include "GameState.h"
 
 class NewGameState :
@@ -14,5 +15,6 @@ public:
 	void leave() override;
 
 private:
-	
+	Texture* msg_;
+	SDL_Rect dest_;
 };

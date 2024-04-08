@@ -1,29 +1,28 @@
 #include "GameOverState.h"
-#include "../ecs/Manager.h"
-#include "../sdlutils/InputHandler.h"
 #include "../sdlutils/SDLUtils.h"
+#include "../ecs/messages.h"
+#include "../sdlutils/InputHandler.h"
 #include "Game.h"
+#include "../ecs/Manager.h"
 
 GameOverState::GameOverState() {}
 
 GameOverState::~GameOverState() {}
 
-void GameOverState::enter()
+GameOverState::GameOverState() :
+	msg_(&sdlutils().msgs().at("GameOver"))
 {
-	// pausa el tiempo al entrar al estado
-	sdlutils().virtualTimer().pause();
-
-
+	float x = (sdlutils().width() - msg_->width()) / 2;
+	float y = (sdlutils().height() - msg_->height()) / 2;
+	dest_ = build_sdlrect(x, y, msg_->width(), msg_->height());
 }
 
 void GameOverState::update()
 {
-	// si se pulsa enter pasas al estado newgame
-	if (ih().keyDownEvent() && ih().isKeyDown(SDL_SCANCODE_RETURN)) {
-
-		Game::instance()->setState(Game::NEWGAME);
-
+	if (ih().keyDownEvent()) {
+		Game::instance()->setState(Game::State::NEWGAME);
 	}
+	msg_->render(dest_);
 
 }
 

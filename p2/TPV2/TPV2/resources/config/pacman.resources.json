@@ -42,6 +42,27 @@
       "text": "Hello SDL!",
       "font": "ARIAL48",
       "color": "0x0000ffff"
+    },
+    {
+      "id": "PressEnter",
+      "text": "Press Enter",
+      "font": "ARIAL24",
+      "color": "0x112233ff",
+      "bg": "0xffffffff"
+    },
+    {
+      "id": "GameOver",
+      "text": "Congrats loser/winner, press enter",
+      "font": "ARIAL24",
+      "color": "0x112233ff",
+      "bg": "0xffffffff"
+    },
+    {
+      "id": "Pause",
+      "text": "Paused, press Enter to continue",
+      "font": "ARIAL24",
+      "color": "0x112233ff",
+      "bg": "0xffffffff"
     }
   ],
 

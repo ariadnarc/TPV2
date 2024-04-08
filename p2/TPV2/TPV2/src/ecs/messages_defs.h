@@ -13,6 +13,7 @@ enum msgId : msgId_t {
 	_m_GAME_OVER,
 	_m_PACMAN_FOOD_COLLISION,
 	_m_PACMAN_GHOST_COLLISION,
+	_m_KILL_PACMAN,
 	_m_IMMUNITY_START,
 	_m_IMMUNITY_END
 };
@@ -30,9 +31,12 @@ struct Message {
 		// _m_NEW_GAME
 		struct
 		{
-			// DATATATATATA
-		} new_game_data;
 
+		} new_game_data;
+		//
+		struct {
+			ecs::entity_t e;
+		} kill_pacman_data;
 		// _m_PACMAN_FOOD_COLLISION
 		struct
 		{
