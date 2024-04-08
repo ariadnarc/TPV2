@@ -1,4 +1,5 @@
 #include "GhostSystem.h"
+#include "ImmunitySystem.h"
 #include "../ecs/Manager.h"
 #include "../sdlutils/SDLUtils.h"
 #include "../components/ImageWithFrames.h"
@@ -23,7 +24,7 @@ void GhostSystem::update()
 
 	//GENERACION DE GHOSTS
 	if (genTime + lastTimeGenerated < sdlutils().virtualTimer().currTime() && !pcImmune &&
-		ghostGr.size() < 10)
+		ghostGr.size() < 10 && !(mngr_->getSystem<ImmunitySystem>()->getInv()))
 	{
 		lastTimeGenerated = sdlutils().virtualTimer().currTime();
 		addGhost();
@@ -70,7 +71,6 @@ void GhostSystem::update()
 			ghostTr->vel_.set(0.0f, 0.0f);
 		}
 	}
-
 }
 
 void GhostSystem::recieve(const Message& msg)
@@ -119,7 +119,6 @@ void GhostSystem::addGhost()
 	auto ghost = mngr_->addEntity(ecs::grp::GHOSTS);
 	mngr_->addComponent<Transform>(ghost, pos, Vector2D(0, 0), 50, 50, 0); //pos_(), vel_(), width_(), height_(), rot_()
 	mngr_->addComponent<ImageWithFrames>(ghost, &sdlutils().images().at("spriteSheet"), 8, 8, 0, 0, 128, 128, 4, 0, 1, 8);
-	
 }
 
 void GhostSystem::deleteGhosts()
@@ -134,7 +133,7 @@ void GhostSystem::setVulnerable(bool b)
 	{
 	case true:
 		for (auto& e : mngr_->getEntities(ecs::grp::GHOSTS)) {
-			mngr_->getComponent<ImageWithFrames>(e)->setImage(6, 3, 2, 1);
+			mngr_->getComponent<ImageWithFrames>(e)->setImage(3, 6, 1, 2);
 		}
 		break;
 	case false:
