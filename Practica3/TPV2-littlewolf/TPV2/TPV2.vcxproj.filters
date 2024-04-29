@@ -105,7 +105,13 @@
     <ClInclude Include="src\game\LittleWolf.h">
       <Filter>Header Files\game</Filter>
     </ClInclude>
-    <ClInclude Include="C:\hlocal\TPV2\Practica3\TPV2-littlewolf\TPV2\src\game\Networking.h">
+    <ClInclude Include="src\game\Networking.h">
+      <Filter>Header Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\network_messages.h">
+      <Filter>Header Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\UDPServer.h">
       <Filter>Header Files\game</Filter>
     </ClInclude>
   </ItemGroup>
@@ -149,7 +155,13 @@
     <ClCompile Include="src\game\Game.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
-    <ClCompile Include="C:\hlocal\TPV2\Practica3\TPV2-littlewolf\TPV2\src\game\Networking.cpp">
+    <ClCompile Include="src\game\Networking.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="network_messages.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="UDPServer.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
   </ItemGroup>
