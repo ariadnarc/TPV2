@@ -112,7 +112,7 @@
       <Filter>Header Files\game</Filter>
     </ClInclude>
     <ClInclude Include="src\game\UDPServer.h">
-      <Filter>Header Files\game</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -158,11 +158,8 @@
     <ClCompile Include="src\game\Networking.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
-    <ClCompile Include="network_messages.cpp">
-      <Filter>Source Files\game</Filter>
-    </ClCompile>
-    <ClCompile Include="UDPServer.cpp">
-      <Filter>Source Files\game</Filter>
+    <ClCompile Include="src\game\UDPServer.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
