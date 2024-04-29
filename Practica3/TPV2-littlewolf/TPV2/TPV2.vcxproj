@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="C:\hlocal\TPV2\Practica3\TPV2-littlewolf\TPV2\src\game\Networking.h" />
     <ClInclude Include="src\game\Game.h" />
     <ClInclude Include="src\game\LittleWolf.h" />
     <ClInclude Include="src\json\JSON.h" />
@@ -43,6 +44,7 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="C:\hlocal\TPV2\Practica3\TPV2-littlewolf\TPV2\src\game\Networking.cpp" />
     <ClCompile Include="src\game\Game.cpp" />
     <ClCompile Include="src\game\LittleWolf.cpp" />
     <ClCompile Include="src\json\JSON.cpp" />
