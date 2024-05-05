@@ -134,7 +134,9 @@ void Networking::update() {
 		case _RESTART:
 			handle_restart();
 			break;
-
+		case _SYNCRONIZE:
+			m5.deserialize(p_->data);
+			//handle_syncronize(m5);
 		default:
 			break;
 		}
@@ -202,15 +204,16 @@ void Networking::handle_dead(const MsgWithId &m) {
 	//Game::instance()->get_fighters().killPlayer(m._client_id);
 }
 
-void Networking::send_my_info(const Vector2D &pos, float w, float h, float rot,
-		Uint8 state) {
+void Networking::send_my_info(const Vector2D& pos, const Vector2D& vel, float s, float a, float rot, Uint8 state) {
 	PlayerInfoMsg m;
 	m._type = _PLAYER_INFO;
 	m._client_id = clientId_;
-	//m.x = pos.getX();
-	//m.y = pos.getY();
-	m.w = w;
-	m.h = h;
+	//m.pos_x = pos.getX();
+	//m.pos_y = pos.getY();
+	//m.vel_x = vel.getX();
+	//m.vel_y = vel.getY();
+	//m.speed = s;
+	//m.a = a;
 	m.rot = rot;
 	m.state = state;
 	SDLNetUtils::serializedSend(m, p_, sock_, srvadd_);
@@ -226,6 +229,17 @@ void Networking::handle_player_info(const PlayerInfoMsg &m) {
 void Networking::send_restart() {
 	Msg m;
 	m._type = _RESTART;
+	SDLNetUtils::serializedSend(m, p_, sock_, srvadd_);
+}
+
+void Networking::send_syncronize(Uint8 id, const Vector2D& pos)
+{
+	PlayerInfoMsg m;
+	m._client_id = id;
+	//m.pos_x = pos.getX();
+	//m.pos_y = pos.getY();
+	m._type = _SYNCRONIZE;
+
 	SDLNetUtils::serializedSend(m, p_, sock_, srvadd_);
 }
 
