@@ -66,19 +66,21 @@ void Game::start() {
 				continue;
 			}
 
-			// N switches to the next player view
-			if (ihdlr.isKeyDown(SDL_SCANCODE_N)) {
-				little_wolf_->switchToNextPlayer();
-			}
+			//// N switches to the next player view
+			//if (ihdlr.isKeyDown(SDL_SCANCODE_N)) {
+			//	little_wolf_->switchToNextPlayer();
+			//}
 
-			// R brings deads to life
-			if (ihdlr.isKeyDown(SDL_SCANCODE_R)) {
-				little_wolf_->bringAllToLife();
-			}
+			//// R brings deads to life
+			//if (ihdlr.isKeyDown(SDL_SCANCODE_R)) {
+			//	little_wolf_->bringAllToLife();
+			//}
 
 		}
 
 		little_wolf_->update();
+		little_wolf_->sendinfo();
+		net_->update();
 
 		// the clear is not necessary since we copy the whole texture -- I guess ...
 		// sdlutils().clearRenderer();
@@ -93,6 +95,6 @@ void Game::start() {
 		if (frameTime < 10)
 			SDL_Delay(10 - frameTime);
 	}
-
+	net_->disconnect();
 }
 

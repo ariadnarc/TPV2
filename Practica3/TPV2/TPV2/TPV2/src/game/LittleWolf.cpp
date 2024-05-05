@@ -60,7 +60,6 @@ void LittleWolf::update() {
 		if (ih().keyDownEvent() && ih().isKeyDown(SDL_SCANCODE_SPACE))
 			send_shoot();
 	}
-
 }
 
 void LittleWolf::removePlayer(Uint8 id)
@@ -86,7 +85,7 @@ void LittleWolf::sendinfo()
 
 void LittleWolf::send_shoot()
 {
-	//Game::instance()->get_networking().send_shoot();
+	Game::instance()->get_networking().send_shoot();
 }
 
 void LittleWolf::send_die(Uint8 id)
@@ -96,7 +95,7 @@ void LittleWolf::send_die(Uint8 id)
 
 void LittleWolf::send_waiting()
 {
-	//Game::instance()->get_networking().send_waiting();
+	Game::instance()->get_networking().send_wait();
 }
 
 void LittleWolf::send_restart()
@@ -611,8 +610,8 @@ void LittleWolf::render_waiting()
 	std::string waitingMsg = "The game will restart in " + std::to_string((int)(time_) / 1000) + " seconds";
 
 	Texture* info = new Texture(sdlutils().renderer(), waitingMsg,
-		sdlutils().fonts().at("ARIAL24"),
-		build_sdlcolor(color_rgba(11)));
+		sdlutils().fonts().at("ARIAL48"),
+		build_sdlcolor(color_rgba(6)));
 
 
 	SDL_Rect dest = build_sdlrect((sdlutils().width() - info->width()) / 2,
