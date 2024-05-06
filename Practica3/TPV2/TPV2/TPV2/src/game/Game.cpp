@@ -41,7 +41,7 @@ bool Game::init(char* host, Uint16 port) {
 
 	// add some players
 	little_wolf_->addPlayer(net_->client_id());
-	little_wolf_->sendinfo();
+	little_wolf_->send_info();
 
 	return true;
 }
@@ -79,7 +79,7 @@ void Game::start() {
 		}
 
 		little_wolf_->update();
-		little_wolf_->sendinfo();
+		little_wolf_->send_info();
 		net_->update();
 
 		// the clear is not necessary since we copy the whole texture -- I guess ...

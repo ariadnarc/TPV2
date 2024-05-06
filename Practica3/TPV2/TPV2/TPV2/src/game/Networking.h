@@ -21,7 +21,7 @@ public:
 	bool master() { return clientID_ == masterID_;}
 
 	void send_state(const Vector2D &pos, float w, float h, float rot);
-	void send_my_info(const Vector2D& pos, const Vector2D& vel, float s, float a, float rot, Uint8 state);
+	void send_info(const Vector2D& pos, const Vector2D& vel, float s, float a, float rot, Uint8 state);
 	
 	void send_bullet();
 	void send_dead(Uint8 id);
