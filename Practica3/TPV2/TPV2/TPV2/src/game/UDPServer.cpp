@@ -5,7 +5,7 @@
 #include <iostream>
 #include <SDL_net.h>
 
-#include "../game/netwrok_messages.h"
+#include "../game/network_messages.h"
 #include "../sdlutils/SDLNetUtils.h"
 
 UDPServer::UDPServer(const Uint16 port, uint8_t max_clients) {

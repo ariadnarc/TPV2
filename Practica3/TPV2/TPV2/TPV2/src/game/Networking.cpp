@@ -5,7 +5,7 @@
 #include <iostream>
 
 #include "Game.h"
-#include "netwrok_messages.h"
+#include "network_messages.h"
 #include "../sdlutils/SDLNetUtils.h"
 #include "LittleWolf.h"
 #include "../utils/Vector2D.h"
