@@ -16,23 +16,19 @@ public:
 	bool disconnect();
 	void update();
 
-	Uint8 client_id() {
-		return clientId_;
-	}
+	Uint8 client_id() {	return clientID_;}
 
-	bool is_master() {
-		return clientId_ == masterId_;
-	}
+	bool master() { return clientID_ == masterID_;}
 
 	void send_state(const Vector2D &pos, float w, float h, float rot);
 	void send_my_info(const Vector2D& pos, const Vector2D& vel, float s, float a, float rot, Uint8 state);
 	
-	void send_shoot();
+	void send_bullet();
 	void send_dead(Uint8 id);
 	void send_restart();
 	void send_wait();
 
-	void send_syncronize(Uint8 id, const Vector2D& pos);
+	void send_sync(Uint8 id, const Vector2D& pos);
 
 
 private:
@@ -51,7 +47,7 @@ private:
 	SDLNet_SocketSet socketSet_;
 	UDPpacket *p_;
 	IPaddress srvadd_;
-	Uint8 clientId_;
-	Uint8 masterId_;
+	Uint8 clientID_;
+	Uint8 masterID_;
 };
 

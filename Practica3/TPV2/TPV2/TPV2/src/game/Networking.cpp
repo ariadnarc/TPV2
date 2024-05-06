@@ -182,7 +182,7 @@ void Networking::handle_player_state(const PlayerStateMsg &m) {
 	//}
 }
 
-void Networking::send_shoot() 
+void Networking::send_bullet() 
 {
 	ShootMsg m;
 	m._type = _SHOOT;
@@ -229,7 +229,7 @@ void Networking::send_my_info(const Vector2D& pos, const Vector2D& vel, float s,
 
 void Networking::handle_player_info(const PlayerInfoMsg &m) {
 	if (m._client_id != clientId_) {
-		Game::instance()->get_littlewolf().update_player_info(m._client_id, m.x,
+		Game::instance()->get_littlewolf().update_player(m._client_id, m.x,
 				m.y, m.speedX, m.speedY, m.speed, m.acceleration, m.rot, (LittleWolf::PlayerState)m.state);
 	}
 }
@@ -247,7 +247,7 @@ void Networking::send_wait()
 	SDLNetUtils::serializedSend(m, p_, sock_, srvadd_);
 }
 
-void Networking::send_syncronize(Uint8 id, const Vector2D& pos)
+void Networking::send_sync(Uint8 id, const Vector2D& pos)
 {
 	PlayerInfoMsg m;
 	m._client_id = id;
@@ -270,5 +270,5 @@ void Networking::handle_wait()
 
 void Networking::handle_sync(PlayerInfoMsg& m)
 {
-	Game::instance()->get_littlewolf().player_syncronize(m._client_id, Vector2D(m.x, m.y));
+	Game::instance()->get_littlewolf().player_sync(m._client_id, Vector2D(m.x, m.y));
 }

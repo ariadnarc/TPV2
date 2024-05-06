@@ -138,20 +138,25 @@ public:
 	void removePlayer(Uint8 id);
 
 	// sendInfo
-	void sendinfo();
+	void send_info();
 
-	void send_shoot();
+	// manda _SHOOT
+	void send_bullet();
 
-	void send_die(Uint8 id);
+	// manda _DEAD
+	void send_dead(Uint8 id);
 
-	void send_waiting();
+	// manda _WAIT
+	void send_wait();
 
+	// manda _RESTART
 	void send_restart();
 
-	void send_syncronize();
+	// llama a send_sync de networking de cada player
+	void send_sync();
 
 	// updatePlayerInfo
-	void update_player_info(int playerID,
+	void update_player(int playerID,
 		float posX,
 		float posY,
 		float velX,
@@ -161,14 +166,17 @@ public:
 		float theta,
 		PlayerState state);
 
+	// llama al shoot de cada player
 	void player_shoot(Uint8 id);
 
 	// actualiza estado de player id a DEAD
 	void player_die(Uint8 id);
 
+	// cuenta 5 segundos y pone waiting_ a true
 	void waiting();
 
-	void player_syncronize(Uint8 id, const Vector2D& pos);
+	// player sync
+	void player_sync(Uint8 id, const Vector2D& pos);
 
 private:
 
