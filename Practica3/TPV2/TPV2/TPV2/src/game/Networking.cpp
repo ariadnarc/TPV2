@@ -116,16 +116,15 @@ void Networking::update() {
 
 		case _PLAYER_STATE:
 			m2.deserialize(p_->data);
-			//
 			break;
 
 		case _DEAD:
-			m4.deserialize(p_->data);
+			m3.deserialize(p_->data);			//!!!!!!!!!!
 			handDead(m3);
 			break;
 
 		case _SHOOT:
-			m3.deserialize(p_->data);
+			m4.deserialize(p_->data);			//!!!!!!!!!!
 			handShoot(m4);
 
 			break;
