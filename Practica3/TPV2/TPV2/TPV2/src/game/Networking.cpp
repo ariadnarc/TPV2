@@ -185,7 +185,7 @@ void Networking::sendDead(Uint8 id)
 
 	msg.type = _DEAD;
 	msg.id = clientID_;
-	msg.id = id;
+	msg.deadid = id;
 
 	SDLNetUtils::serializedSend(msg, p_, sock_, srvadd_);
 }
@@ -259,7 +259,7 @@ void Networking::handDead(const PlayerDeadMsg& msg)
 {
 	if (clientID_ != msg.id)
 	{
-		Game::instance()->getLW().setDead(msg.id);
+		Game::instance()->getLW().setDead(msg.deadid);
 	}
 }
 

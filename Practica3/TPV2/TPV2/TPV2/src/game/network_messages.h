@@ -83,7 +83,7 @@ struct ShootMsg: MsgWithId
 
 struct PlayerDeadMsg : MsgWithId 
 {
-	int id;
+	Uint8 deadid;
 
-	_IMPL_SERIALIAZION_WITH_BASE_(MsgWithId, id)
+	_IMPL_SERIALIAZION_WITH_BASE_(MsgWithId, deadid)
 };
