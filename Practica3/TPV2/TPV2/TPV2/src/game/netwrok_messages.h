@@ -5,42 +5,46 @@
 #include <SDL_stdinc.h>
 #include "../sdlutils/SDLNetUtils.h"
 
-enum MsgType : Uint8 {
+enum MsgType : Uint8 
+{
 	_NONE = 0, //
 	_CONNECTION_REQUEST, //
 	_CONNECTION_ACCEPTED, //
 	_CONNECTION_REJECTED, //
-	_DISCONNECTED,
-	_NEW_CLIENT_CONNECTED, //
+	_DISCONNECT,
+	_CONNECT, //
 	_PLAYER_STATE, //
 	_PLAYER_INFO, //
 	_SHOOT, //
-	_DEAD, //
 	_RESTART, //
-	_WAIT,
+	_DEAD, //
+	_WAIT, //
 	_SYNC //
 };
 
-struct Msg {
-	Uint8 _type;
+struct Msg 
+{
+	Uint8 type;
 
-	_IMPL_SERIALIAZION_(_type)
+	_IMPL_SERIALIAZION_(type)
 };
 
-struct MsgWithId: Msg {
-	Uint8 _client_id;
+struct MsgWithId: Msg 
+{
+	Uint8 id;
 
-	_IMPL_SERIALIAZION_WITH_BASE_(Msg,_client_id)
+	_IMPL_SERIALIAZION_WITH_BASE_(Msg,id)
 };
 
-struct MsgWithMasterId: MsgWithId {
-	Uint8 _master_id;
+struct MsgWithMasterId: MsgWithId 
+{
+	Uint8 masterID;
 
-	_IMPL_SERIALIAZION_WITH_BASE_(MsgWithId,_master_id)
+	_IMPL_SERIALIAZION_WITH_BASE_(MsgWithId,masterID)
 };
 
-struct PlayerStateMsg: MsgWithId {
-
+struct PlayerStateMsg: MsgWithId 
+{
 	float x;
 	float y;
 	int w;
@@ -48,11 +52,10 @@ struct PlayerStateMsg: MsgWithId {
 	float rot;
 
 	_IMPL_SERIALIAZION_WITH_BASE_(MsgWithId, x,y,w,h,rot)
-
 };
 
-struct PlayerInfoMsg: MsgWithId {
-
+struct PlayerInfoMsg: MsgWithId 
+{
 	float x;
 	float y;
 	float speedX;
@@ -63,10 +66,10 @@ struct PlayerInfoMsg: MsgWithId {
 	Uint8 state;
 
 	_IMPL_SERIALIAZION_WITH_BASE_(MsgWithId, x,y,speedX,speedY,speed,acceleration,rot,state)
-
 };
-struct ShootMsg: MsgWithId {
 
+struct ShootMsg: MsgWithId 
+{
 	float x;
 	float y;
 	float vx;
@@ -76,10 +79,10 @@ struct ShootMsg: MsgWithId {
 	float rot;
 
 	_IMPL_SERIALIAZION_WITH_BASE_(MsgWithId, x,y,vx,vy,w,h,rot)
-
 };
 
-struct PlayerDeadMsg : MsgWithId {
+struct PlayerDeadMsg : MsgWithId 
+{
 	int id;
 
 	_IMPL_SERIALIAZION_WITH_BASE_(MsgWithId, id)

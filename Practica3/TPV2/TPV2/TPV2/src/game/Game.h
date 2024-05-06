@@ -16,18 +16,18 @@ public:
 	bool init(char* host, Uint16 port);
 	void start();
 
-	Networking& get_networking() 
+	Networking& getNet() 
 	{
 		return *net_;
 	}
 
-	LittleWolf& get_littlewolf() 
+	LittleWolf& getLW() 
 	{
-		return *little_wolf_;
+		return *lw_;
 	}
 
 private:
-	LittleWolf* little_wolf_;
+	LittleWolf* lw_;
 	Networking* net_;
 };
 

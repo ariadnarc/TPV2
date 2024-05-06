@@ -44,7 +44,7 @@ void LittleWolf::update() {
 
 		lastFrame_ = sdlutils().virtualTimer().currTime();
 
-		if (Game::instance()->get_networking().master() && time_ <= 0) 
+		if (Game::instance()->getNet().master() && time_ <= 0) 
 		{
 			send_restart();
 		}
@@ -75,32 +75,37 @@ void LittleWolf::send_info()
 {
 	Player& player = players_[player_id_];
 
-	Game::instance()->get_networking().send_info(Vector2D(player.where.x, player.where.y),
-													Vector2D(player.velocity.x, player.velocity.y),
-													player.speed,
-													player.acceleration,
-													player.theta,
-													player.state);
+	Networking& net = Game::instance()->getNet();
+	net.sendInfo(Vector2D(player.where.x, player.where.y),
+				Vector2D(player.velocity.x, player.velocity.y),
+				player.speed,
+				player.acceleration,
+				player.theta,
+				player.state);
 }
 
 void LittleWolf::send_bullet()
 {
-	Game::instance()->get_networking().send_bullet();
+	Networking& net = Game::instance()->getNet();
+	net.sendBullet();
 }
 
 void LittleWolf::send_dead(Uint8 id)
 {
-	Game::instance()->get_networking().send_dead(id);
+	Networking& net = Game::instance()->getNet();
+	net.sendDead(id);
 }
 
 void LittleWolf::send_wait()
 {
-	Game::instance()->get_networking().send_wait();
+	Networking& net = Game::instance()->getNet();
+	net.sendWait();
 }
 
 void LittleWolf::send_restart()
 {
-	Game::instance()->get_networking().send_restart();
+	Networking& net = Game::instance()->getNet();
+	net.sendRestart();
 }
 
 void LittleWolf::send_sync()
@@ -109,15 +114,18 @@ void LittleWolf::send_sync()
 	{
 		if (player.state != NOT_USED)
 		{
-			Game::instance()->get_networking().send_sync(player.id,Vector2D(player.where.x,player.where.y));
+			Networking& net = Game::instance()->getNet();
+			net.sendSync(player.id,Vector2D(player.where.x,player.where.y));
 		}
 	}
 }
 
-void LittleWolf::update_player(int playerID, float posX, float posY, float velX, float velY, float speed, float acceleration, float theta, PlayerState state)
+void LittleWolf::update_player(int id, float posX, float posY, float velX, float velY, float speed, float acceleration, float theta, PlayerState state)
 {
-	if (players_[playerID].state == NOT_USED) {
-		Player player = { playerID,
+	if (players_[id].state == NOT_USED) // si esta desconectado
+	{
+		// colocamos player
+		Player player = { id,
 						viewport(0.8f),
 						{ posX + 0.5f, posY + 0.5f },
 						{ velX,velY },
@@ -126,22 +134,24 @@ void LittleWolf::update_player(int playerID, float posX, float posY, float velX,
 						theta,
 						ALIVE };
 
-		map_.walling[(int)player.where.y][(int)player.where.x] = player_to_tile(playerID);
-		players_[playerID] = player;
+		map_.walling[(int)player.where.y][(int)player.where.x] = player_to_tile(id);
+		players_[id] = player;
 	}
-	else 
+	else // player conectado (DEAD o ALIVE)
 	{
-		Player& player = players_[playerID];
+		Player& player = players_[id];
 
 		bool collision = false;
-		// if master
-		if (Game::instance()->get_networking().master()) {
+
+		Networking& net = Game::instance()->getNet();
+		if (net.master()) 
+		{
 			Point lastPos = player.where;
 
 			// if collision
-			if (tile(player.where, map_.walling) != player_to_tile(playerID)
-				&& tile(player.where, map_.walling) != 0) {
-
+			if (tile(player.where, map_.walling) != player_to_tile(id)
+				&& tile(player.where, map_.walling) != 0) 
+			{
 				player.where = lastPos;
 				player.velocity = { 0, 0 };
 
@@ -149,7 +159,8 @@ void LittleWolf::update_player(int playerID, float posX, float posY, float velX,
 			}
 		}
 
-		if (collision) {
+		if (collision) 
+		{
 			send_sync();
 		}
 		else 
@@ -167,17 +178,17 @@ void LittleWolf::update_player(int playerID, float posX, float posY, float velX,
 			player.theta = theta;
 			player.state = state;
 
-			map_.walling[(int)player.where.y][(int)player.where.x] = player_to_tile(playerID);
+			map_.walling[(int)player.where.y][(int)player.where.x] = player_to_tile(id);
 		}
 	}
 }
 
-void LittleWolf::player_shoot(Uint8 id)
+void LittleWolf::playerShoot(Uint8 id)
 {
 	shoot(players_[id]);
 }
 
-void LittleWolf::player_die(Uint8 id)
+void LittleWolf::setDead(Uint8 id)
 {
 	players_[id].state = LittleWolf::DEAD;
 }
@@ -190,7 +201,7 @@ void LittleWolf::waiting()
 	lastFrame_ = sdlutils().virtualTimer().currTime();
 }
 
-void LittleWolf::player_sync(Uint8 id, const Vector2D& pos)
+void LittleWolf::playerSync(Uint8 id, const Vector2D& pos)
 {
 	Player& player = players_[id];
 
@@ -236,6 +247,7 @@ void LittleWolf::reset_positions()
 		player.where.x = col + 0.5f;
 		player.where.y = row + 0.5f;
 
+		// move
 		player.velocity.x = 0;
 		player.velocity.y = 0;
 		player.speed = 2.0;
@@ -243,13 +255,12 @@ void LittleWolf::reset_positions()
 		player.theta = 0;
 		player.state = ALIVE;
 
-
 		// not that player <id> is stored in the map as player_to_tile(id) -- which is id+10
 		map_.walling[(int)player.where.y][(int)player.where.x] = player_to_tile(player.id);
 
-		Game::instance()->get_networking().send_sync(player.id, 
-														   Vector2D(player.where.x, 
-														   player.where.y));
+		//sendSync
+		Networking& net = Game::instance()->getNet();
+		net.sendSync(player.id, Vector2D(player.where.x, player.where.y));
 	}
 }
 
@@ -745,8 +756,11 @@ void LittleWolf::switchToNextPlayer() {
 void LittleWolf::bringAllToLife() {
 	waiting_ = false;
 
-	if (Game::instance()->get_networking().master())
+	Networking& net = Game::instance()->getNet();
+	if (net.master()) 
+	{
 		reset_positions();
+	}
 
 	// bring all dead players to life -- all stay in the same position
 	for (auto i = 0u; i < max_player; i++) {

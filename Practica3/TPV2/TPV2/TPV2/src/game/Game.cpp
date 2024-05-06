@@ -9,18 +9,19 @@
 
 
 Game::Game() :
-		little_wolf_(nullptr), //
-		net_(nullptr)
+		lw_(nullptr), //
+		net_(nullptr) //
 {
 }
 
-Game::~Game() {
-	delete little_wolf_;
+Game::~Game() 
+{
+	delete lw_;
 	delete net_;
 }
 
-bool Game::init(char* host, Uint16 port) {
-
+bool Game::init(char* host, Uint16 port) 
+{
 	net_ = new Networking();
 
 	if (!net_->init(host, port)) {
@@ -30,18 +31,18 @@ bool Game::init(char* host, Uint16 port) {
 	std::cout << "Connected as client " << (int)net_->client_id() << std::endl;
 
 	// initialize the SDLUtils singleton
-	SDLUtils::init("Demo", 900, 480,
+	SDLUtils::init("LittleWolf", 900, 480,
 			"resources/config/littlewolf.resources.json");
 
-	little_wolf_ = new LittleWolf(sdlutils().width(), sdlutils().height(),
+	lw_ = new LittleWolf(sdlutils().width(), sdlutils().height(),
 			sdlutils().window(), sdlutils().renderer());
 
 	// load a map
-	little_wolf_->load("resources/maps/little_wolf/map_0.txt");
+	lw_->load("resources/maps/little_wolf/map_0.txt");
 
 	// add some players
-	little_wolf_->addPlayer(net_->client_id());
-	little_wolf_->send_info();
+	lw_->addPlayer(net_->client_id());
+	lw_->send_info();
 
 	return true;
 }
@@ -78,14 +79,14 @@ void Game::start() {
 
 		}
 
-		little_wolf_->update();
-		little_wolf_->send_info();
+		lw_->update();
+		lw_->send_info();
 		net_->update();
 
 		// the clear is not necessary since we copy the whole texture -- I guess ...
 		// sdlutils().clearRenderer();
 
-		little_wolf_->render();
+		lw_->render();
 
 		sdlutils().presentRenderer();
 

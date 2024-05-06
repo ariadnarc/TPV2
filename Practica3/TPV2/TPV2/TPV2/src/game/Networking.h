@@ -16,37 +16,43 @@ public:
 	bool disconnect();
 	void update();
 
+	// getters
 	Uint8 client_id() {	return clientID_;}
-
 	bool master() { return clientID_ == masterID_;}
 
-	void send_state(const Vector2D &pos, float w, float h, float rot);
-	void send_info(const Vector2D& pos, const Vector2D& vel, float s, float a, float rot, Uint8 state);
-	
-	void send_bullet();
-	void send_dead(Uint8 id);
-	void send_restart();
-	void send_wait();
-
-	void send_sync(Uint8 id, const Vector2D& pos);
-
+	// sendings
+	void sendState(const Vector2D &pos, float w, float h, float rot);
+	void sendInfo(const Vector2D& pos, const Vector2D& vel, float s, float a, float rot, Uint8 state);
+	void sendBullet();
+	void sendRestart();
+	void sendDead(Uint8 id);
+	void sendWait();
+	void sendSync(Uint8 id, const Vector2D& pos);
 
 private:
+	
+	// --- handlers
 
-	void handle_new_client(Uint8 id);
-	void handle_disconnet(Uint8 id);
-	void handle_player_state(const PlayerStateMsg &m);
-	void handle_player_info(const PlayerInfoMsg &m);
-	void handle_shoot(const ShootMsg &m);
-	void handle_dead(const PlayerDeadMsg& m);
-	void handle_restart();
-	void handle_wait();
-	void handle_sync(PlayerInfoMsg& m);
+	// clients
+	void handClient(Uint8 id);
+	void handDisconnect(Uint8 id);
+
+	// mensajes
+	void handDead(const PlayerDeadMsg& m);
+	void handSync(PlayerInfoMsg& m);
+	void handInfo(const PlayerInfoMsg &m);
+	void handShoot(const ShootMsg &m);
+
+	// flujo
+	void handRestart();
+	void handWait();
+
 
 	UDPsocket sock_;
 	SDLNet_SocketSet socketSet_;
 	UDPpacket *p_;
 	IPaddress srvadd_;
+
 	Uint8 clientID_;
 	Uint8 masterID_;
 };

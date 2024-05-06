@@ -156,7 +156,7 @@ public:
 	void send_sync();
 
 	// updatePlayerInfo
-	void update_player(int playerID,
+	void update_player(int id,
 		float posX,
 		float posY,
 		float velX,
@@ -167,16 +167,16 @@ public:
 		PlayerState state);
 
 	// llama al shoot de cada player
-	void player_shoot(Uint8 id);
+	void playerShoot(Uint8 id);
 
 	// actualiza estado de player id a DEAD
-	void player_die(Uint8 id);
+	void setDead(Uint8 id);
 
 	// cuenta 5 segundos y pone waiting_ a true
 	void waiting();
 
 	// player sync
-	void player_sync(Uint8 id, const Vector2D& pos);
+	void playerSync(Uint8 id, const Vector2D& pos);
 
 private:
 
@@ -420,7 +420,8 @@ private:
 
 	bool waiting_ = false;
 
-	float lastFrame_,
-		time_ = 0;
+	float lastFrame_;
+
+	float time_ = 0;
 
 };

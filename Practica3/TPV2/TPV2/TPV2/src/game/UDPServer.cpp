@@ -75,7 +75,7 @@ void UDPServer::listen() {
 				// get the packet - returns -1, 0 or 1
 				if (SDLNetUtils::deserializedReceive(m0, p_, sock_) > 0) { // a packet received in p
 					// now we have a switch depending on the kind of message
-					switch (m0._type) {
+					switch (m0.type) {
 
 					// for future use ...
 					case _NONE:
@@ -97,14 +97,14 @@ void UDPServer::listen() {
 							clients_[j].address = p_->address;
 
 							// send a message to the client indicating that the connection was accepted
-							m2._type = _CONNECTION_ACCEPTED;
-							m2._client_id = j;
-							m2._master_id = who_is_the_master(); // will not return -1 for sure
+							m2.type = _CONNECTION_ACCEPTED;
+							m2.id = j;
+							m2.masterID = who_is_the_master(); // will not return -1 for sure
 							SDLNetUtils::serializedSend(m2, p_, sock_); // IP is already in p_->address
 
 							// tell all clients, except the sender, that a new client connected
-							m2._type = _NEW_CLIENT_CONNECTED;
-							send_to_all_excpet(m2, m2._client_id);
+							m2.type = _CONNECT;
+							send_to_all_excpet(m2, m2.id);
 
 							// print information
 							std::cout << "New client with id " << (int) j
@@ -113,35 +113,35 @@ void UDPServer::listen() {
 
 						} else {
 							// if not free slots, send a message to the client rejecting the connection
-							m0._type = _CONNECTION_REJECTED;
+							m0.type = _CONNECTION_REJECTED;
 							SDLNetUtils::serializedSend(m0, p_, sock_); // IP is already in p_->address
 						}
 						break;
 					}
 
 						// the message is a client informing about disconnection
-					case _DISCONNECTED: {
+					case _DISCONNECT: {
 
 						// we need to deserialize again since we have des wrt Msg only
 						m1.deserialize(p_->data);
 
 						// mark the corresponding slot as free.
-						clients_[m1._client_id].connected = false;
+						clients_[m1.id].connected = false;
 
 						// the new master, if any ...
 						int the_master = who_is_the_master();
 
 						if (the_master != -1) {
 
-							m2._type = m1._type;
-							m2._client_id = m1._client_id;
-							m2._master_id = the_master;
+							m2.type = m1.type;
+							m2.id = m1.id;
+							m2.masterID = the_master;
 
 							// tell all clients that someone has disconnected, and who is the new master
 							send_to_all_excpet(m2);
 						}
 
-						std::cout << "Client  " << (int) m1._client_id
+						std::cout << "Client  " << (int) m1.id
 								<< " disconnected " << std::endl;
 
 						break;

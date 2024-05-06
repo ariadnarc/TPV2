@@ -48,7 +48,7 @@ bool Networking::init(char *host, Uint16 port) {
 	MsgWithMasterId m1;
 
 	// request to connect
-	m0._type = _CONNECTION_REQUEST;
+	m0.type = _CONNECTION_REQUEST;
 	SDLNetUtils::serializedSend(m0, p_, sock_, srvadd_);
 
 	bool connected = false;
@@ -56,11 +56,11 @@ bool Networking::init(char *host, Uint16 port) {
 	if (SDLNet_CheckSockets(socketSet_, 3000) > 0) {
 		if (SDLNet_SocketReady(sock_)) {
 			if (SDLNetUtils::deserializedReceive(m0, p_, sock_) > 0) {
-				switch (m0._type) {
+				switch (m0.type) {
 				case _CONNECTION_ACCEPTED:
 					m1.deserialize(p_->data);
-					clientID_ = m1._client_id;
-					masterID_ = m1._master_id;
+					clientID_ = m1.id;
+					masterID_ = m1.masterID;
 					connected = true;
 					break;
 				case _CONNECTION_REJECTED:
@@ -84,8 +84,8 @@ bool Networking::init(char *host, Uint16 port) {
 
 bool Networking::disconnect() {
 	MsgWithId m;
-	m._type = _DISCONNECTED;
-	m._client_id = clientID_;
+	m.type = _DISCONNECT;
+	m.id = clientID_;
 	return (SDLNetUtils::serializedSend(m, p_, sock_, srvadd_) > 0);
 
 }
@@ -94,56 +94,57 @@ void Networking::update() {
 	Msg m0;
 	MsgWithMasterId m1;
 	PlayerStateMsg m2;
-	ShootMsg m3;
-	PlayerDeadMsg m4;
+	PlayerDeadMsg m3;
+	ShootMsg m4;
 	PlayerInfoMsg m5;
 
-	while (SDLNetUtils::deserializedReceive(m0, p_, sock_) > 0) {
-
-		switch (m0._type) {
-		case _NEW_CLIENT_CONNECTED:
+	while (SDLNetUtils::deserializedReceive(m0, p_, sock_) > 0) 
+	{
+		switch (m0.type) 
+		{
+		case _CONNECT:
 			m1.deserialize(p_->data);
-			masterID_ = m1._master_id;
-			handle_new_client(m1._client_id);
+			masterID_ = m1.masterID;
+			handClient(m1.id);
 			break;
 
-		case _DISCONNECTED:
+		case _DISCONNECT:
 			m1.deserialize(p_->data);
-			masterID_ = m1._master_id;
-			handle_disconnet(m1._client_id);
+			masterID_ = m1.masterID;
+			handDisconnect(m1.id);
 			break;
 
 		case _PLAYER_STATE:
 			m2.deserialize(p_->data);
-			handle_player_state(m2);
-			break;
-
-		case _PLAYER_INFO:
-			m5.deserialize(p_->data);
-			handle_player_info(m5);
-			break;
-
-		case _SHOOT:
-			m3.deserialize(p_->data);
-			handle_shoot(m3);
+			//
 			break;
 
 		case _DEAD:
 			m4.deserialize(p_->data);
-			handle_dead(m4);
+			handDead(m3);
+			break;
+
+		case _SHOOT:
+			m3.deserialize(p_->data);
+			handShoot(m4);
+
+			break;
+		case _PLAYER_INFO:
+			m5.deserialize(p_->data);
+			handInfo(m5);
 			break;
 
 		case _RESTART:
-			handle_restart();
+			handRestart();
 			break;
 
 		case _SYNC:
 			m5.deserialize(p_->data);
-			handle_sync(m5);
+			handSync(m5);
 			break;
 
 		case _WAIT:
-			handle_wait();
+			handWait();
 			break;
 
 		default:
@@ -152,123 +153,152 @@ void Networking::update() {
 	}
 }
 
-void Networking::handle_new_client(Uint8 id) {
-	if (id != clientID_){
-		Game::instance()->get_littlewolf().send_info();
-	}
-}
+#pragma region sendings
 
-void Networking::handle_disconnet(Uint8 id) {
-	Game::instance()->get_littlewolf().removePlayer(id);
-}
-
-void Networking::send_state(const Vector2D &pos, float w, float h, float rot) {
+void Networking::sendState(const Vector2D &pos, float w, float h, float rot) 
+{
 	PlayerStateMsg m;
-	m._type = _PLAYER_STATE;
-	m._client_id = clientID_;
+
+	m.type = _PLAYER_STATE;
+	m.id = clientID_;
 	m.x = pos.getX();
 	m.y = pos.getY();
 	m.w = w;
 	m.h = h;
 	m.rot = rot;
+
 	SDLNetUtils::serializedSend(m, p_, sock_, srvadd_);
 }
 
-void Networking::handle_player_state(const PlayerStateMsg &m) {
-
-	//if (m._client_id != clientId_) {
-	//	Game::instance()->get_littlewolf().update_player_info(m._client_id, m.x,
-	//			m.y, m.w, m.h, m.rot);
-	//}
-}
-
-void Networking::send_bullet() 
+void Networking::sendBullet() 
 {
 	ShootMsg m;
-	m._type = _SHOOT;
-	m._client_id = clientID_;
+
+	m.type = _SHOOT;
+	m.id = clientID_;
+
 	SDLNetUtils::serializedSend(m, p_, sock_, srvadd_);
 }
 
-void Networking::handle_shoot(const ShootMsg &m) {
-	if (master()) {
-		Game::instance()->get_littlewolf().player_shoot(m._client_id);
+void Networking::sendDead(Uint8 id) 
+{
+	PlayerDeadMsg msg;
+
+	msg.type = _DEAD;
+	msg.id = clientID_;
+	msg.id = id;
+
+	SDLNetUtils::serializedSend(msg, p_, sock_, srvadd_);
+}
+
+void Networking::sendInfo(const Vector2D& pos, const Vector2D& vel, float s, float a, float rot, Uint8 state) 
+{
+	PlayerInfoMsg msg;
+
+	msg.type = _PLAYER_INFO;
+	msg.id = clientID_;
+	msg.x = pos.getX();
+	msg.y = pos.getY();
+	msg.speed = s;
+	msg.speedX = vel.getX();
+	msg.speedY = vel.getY();
+	msg.acceleration = a;
+	msg.rot = rot;
+	msg.state = state;
+
+	SDLNetUtils::serializedSend(msg, p_, sock_, srvadd_);
+}
+
+
+void Networking::sendRestart()
+{
+	Msg msg;
+
+	msg.type = _RESTART;
+
+	SDLNetUtils::serializedSend(msg, p_, sock_, srvadd_);
+}
+
+void Networking::sendWait()
+{
+	Msg msg;
+
+	msg.type = _WAIT;
+
+	SDLNetUtils::serializedSend(msg, p_, sock_, srvadd_);
+}
+
+void Networking::sendSync(Uint8 id, const Vector2D& pos)
+{
+	PlayerInfoMsg msg;
+
+	msg.id = id;
+	msg.x = pos.getX();
+	msg.y = pos.getY();
+	msg.type = _SYNC;
+
+	SDLNetUtils::serializedSend(msg, p_, sock_, srvadd_);
+}
+
+#pragma endregion
+
+#pragma region handlers
+
+void Networking::handClient(Uint8 id)
+{
+	if (clientID_ != id)
+	{
+		Game::instance()->getLW().send_info();
 	}
 }
 
-void Networking::send_dead(Uint8 id) 
+void Networking::handDisconnect(Uint8 id)
 {
-	PlayerDeadMsg m;
-	m._type = _DEAD;
-	m._client_id = clientID_;
-	m.id = id;
-	SDLNetUtils::serializedSend(m, p_, sock_, srvadd_);
+	Game::instance()->getLW().removePlayer(id);
 }
-
-void Networking::handle_dead(const PlayerDeadMsg &m) {
-	if (m._client_id != clientID_) {
-		Game::instance()->get_littlewolf().player_die(m.id);
+void Networking::handDead(const PlayerDeadMsg& msg)
+{
+	if (clientID_ != msg.id)
+	{
+		Game::instance()->getLW().setDead(msg.id);
 	}
 }
 
-void Networking::send_info(const Vector2D& pos, const Vector2D& vel, float s, float a, float rot, Uint8 state) 
+void Networking::handSync(PlayerInfoMsg& msg)
 {
-	PlayerInfoMsg m;
-	m._type = _PLAYER_INFO;
-	m._client_id = clientID_;
-	m.x = pos.getX();
-	m.y = pos.getY();
-	m.speedX = vel.getX();
-	m.speedY = vel.getY();
-	m.speed = s;
-	m.acceleration = a;
-	m.rot = rot;
-	m.state = state;
-	SDLNetUtils::serializedSend(m, p_, sock_, srvadd_);
+	Game::instance()->getLW().playerSync(msg.id, Vector2D(msg.x, msg.y));
 }
 
-void Networking::handle_player_info(const PlayerInfoMsg &m) {
-	if (m._client_id != clientID_) {
-		Game::instance()->get_littlewolf().update_player(m._client_id, m.x,
-				m.y, m.speedX, m.speedY, m.speed, m.acceleration, m.rot, (LittleWolf::PlayerState)m.state);
+void Networking::handInfo(const PlayerInfoMsg& msg) 
+{
+	if (clientID_ != msg.id) 
+	{
+		Game::instance()->getLW().update_player(msg.id, msg.x,
+				msg.y, msg.speedX, msg.speedY, msg.speed, msg.acceleration, msg.rot, (LittleWolf::PlayerState)msg.state);
 	}
 }
 
-void Networking::send_restart() {
-	Msg m;
-	m._type = _RESTART;
-	SDLNetUtils::serializedSend(m, p_, sock_, srvadd_);
-}
-
-void Networking::send_wait()
+void Networking::handShoot(const ShootMsg& msg)
 {
-	Msg m;
-	m._type = _WAIT;
-	SDLNetUtils::serializedSend(m, p_, sock_, srvadd_);
+	if (master())
+	{
+		Game::instance()->getLW().playerShoot(msg.id);
+	}
 }
 
-void Networking::send_sync(Uint8 id, const Vector2D& pos)
+// FLUJO 
+
+void Networking::handRestart()
 {
-	PlayerInfoMsg m;
-	m._client_id = id;
-	m.x = pos.getX();
-	m.y = pos.getY();
-	m._type = _SYNC;
-
-	SDLNetUtils::serializedSend(m, p_, sock_, srvadd_);
+	Game::instance()->getLW().bringAllToLife();
 }
 
-void Networking::handle_restart() {
-	Game::instance()->get_littlewolf().bringAllToLife();
-
-}
-
-void Networking::handle_wait()
+void Networking::handWait()
 {
-	Game::instance()->get_littlewolf().waiting();
+	Game::instance()->getLW().waiting();
 }
 
-void Networking::handle_sync(PlayerInfoMsg& m)
-{
-	Game::instance()->get_littlewolf().player_sync(m._client_id, Vector2D(m.x, m.y));
-}
+#pragma endregion
+
+
+
