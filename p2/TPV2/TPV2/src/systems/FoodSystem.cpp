@@ -12,7 +12,6 @@
 void FoodSystem::initSystem()
 {
 	std::cout << "inicia el sistem FoodSystem" << std::endl;
-	createGrid();
 }
 
 void FoodSystem::update()
@@ -57,7 +56,13 @@ void FoodSystem::recieve(const Message& msg)
 			mngr_->send(msg1);
 		}
 		break;
-		 
+
+	case _m_NEW_GAME:
+		resetGrid();
+		break;
+
+	default:
+		break;
 	}
 }
 
@@ -85,6 +90,15 @@ void FoodSystem::createGrid()
 							sdlutils().height() / FRUITROWS * j + offset));
 		}
 	}
+}
+
+void FoodSystem::resetGrid()
+{
+	// borramos las frutas anteriores
+	for (auto& e : mngr_->getEntities(ecs::grp::FRUITS))
+		mngr_->setAlive(e, false);
+
+	createGrid();
 }
 
 

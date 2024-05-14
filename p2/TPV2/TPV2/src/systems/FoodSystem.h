@@ -27,6 +27,8 @@ public:
     void addFood(Vector2D pos);
     // Coloca las frutas en el grid.
     void createGrid();
+    // Resetea el grid para nueva partida.
+    void resetGrid();
 
 private:
     int FRUITCOLS = 8;
