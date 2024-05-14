@@ -32,7 +32,7 @@
   "messages": [
     {
       "id": "PressAnyKey",
-      "text": "Press Any Key",
+      "text": "Press any key to start a new game.",
       "font": "ARIAL24",
       "color": "0x112233ff",
       "bg": "0xffffffff"
@@ -45,14 +45,14 @@
     },
     {
       "id": "PressEnter",
-      "text": "Press Enter",
+      "text": "Press Enter to start the ROUND",
       "font": "ARIAL24",
       "color": "0x112233ff",
       "bg": "0xffffffff"
     },
     {
       "id": "GameOver",
-      "text": "Congrats loser/winner, press enter",
+      "text": "GameOver loser! Press enter to continue.",
       "font": "ARIAL24",
       "color": "0x112233ff",
       "bg": "0xffffffff"

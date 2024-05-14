@@ -100,24 +100,28 @@ void PacManSystem::recieve(const Message& msg)
 	switch (msg.id)
 	{
 	case _m_PACMAN_GHOST_COLLISION:
+
 		//sdlutils().soundEffects().at("death").play();
-		if (health->getLifes() <= 0) 
-		{
-			Message msg;
-			msg.id = _m_GAME_OVER;
-			mngr_->send(msg);
-		}
-		else if (!msg.ghost_collision_data.blue) // si el ghost no es blue
+
+		if (!msg.ghost_collision_data.blue) // si el ghost no es blue
 		{
 			health->setLifes(health->getLifes() - 1); //resta vida al pacman
 
 			Message msg;
-			msg.id = _m_ROUND_OVER; //acaba ronda
-			mngr_->send(msg);
+			if (health->getLifes() < 1) // si tenemos menos que 1 vida
+			{
+				msg.id = _m_GAME_OVER; //acaba el juego
+				mngr_->send(msg);
 
-			Message msg1;
-			msg1.id = _m_ROUND_START; // empieza nueva ronda
-			mngr_->send(msg1);
+				Game::instance()->setState(Game::State::GAMEOVER);
+			}
+			else // si tenemos 1 o mas vidas
+			{
+				msg.id = _m_ROUND_OVER; //acaba ronda -> pasa al estado de new round state
+				mngr_->send(msg);
+
+				Game::instance()->setState(Game::State::NEWROUND);
+			}
 
 			std::cout << health->getLifes() << std::endl;
 		}
