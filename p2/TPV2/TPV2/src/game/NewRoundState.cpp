@@ -13,10 +13,6 @@ NewRoundState::NewRoundState() :
 	dest_ = build_sdlrect(x, y, msg_->width(), msg_->height());
 }
 
-NewRoundState::~NewRoundState()
-{
-}
-
 void NewRoundState::update()
 {
 	if (ih().isKeyDown(SDL_SCANCODE_RETURN)) {
@@ -24,13 +20,13 @@ void NewRoundState::update()
 		msg.id = _m_ROUND_START;
 		Game::instance()->getMngr()->send(msg, true);
 		Game::instance()->setState(Game::RUNNING);
-
 	}
 	msg_->render(dest_);
 }
 
 void NewRoundState::enter()
 {
+	std::cout << "Estado: NEWROUNDSTATE" << std::endl;
 	sdlutils().virtualTimer().pause();
 }
 

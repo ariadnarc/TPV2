@@ -7,8 +7,8 @@ class CollisionSystem : public ecs::System {
 public:
     __SYSID_DECL__(ecs::sys::COLLISIONS);
 
-    CollisionSystem();
-    ~CollisionSystem();
+    CollisionSystem() {};
+    ~CollisionSystem() {};
 
     void initSystem() override;
     void update() override;

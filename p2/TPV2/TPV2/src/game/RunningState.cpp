@@ -15,15 +15,11 @@
 #include "../systems/RenderSystem.h"
 
 RunningState::RunningState(PacManSystem* pc, GhostSystem* gh, FoodSystem* fo,
-	ImmunitySystem* im, CollisionSystem* col, RenderSystem* r)
-	:pacManSystem(pc), ghostSystem(gh), foodSystem(fo),
+	ImmunitySystem* im, CollisionSystem* col, RenderSystem* r) :
+	pacManSystem(pc), ghostSystem(gh), foodSystem(fo),
 	immunitySystem(im), collisionSystem(col), renderSystem(r)
 {
 
-}
-
-RunningState::~RunningState()
-{
 }
 
 void RunningState::update()
@@ -32,7 +28,7 @@ void RunningState::update()
 
 	if (ihldr.keyDownEvent()) {
 
-		if (ihldr.isKeyDown(SDL_SCANCODE_P))
+		if (ihldr.isKeyDown(SDL_SCANCODE_P)) // Si pulsamos P pasamos a estado de PAUSED
 		{
 			Game::instance()->setState(Game::State::PAUSED);
 		}
@@ -47,13 +43,9 @@ void RunningState::update()
 	renderSystem->update();
 }
 
-
-
-
-
 void RunningState::enter()
 {
-	//resetear timers
+	std::cout << "Estado: RUNNINGSTATE" << std::endl;
 }
 
 void RunningState::leave()

@@ -5,15 +5,11 @@
 
 HealthComponent::HealthComponent(Texture* tex) :
 	tex_(tex),
-	scale_(0.5),
+	scale_(0.25),
 	offset_(tex_->width()* scale_),
 	iniX_(3),
 	iniY_(10),
 	lifes_(3)
-{
-}
-
-HealthComponent::~HealthComponent()
 {
 }
 

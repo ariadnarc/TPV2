@@ -275,9 +275,6 @@
     <ClCompile Include="src\systems\RenderSystem.cpp">
       <Filter>Source Files\systems</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\Transform.cpp">
-      <Filter>Source Files\components</Filter>
-    </ClCompile>
     <ClCompile Include="src\components\MiracleFruit.cpp">
       <Filter>Source Files\components</Filter>
     </ClCompile>

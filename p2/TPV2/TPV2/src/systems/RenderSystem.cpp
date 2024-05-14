@@ -13,31 +13,26 @@
 
 constexpr Uint32 FRAME_DURATION = 100;
 
-RenderSystem::RenderSystem() {
-
-}
-
-RenderSystem::~RenderSystem() {
-}
-
 void RenderSystem::initSystem() {
+	std::cout << "inicia el sistem RenderSystem" << std::endl;
 }
 
-void RenderSystem::update() {
+void RenderSystem::update() 
+{
 	drawFruits();
 	drawPacMan();
 	drawGhosts();
 	drawHealth();
-
 }
 
-
-void RenderSystem::drawPacMan() {
+void RenderSystem::drawPacMan() 
+{
 	auto e = mngr_->getHandler(ecs::hdlr::PACMAN);
 	mngr_->getComponent<ImageWithFrames>(e)->render();
 }
 
-void RenderSystem::drawFruits() {
+void RenderSystem::drawFruits() 
+{
 	auto fruitGroup = mngr_->getEntities(ecs::grp::FRUITS);
 	//por cada elemento en fruitGroup se hace el render
 	for (auto & elem : fruitGroup) {
@@ -48,7 +43,7 @@ void RenderSystem::drawFruits() {
 void RenderSystem::drawGhosts()
 {
 	auto ghostGroup = mngr_->getEntities(ecs::grp::GHOSTS);
-	//por cada elemento en ghost se hace el render
+	//por cada elemento en ghostGroup se hace el render
 	for (auto& elem : ghostGroup) {
 		mngr_->getComponent<ImageWithFrames>(elem)->render();
 	}

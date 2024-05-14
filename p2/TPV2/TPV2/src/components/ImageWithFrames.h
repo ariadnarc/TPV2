@@ -8,7 +8,7 @@
 class Texture;
 class Transform;
 
-struct ImageWithFrames : public ecs::Component {
+class ImageWithFrames : public ecs::Component {
 public:
 
 	__CMPID_DECL__(ecs::cmp::IMAGEWITHFRAMES)

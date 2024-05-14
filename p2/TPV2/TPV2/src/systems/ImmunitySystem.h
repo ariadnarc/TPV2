@@ -6,16 +6,16 @@ class ImmunitySystem :
 public:
     __SYSID_DECL__(ecs::sys::IMMUNITY)
 
-        ImmunitySystem();
-    ~ImmunitySystem();
+    ImmunitySystem();
+    ~ImmunitySystem() {};
 
     void initSystem() override;
     void update() override;
     void recieve(const Message&) override;
 
-    bool getInv() { return invulnerability_; }
+    bool getImmunity() { return immunity_; }
 private:
-    bool invulnerability_;
+    bool immunity_;
     int invulnerabilityTime_;
     int currentTime;
 };

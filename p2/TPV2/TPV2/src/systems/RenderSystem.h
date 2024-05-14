@@ -4,19 +4,20 @@
 #pragma once
 #include "../ecs/System.h"
 
-struct Image;
-struct HealthComponent;
-struct ImageWithFrames;
+class Image;
+class HealthComponent;
+class ImageWithFrames;
 class Texture;
-struct Transform;
+class Transform;
 
 class RenderSystem : public ecs::System {
 public:
 
 	__SYSID_DECL__(ecs::sys::RENDER)
 
-		RenderSystem();
-	virtual ~RenderSystem();
+		RenderSystem() {};
+	virtual ~RenderSystem() {};
+
 	void initSystem() override;
 	void update() override;
 private:

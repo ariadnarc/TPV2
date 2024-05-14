@@ -19,7 +19,13 @@ class ImmunitySystem;
 class CollisionSystem;
 class RenderSystem;
 
-
+/// <summary>
+/// El método init tiene que crear los sistemas y los estados.
+/// El bucle principal tiene que incluir sólo una llamada al update del estado actual
+/// y a flush del Manager para enviar mensajes pendientes(si usas el mecanismo de
+/// enviar mensajes con delay).
+/// El destructor tiene que liberar la memoria de los estados.
+/// </summary>
 
 class Game : public Singleton<Game> {
 	friend Singleton<Game>;

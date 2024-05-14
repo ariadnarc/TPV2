@@ -14,22 +14,20 @@ PauseState::PauseState() :
 	dest_ = build_sdlrect(x, y, msg_->width(), msg_->height());
 }
 
-PauseState::~PauseState() {}
-
 void PauseState::enter()
 {
+	std::cout << "Estado: PAUSESTATE" << std::endl;
 	// pausa el tiempo al entrar al estado
 	sdlutils().virtualTimer().pause();
-
 }
 
 void PauseState::update()
 {
-	// si se pulsa cualquier tecla cambia a estado running
-	if (ih().keyDownEvent()) {
+	// si se pulsa cualquier tecla devuelve a estado running
+	if (ih().keyDownEvent())
+	{
 		Game::instance()->setState(Game::RUNNING);
 	}
-
 }
 
 void PauseState::leave()

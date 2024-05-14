@@ -33,10 +33,12 @@ struct Message {
 		{
 
 		} new_game_data;
+
 		//
 		struct {
 			ecs::entity_t e;
 		} kill_pacman_data;
+
 		// _m_PACMAN_FOOD_COLLISION
 		struct
 		{
@@ -48,7 +50,7 @@ struct Message {
 		struct
 		{
 			ecs::entity_t ghostToDelete;
-			bool immune;
+			bool blue;
 		} ghost_collision_data;
 
 	};

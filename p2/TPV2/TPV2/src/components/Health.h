@@ -4,19 +4,20 @@
 
 class Texture;
 
-struct HealthComponent :
+class HealthComponent :
     public ecs::Component
 {
 public:
     __CMPID_DECL__(ecs::cmp::HEALTH)
 
         HealthComponent(Texture* tex);
-    ~HealthComponent();
+    ~HealthComponent() {};
 
     void render() override;
 
     void setLifes(int n) { lifes_ = n; }
     int getLifes() { return lifes_; }
+
 private:
     Texture* tex_;
 

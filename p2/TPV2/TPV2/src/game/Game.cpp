@@ -32,7 +32,14 @@ Game::Game() :
 	runningState(nullptr), 
 	newgameState(nullptr), 
 	newroundState(nullptr), 
-	gameoverState(nullptr) {
+	gameoverState(nullptr),
+	collisionSystem(),
+	foodSystem(),
+	ghostSystem(),
+	immunitySystem(),
+	pacManSystem(),
+	renderSystem()
+{
 
 }
 
@@ -58,7 +65,6 @@ void Game::init() {
 
 
 	//systems
-
 	pacManSystem = mngr_->addSystem<PacManSystem>();
 	ghostSystem = mngr_->addSystem<GhostSystem>();
 	foodSystem = mngr_->addSystem<FoodSystem>();

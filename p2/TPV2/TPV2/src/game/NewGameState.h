@@ -8,7 +8,7 @@ class NewGameState :
 {
 public:
 	NewGameState();
-	~NewGameState();
+	~NewGameState() {};
 
 	void update() override;
 	void enter() override;

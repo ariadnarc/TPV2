@@ -27,6 +27,7 @@ void GameOverState::update()
 
 void GameOverState::enter()
 {
+	std::cout << "Estado: GAMEOVERSTATE" << std::endl;
 }
 void GameOverState::leave()
 {

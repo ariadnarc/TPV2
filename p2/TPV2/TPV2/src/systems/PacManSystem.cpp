@@ -15,11 +15,8 @@ PacManSystem::PacManSystem() :
 	pmTR_(nullptr) {
 }
 
-PacManSystem::~PacManSystem() {
-}
-
 void PacManSystem::initSystem() {
-	std::cout << "inicia el sistem del pacoman" << std::endl;
+	std::cout << "inicia el sistem PacManSystem" << std::endl;
 
 	// create the PacMan entity
 	//
@@ -69,7 +66,7 @@ void PacManSystem::update() {
 			// si pulsas downarrow se deja de mover
 			pmTR_->getVel().set(0, 0);
 		}
-		sdlutils().soundEffects().at("chomp").play();
+		//sdlutils().soundEffects().at("chomp").play();
 	}
 
 	// move the pacman
@@ -103,30 +100,31 @@ void PacManSystem::recieve(const Message& msg)
 	switch (msg.id)
 	{
 	case _m_PACMAN_GHOST_COLLISION:
-		//health->setLifes(health->getLifes() - 1);
-
+		//sdlutils().soundEffects().at("death").play();
 		if (health->getLifes() <= 0) 
 		{
 			Message msg;
 			msg.id = _m_GAME_OVER;
-			Game::instance()->setState(Game::GAMEOVER);
+			mngr_->send(msg);
 		}
-		else if (!msg.ghost_collision_data.immune) 
+		else if (!msg.ghost_collision_data.blue) // si el ghost no es blue
 		{
-			health->setLifes(health->getLifes() - 1);
+			health->setLifes(health->getLifes() - 1); //resta vida al pacman
 
 			Message msg;
-			msg.id = _m_ROUND_OVER;
-			Game::instance()->setState(Game::NEWROUND);
+			msg.id = _m_ROUND_OVER; //acaba ronda
+			mngr_->send(msg);
+
+			std::cout << health->getLifes() << std::endl;
 		}
-	//	else
-	//	{
-	//		health->setLifes(health->getLifes() - 1);
-	//		resetPos();
-	//	}
+
 		break;
+
 	case _m_ROUND_START:
+		//std::cout << "PacmanSystem recibe _m_ROUND_START" << std::endl;
 		resetPos();
+		break;
+
 	default:
 		break;
 	}

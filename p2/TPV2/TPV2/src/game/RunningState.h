@@ -19,7 +19,7 @@ public:
 
 	RunningState(PacManSystem*, GhostSystem*, FoodSystem*,
 		ImmunitySystem*, CollisionSystem*, RenderSystem*);
-	~RunningState();
+	~RunningState() {};
 
 	void update() override;
 	void enter() override;

@@ -6,7 +6,7 @@ class NewRoundState :
 {
 public:
 	NewRoundState();
-	~NewRoundState();
+	~NewRoundState() {};
 
 	void update() override;
 	void enter() override;

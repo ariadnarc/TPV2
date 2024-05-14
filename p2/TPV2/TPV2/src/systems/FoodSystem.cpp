@@ -8,20 +8,10 @@
 #include "../components/ImageWithFrames.h"
 #include "../ecs/Entity.h"
 
-
-FoodSystem::FoodSystem()
-{
-}
-
-FoodSystem::~FoodSystem()
-{
-}
-
 void FoodSystem::initSystem()
 {
-	std::cout << "inicia el sistem food" << std::endl;
+	std::cout << "inicia el sistem FoodSystem" << std::endl;
 	createGrid();
-
 }
 
 void FoodSystem::update()
@@ -33,7 +23,7 @@ void FoodSystem::update()
 		mngr_->send(msg);
 
 		// Sonido victoria
-		sdlutils().soundEffects().at("won").play();
+		//sdlutils().soundEffects().at("won").play();
 	}
 
 	for (auto& e : mngr_->getEntities(ecs::grp::FRUITS)) {
@@ -49,10 +39,15 @@ void FoodSystem::recieve(const Message& msg)
 	switch (msg.id)
 	{
 	case _m_PACMAN_FOOD_COLLISION:
-		mngr_->setAlive(msg.fruit_collision_data.fruitToDelete, false);
-		if (msg.fruit_collision_data.isMilagrosa && !mngr_->getSystem<ImmunitySystem>()->getInv()) {
+		std::cout << "FoodSystem recibe _m_PACMAN_FOOD_COLLISION" << std::endl;
+
+		mngr_->setAlive(msg.fruit_collision_data.fruitToDelete, false); // destruye fruta
+
+		if (msg.fruit_collision_data.isMilagrosa &&						// si fruta colisionada es milagrosa
+			!mngr_->getSystem<ImmunitySystem>()->getImmunity())			// y el pacman es vulnerable (no inmune)
+		{
 			Message msg1;
-			msg1.id = _m_IMMUNITY_START;
+			msg1.id = _m_IMMUNITY_START;								// mandamos a GHOST que el pacman es inmune
 			mngr_->send(msg1);
 		}
 		break;
@@ -62,13 +57,14 @@ void FoodSystem::recieve(const Message& msg)
 
 void FoodSystem::addFood(Vector2D pos)
 {
-	//crea 1 entidad de fruta
+	// CREA ENTIDAD FRUTA
 	auto fruit = mngr_->addEntity(ecs::grp::FRUITS);
 	mngr_->addComponent<Transform>(fruit, pos, Vector2D(0,0), 50, 50, 0); //pos_(), vel_(), width_(), height_(), rot_()
 	mngr_->addComponent<ImageWithFrames>(fruit, &sdlutils().images().at("spriteSheet"), 8, 8, 0, 0, 1024 / 8, 1024 / 8, 1, 4, 1, 1);
 	
-	//fruta milagrosa
-	if (sdlutils().rand().nextInt(0, 10) == 0) {
+	// MILAGROSA - probabilidad del 0.1
+	if (sdlutils().rand().nextInt(0, 10) == 0)
+	{
 		mngr_->addComponent<MiracleFruit>(fruit);
 	}
 }

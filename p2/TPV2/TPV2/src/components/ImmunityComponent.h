@@ -2,22 +2,18 @@
 #include "../ecs/Component.h"
 #include "../sdlutils/SDLUtils.h"
 
-struct InmuneComponent : public ecs::Component
+//No hay cpp
+class ImmunityComponent : public ecs::Component
 {
 	__CMPID_DECL__(ecs::cmp::IMMUNITY);
-	InmuneComponent(bool inmune = false) : inmune_(inmune) {
-	};
 
-	virtual ~InmuneComponent() {
-	};
+	ImmunityComponent(bool inmune = false) : 
+		inmune_(inmune) {};
 
-	void setInmune(bool inmune) {
-		inmune_ = inmune;
-	};
+	virtual ~ImmunityComponent() {};
 
-	bool getImmunity() {
-		return inmune_;
-	}
+	void setInmune(bool inmune) { inmune_ = inmune; };
+	bool getImmunity() { return inmune_; }
 
 	bool inmune_;
 };
