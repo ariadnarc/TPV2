@@ -63,7 +63,7 @@ void CollisionSystem::ghostCollision(ecs::entity_t pm)
 		{
 			Message msg;
 			msg.id = _m_PACMAN_GHOST_COLLISION;
-			//msg.ghost_collision_data.blue = mngr_->getSystem<ImmunitySystem>()->getImmunity();
+			msg.ghost_collision_data.blue = mngr_->getSystem<ImmunitySystem>()->getImmunity();
 			msg.ghost_collision_data.ghostToDelete = ghostGr[i];
 			mngr_->send(msg);
 		}

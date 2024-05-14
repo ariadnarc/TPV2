@@ -11,7 +11,7 @@ public:
     __CMPID_DECL__(ecs::cmp::HEALTH)
 
         HealthComponent(Texture* tex);
-    ~HealthComponent() {};
+    ~HealthComponent();
 
     void render() override;
 

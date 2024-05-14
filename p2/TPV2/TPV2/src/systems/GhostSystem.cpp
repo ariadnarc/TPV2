@@ -78,7 +78,6 @@ void GhostSystem::recieve(const Message& msg)
 		if (msg.ghost_collision_data.blue) // Si el pacman es inmune (estaran los ghosts azules)
 		{
 			mngr_->setAlive(msg.ghost_collision_data.ghostToDelete, false); // borra ghost
-			std::cout << mngr_->getEntities(ecs::grp::GHOSTS).size() << std::endl;
 		}
 
 		break;
@@ -99,10 +98,6 @@ void GhostSystem::recieve(const Message& msg)
 		break;
 
 	case _m_ROUND_OVER:
-		std::cout << "GhostSystem recibe _m_ROUND_OVER" << std::endl;
-		//deleteGhosts();
-		break;
-
 	case _m_GAME_OVER:
 		//std::cout << "GhostSystem recibe _m_GAME_OVER" << std::endl;
 		deleteGhosts();

@@ -26,5 +26,5 @@ private:
 	void drawFruits();
 	void drawGhosts();
 	void drawHealth();
-	//ari el draw es inutil lo he quitao
+
 };

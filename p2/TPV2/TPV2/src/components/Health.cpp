@@ -13,6 +13,10 @@ HealthComponent::HealthComponent(Texture* tex) :
 {
 }
 
+HealthComponent::~HealthComponent()
+{
+}
+
 void HealthComponent::render()
 {
 	Vector2D pos;

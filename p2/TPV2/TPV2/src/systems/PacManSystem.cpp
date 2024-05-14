@@ -113,6 +113,7 @@ void PacManSystem::recieve(const Message& msg)
 
 			Message msg;
 			msg.id = _m_ROUND_OVER; //acaba ronda
+			
 			mngr_->send(msg);
 
 			std::cout << health->getLifes() << std::endl;
