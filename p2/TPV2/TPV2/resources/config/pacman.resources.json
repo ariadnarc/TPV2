@@ -52,14 +52,14 @@
     },
     {
       "id": "GameOver",
-      "text": "GameOver loser! Press enter to continue.",
+      "text": "GameOver! Press enter to continue.",
       "font": "ARIAL24",
       "color": "0x112233ff",
       "bg": "0xffffffff"
     },
     {
       "id": "Pause",
-      "text": "Paused, press Enter to continue",
+      "text": "Paused, press any key to continue",
       "font": "ARIAL24",
       "color": "0x112233ff",
       "bg": "0xffffffff"

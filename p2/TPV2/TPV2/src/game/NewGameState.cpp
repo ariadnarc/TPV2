@@ -21,7 +21,8 @@ NewGameState::NewGameState() :
 void NewGameState::update()
 {
 	// Cuando se pulse cualquier boton cambiamos a estado de NEWROUND
-	if (ih().keyDownEvent()) {
+	if (ih().keyDownEvent())
+	{
 		Message newGameMsg;
 		newGameMsg.id = _m_NEW_GAME;
 

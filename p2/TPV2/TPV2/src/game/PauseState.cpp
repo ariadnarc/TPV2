@@ -28,6 +28,7 @@ void PauseState::update()
 	{
 		Game::instance()->setState(Game::RUNNING);
 	}
+	msg_->render(dest_);
 }
 
 void PauseState::leave()

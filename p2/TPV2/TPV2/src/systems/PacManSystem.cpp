@@ -110,7 +110,7 @@ void PacManSystem::recieve(const Message& msg)
 			Message msg;
 			if (health->getLifes() < 1) // si tenemos menos que 1 vida
 			{
-				msg.id = _m_GAME_OVER; //acaba el juego
+				msg.id = _m_GAME_OVER;				//acaba el juego
 				mngr_->send(msg);
 
 				Game::instance()->setState(Game::State::GAMEOVER);
