@@ -113,8 +113,11 @@ void PacManSystem::recieve(const Message& msg)
 
 			Message msg;
 			msg.id = _m_ROUND_OVER; //acaba ronda
-			
 			mngr_->send(msg);
+
+			Message msg1;
+			msg1.id = _m_ROUND_START; // empieza nueva ronda
+			mngr_->send(msg1);
 
 			std::cout << health->getLifes() << std::endl;
 		}
@@ -122,8 +125,12 @@ void PacManSystem::recieve(const Message& msg)
 		break;
 
 	case _m_ROUND_START:
-		//std::cout << "PacmanSystem recibe _m_ROUND_START" << std::endl;
+		std::cout << "PacmanSystem recibe _m_ROUND_START" << std::endl;
 		resetPos();
+		break;
+
+	case _m_NEW_GAME:
+		health->setLifes(3);
 		break;
 
 	default:
