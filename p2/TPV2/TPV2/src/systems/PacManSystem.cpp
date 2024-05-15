@@ -25,7 +25,7 @@ void PacManSystem::initSystem() {
 
 	pmTR_ = mngr_->addComponent<Transform>(pacman);
 	auto s = 50.0f;
-	auto x = (sdlutils().width() - s) / 2.0f;
+	auto x = ((sdlutils().width() - s) / 2.0f) - 20;
 	auto y = (sdlutils().height() - s) / 2.0f;
 	pmTR_->init(Vector2D(x, y), Vector2D(), s, s, 0.0f);
 
@@ -64,7 +64,7 @@ void PacManSystem::update() {
 			// si pulsas downarrow se deja de mover
 			pmTR_->getVel().set(0, 0);
 		}
-		//sdlutils().soundEffects().at("chomp").play();
+		sdlutils().soundEffects().at("chomp").play();
 	}
 
 	// move the pacman
@@ -99,7 +99,7 @@ void PacManSystem::recieve(const Message& msg)
 	{
 	case _m_PACMAN_GHOST_COLLISION:
 
-		//sdlutils().soundEffects().at("death").play();
+		sdlutils().soundEffects().at("death").play();
 
 		if (!msg.ghost_collision_data.blue) // si el ghost no es blue
 		{
@@ -143,7 +143,7 @@ void PacManSystem::recieve(const Message& msg)
 void PacManSystem::resetPos()
 {
 	auto s = 50.0f;
-	auto x = (sdlutils().width() - s) / 2.0f;
+	auto x = ((sdlutils().width() - s) / 2.0f) - 20;
 	auto y = (sdlutils().height() - s) / 2.0f;
 	pmTR_->init(Vector2D(x, y), Vector2D(), s, s, 0.0f);
 }

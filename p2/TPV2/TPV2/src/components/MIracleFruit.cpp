@@ -3,11 +3,13 @@
 #include "../ecs/Manager.h"
 #include "../components/ImageWithFrames.h"
 
-MiracleFruit::MiracleFruit()
+MiracleFruit::MiracleFruit() : 
+	estadoMilagroso(false),
+	miracleTime(0),
+	lastUpdate(sdlutils().currRealTime()),
+	img(),
+	miracleFreq()
 {
-	milagros = false;
-	miracleTime = 0;
-	lastUpdate = sdlutils().currRealTime();
 }
 
 MiracleFruit::~MiracleFruit()
@@ -24,19 +26,21 @@ void MiracleFruit::initComponent()
 void MiracleFruit::update()
 {
 	int currentTime = sdlutils().currRealTime();
-	if (milagros) 
+
+	if (estadoMilagroso) 
 	{
-		if (currentTime > lastUpdate + miracleTime) 
+		if (currentTime > lastUpdate + miracleTime)  // cuando pase miracleTime
 		{
-			milagros = false;
+			estadoMilagroso = false;					// volvemos al estado normal
 			lastUpdate = sdlutils().currRealTime();
-			img->setImage(1, 4, 1, 1);
+			img->setImage(1, 4, 1, 1);			
 		}
 	}
 	else 
 	{
 		if (currentTime > lastUpdate + miracleFreq)
 		{
+			estadoMilagroso = true;
 			lastUpdate = sdlutils().currRealTime();
 			img->setImage(1, 7, 1, 1);
 		}

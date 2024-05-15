@@ -9,6 +9,7 @@
 void GhostSystem::initSystem()
 {
 	std::cout << "inicia el sistem GhostSystem" << std::endl;
+
 }
 
 void GhostSystem::update()
@@ -97,7 +98,7 @@ void GhostSystem::recieve(const Message& msg)
 		lastTimeGenerated = sdlutils().virtualTimer().currTime();
 		break;
 
-	case _m_ROUND_OVER:
+	case _m_ROUND_OVER: 
 	case _m_GAME_OVER:
 		//std::cout << "GhostSystem recibe _m_GAME_OVER" << std::endl;
 		deleteGhosts();
@@ -132,6 +133,7 @@ void GhostSystem::addGhost()
 	mngr_->addComponent<Transform>(ghost, posEsquina, Vector2D(0, 0), 50, 50, 0); //pos_(), vel_(), width_(), height_(), rot_()
 	mngr_->addComponent<ImageWithFrames>(ghost, &sdlutils().images().at("spriteSheet"), 8, 8, 0, 0, 128, 128, 4, 0, 1, 8);
 }
+
 
 void GhostSystem::deleteGhosts()
 {

@@ -15,7 +15,7 @@ NewGameState::NewGameState() :
 	float y = (sdlutils().height() - msg_->height()) / 2;
 	dest_ = build_sdlrect(x, y, msg_->width(), msg_->height());
 
-	//sdlutils().soundEffects().at("intro").play();
+	sdlutils().soundEffects().at("intro").play();
 }
 
 void NewGameState::update()

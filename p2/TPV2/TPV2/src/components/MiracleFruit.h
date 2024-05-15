@@ -20,7 +20,8 @@ public:
 	float miracleTime;
 	float lastUpdate;
 	
-	bool milagros;
+	// La fruta milagrosa puede estar en estado normal o milagroso
+	bool estadoMilagroso; //true si pera, false si cereza
 	ImageWithFrames* img;
 
 };

@@ -37,12 +37,21 @@ void CollisionSystem::fruitCollision(ecs::entity_t pm)
 		if (Collisions::collides(pmTr->pos_, pmTr->getWidth(), pmTr->getHeight(), //object1
 			frTR->pos_, frTR->getWidth(), frTR->getHeight()))					  //object2
 		{
-			//sdlutils().soundEffects().at("eat").play();
+			sdlutils().soundEffects().at("eat").play();
+
 			Message msg;
 			msg.id = _m_PACMAN_FOOD_COLLISION;
-			msg.fruit_collision_data.isMilagrosa = mngr_->hasComponent<MiracleFruit>(fruitGr[i]);
+
+			if (mngr_->hasComponent<MiracleFruit>(fruitGr[i])) // si tiene MiracleFruit component, miramos en que estado esta
+			{
+				msg.fruit_collision_data.isMilagrosa = mngr_->getComponent<MiracleFruit>(fruitGr[i])->estadoMilagroso;
+			}
+			else
+			{
+				msg.fruit_collision_data.isMilagrosa = false;
+			}
+
 			msg.fruit_collision_data.fruitToDelete = fruitGr[i];
-			//tododododo
 			mngr_->send(msg);
 		}
 	}

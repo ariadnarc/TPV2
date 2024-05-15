@@ -27,7 +27,7 @@ void FoodSystem::update()
 		Game::instance()->setState(Game::State::GAMEOVER);
 
 		// Sonido victoria
-		//sdlutils().soundEffects().at("won").play();
+		sdlutils().soundEffects().at("won").play();
 	}
 
 	for (auto& e : mngr_->getEntities(ecs::grp::FRUITS))
@@ -70,11 +70,11 @@ void FoodSystem::addFood(Vector2D pos)
 {
 	// CREA ENTIDAD FRUTA
 	auto fruit = mngr_->addEntity(ecs::grp::FRUITS);
-	mngr_->addComponent<Transform>(fruit, pos, Vector2D(0,0), 50, 50, 0); //pos_(), vel_(), width_(), height_(), rot_()
+	mngr_->addComponent<Transform>(fruit, pos, Vector2D(0,0), 25, 25, 0); //pos_(), vel_(), width_(), height_(), rot_()
 	mngr_->addComponent<ImageWithFrames>(fruit, &sdlutils().images().at("spriteSheet"), 8, 8, 0, 0, 1024 / 8, 1024 / 8, 1, 4, 1, 1);
 	
 	// MILAGROSA - probabilidad del 0.1
-	if (sdlutils().rand().nextInt(0, 10) == 0)
+	if (sdlutils().rand().nextInt(0, 1000) <= 100)
 	{
 		mngr_->addComponent<MiracleFruit>(fruit);
 	}
