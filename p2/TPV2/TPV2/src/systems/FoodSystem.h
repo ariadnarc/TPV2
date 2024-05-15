@@ -19,6 +19,7 @@ public:
     ~FoodSystem() {};
 
     void initSystem() override;
+    // Checkea si se recogen todas las frutas. Llama al update del componente MiracleFruit.
     void update() override;
 
     void recieve(const Message&) override;

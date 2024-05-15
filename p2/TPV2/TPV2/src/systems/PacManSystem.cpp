@@ -18,8 +18,6 @@ PacManSystem::PacManSystem() :
 void PacManSystem::initSystem() {
 	std::cout << "inicia el sistem PacManSystem" << std::endl;
 
-	// create the PacMan entity
-	//
 	auto pacman = mngr_->addEntity();
 	mngr_->setHandler(ecs::hdlr::PACMAN, pacman);
 

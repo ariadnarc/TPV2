@@ -19,12 +19,16 @@ public:
 	virtual ~RenderSystem() {};
 
 	void initSystem() override;
+	// Llama a los draws en cada update.
 	void update() override;
 private:
-
+	// Llama al render de ImageWithFrames de la entidad.
 	void drawPacMan();
+	// Llama al render de ImageWithFrames de la entidad.
 	void drawFruits();
+	// Llama al render de ImageWithFrames de la entidad.
 	void drawGhosts();
+	// Llama al render de ImageWithFrames de la entidad.
 	void drawHealth();
 
 };

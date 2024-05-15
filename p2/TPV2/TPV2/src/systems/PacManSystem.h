@@ -19,7 +19,9 @@ public:
     PacManSystem();
     ~PacManSystem() {};
 
+    // Crea la entidad Pacman. Le da Transform, el HealthComponent y el ImageWithFrames (renderiza la animación).
     void initSystem() override;
+    // Mueve el pacman.
     void update() override;
 
     void recieve(const Message&) override;
@@ -30,5 +32,6 @@ private:
     //----DATOS DEL PACMAN  
     float speed = 3.0f;
 
+    // Coloca al Pacman en medio de la pantalla.
     void resetPos();
 };

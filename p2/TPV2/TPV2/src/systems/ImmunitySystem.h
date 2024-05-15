@@ -10,12 +10,14 @@ public:
     ~ImmunitySystem() {};
 
     void initSystem() override;
+    // Manda mensaje cuando acaba la inmunidad.
     void update() override;
     void recieve(const Message&) override;
 
-    bool getImmunity() { return immunity_; }
+    // Devuelve si los fantasmas son azules (true) o no (false). Azules implica que pacman es inmune.
+    bool getImmunity() { return blue_; } 
 private:
-    bool immunity_;
-    int invulnerabilityTime_;
+    bool blue_;
+    int blueTime_;
     int currentTime;
 };

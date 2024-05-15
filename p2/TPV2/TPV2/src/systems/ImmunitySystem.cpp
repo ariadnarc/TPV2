@@ -4,8 +4,8 @@
 #include "../ecs/Manager.h"
 
 ImmunitySystem::ImmunitySystem() :
-	immunity_(false),
-	invulnerabilityTime_(10000),
+	blue_(false),
+	blueTime_(10000),
 	currentTime()
 {
 }
@@ -17,10 +17,10 @@ void ImmunitySystem::initSystem()
 
 void ImmunitySystem::update()
 {
-	if (immunity_ &&															// si el pacman es inmune
-		sdlutils().currRealTime() >= currentTime + invulnerabilityTime_)		// y pasan 10 seg
+	if (blue_ &&															// si el pacman es inmune
+		sdlutils().currRealTime() >= currentTime + blueTime_)				// y pasan 10 seg
 	{
-		immunity_ = false;														// pacman se vuelve vulnerable
+		blue_ = false;														// fantasmas vuelven a ser rojos
 
 		Message msg;
 		msg.id = _m_IMMUNITY_END;
@@ -34,8 +34,8 @@ void ImmunitySystem::recieve(const Message& msg)
 	{
 	case _m_IMMUNITY_START:
 		std::cout << "ImmunitySystem recibe _m_IMMUNITY_START" << std::endl;
-		immunity_ = true;
-		currentTime = sdlutils().currRealTime();
+		blue_ = true; // azules
+		currentTime = sdlutils().currRealTime(); // guardamos tiempo desde que se vuelven azules
 		break;
 
 	default:

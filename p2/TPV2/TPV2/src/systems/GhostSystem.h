@@ -23,15 +23,17 @@ public:
     ~GhostSystem() {};
 
     void initSystem() override;
+    // Genera los fantasmas y los mueve.
     void update() override;
 
     void recieve(const Message&) override;
 
-    // Genera un ghost en una esquina
+    // Genera un ghost en una esquina.
     void addGhost();
+    // Borra los ghosts.
     void deleteGhosts();
-
-    void setBlue(bool b);
+    // Cambia el sprite con el ImageWithFrames segun sean azules o no.
+    void setBlueSprite(bool b);
 
 private:
     int esquina;

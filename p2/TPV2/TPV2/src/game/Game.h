@@ -37,7 +37,9 @@ public:
 	};
 
 	virtual ~Game();
+	// Inicializa estados y sistemas. Tambien crea la ventana de SDL.
 	void init();
+	// Bucle principal.
 	void start();
 
 	inline ecs::Manager* getMngr() {
