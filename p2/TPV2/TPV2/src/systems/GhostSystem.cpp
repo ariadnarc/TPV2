@@ -84,12 +84,12 @@ void GhostSystem::recieve(const Message& msg)
 
 	case _m_IMMUNITY_START:
 		std::cout << "GhostSystem recibe _m_IMMUNITY_START" << std::endl;
-		setBlue(true); // cuando el pacman esta en inmunidad, el ghost sera vulnerable/blue
+		setBlueSprite(true); // cuando el pacman esta en inmunidad, el ghost sera vulnerable/blue
 		break;
 
 	case _m_IMMUNITY_END:
 		std::cout << "GhostSystem recibe _m_IMMUNITY_END" << std::endl;
-		setBlue(false); // cuando el pacman NO esta en inmunidad, el ghost NO sera vulnerable/blue
+		setBlueSprite(false); // cuando el pacman NO esta en inmunidad, el ghost NO sera vulnerable/blue
 		break;
 
 	case _m_ROUND_START:
@@ -139,7 +139,7 @@ void GhostSystem::deleteGhosts()
 		mngr_->setAlive(e, false);
 }
 
-void GhostSystem::setBlue(bool b)
+void GhostSystem::setBlueSprite(bool b)
 {
 	blueGhosts = b;
 	switch (b)
